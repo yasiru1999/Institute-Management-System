@@ -1,16 +1,12 @@
-import React from "react";
+import React, {useState} from "react";
 import moment from "moment";
+import Select from "react-select";
 import { Formik } from 'formik';
 import * as Yup from 'yup';
-import { withRouter } from "react-router";
 import { registerUser } from "../../../../_actions/user_actions";
 import { useDispatch } from "react-redux";
-
-import {
-  Form,
-  Input,
-  Button,
-} from 'antd';
+import {Form, Input, Button,} from 'antd';
+import {withRouter} from "react-router-dom";
 
 const formItemLayout = {
   labelCol: {
@@ -35,24 +31,38 @@ const tailFormItemLayout = {
   },
 };
 
+const Gender = [
+  {value:'Male',label:'Male'},
+  {value:'Female',label:'Female'}
+];
+
 function StudentRegPage(props) {
   const dispatch = useDispatch();
+
+  const [gender, setGender] = useState('');
+
+  const onChangeGender = ({ target: { value } }) => {
+    console.log('radio1 checked', value);
+    setGender(value);
+  };
+
   return (
 
     <Formik
 
       initialValues={{
-        StudentID: '',
+        UserID: '',
         name: '',
         email: '',
         registeredCourse: '',
         contactNumber: '',
         Gender: '',
+        Role: '',
         password: '',
         confirmPassword: ''
       }}
       validationSchema={Yup.object().shape({
-        StudentID: Yup.string()
+        UserID: Yup.string()
           .required('ID is required'),
         name: Yup.string()
           .required('Name is required'),
@@ -63,8 +73,6 @@ function StudentRegPage(props) {
             .required('Registered Course is required'),
         contactNumber: Yup.string()
             .required('Contact Number is required'),
-        Gender: Yup.string()
-            .required('Gender is required'),
         password: Yup.string()
           .min(6, 'Password must be at least 6 characters')
           .required('Password is required'),
@@ -76,16 +84,17 @@ function StudentRegPage(props) {
         setTimeout(() => {
 
           let dataToSubmit = {
-            StudentID: values.StudentID,
+            UserID: values.UserID,
             name: values.name,
             email: values.email,
             registeredCourse: values.registeredCourse,
             contactNumber: values.contactNumber,
-            Gender: values.Gender,
+            Gender: gender.value,
+            Role: "Student",
             password: values.password,
             // image: `http://gravatar.com/avatar/${moment().unix()}?d=identicon`
           };
-
+          console.log(dataToSubmit);
           dispatch(registerUser(dataToSubmit)).then(response => {
             if (response.payload.success) {
               props.history.push("/login");
@@ -116,18 +125,18 @@ function StudentRegPage(props) {
 
               <Form.Item required label="Student ID">
                 <Input
-                  id="StudentID"
+                  id="UserID"
                   placeholder="Enter Student ID"
                   type="text"
-                  value={values.StudentID}
+                  value={values.UserID}
                   onChange={handleChange}
                   onBlur={handleBlur}
                   className={
-                    errors.StudentID && touched.StudentID ? 'text-input error' : 'text-input'
+                    errors.UserID && touched.UserID ? 'text-input error' : 'text-input'
                   }
                 />
-                {errors.StudentID && touched.StudentID && (
-                  <div className="input-feedback">{errors.StudentID}</div>
+                {errors.UserID && touched.UserID && (
+                  <div className="input-feedback">{errors.UserID}</div>
                 )}
               </Form.Item>
 
@@ -200,13 +209,14 @@ function StudentRegPage(props) {
               </Form.Item>
 
               <Form.Item required label="Gender">
-                <Input
+                <Select
                     id="Gender"
-                    placeholder="Enter Gender"
-                    type="text"
-                    value={values.Gender}
-                    onChange={handleChange}
+                    options = {Gender}
+                    hasValue
+                    setValue={values.Gender}
                     onBlur={handleBlur}
+                    className = "basic-multi-select"
+                    onChange={setGender}
                     className={
                       errors.Gender && touched.Gender ? 'text-input error' : 'text-input'
                     }
@@ -215,7 +225,6 @@ function StudentRegPage(props) {
                     <div className="input-feedback">{errors.Gender}</div>
                 )}
               </Form.Item>
-
 
               <Form.Item required label="Password" hasFeedback validateStatus={errors.password && touched.password ? "error" : 'success'}>
                 <Input
@@ -253,7 +262,7 @@ function StudentRegPage(props) {
 
               <Form.Item {...tailFormItemLayout}>
                 <Button onClick={handleSubmit} type="primary" disabled={isSubmitting}>
-                  Submit
+                  Register
                 </Button>
               </Form.Item>
             </Form>
