@@ -109,7 +109,11 @@
 }
 
 .rightbtn {
-  background-color: #4682b4;
+  background-color: #ff9800;
+  border-radius: 10px;
+  margin-right: 10px;
+  height: 45px;
+  padding-bottom: 60px;
 }
 .kingdom{
   color: #ff9800;
