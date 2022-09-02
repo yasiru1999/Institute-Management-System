@@ -23,6 +23,7 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 
 app.use('/api/users', require('./routes/users'));
+app.use('/noticeSessions', require('./routes/noticeSessionRoutes'));
 // app.use('/api/product', require('./routes/product'));
 // app.use('/api/delivery', require('./routes/delivery'));
 // app.use('/api/payment', require('./routes/payment'));
@@ -41,7 +42,7 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
-const port = process.env.PORT || 5001
+const port = process.env.PORT || 5002
 
 app.listen(port, () => {
   console.log(`Server Running at ${port}`)
