@@ -1,6 +1,7 @@
 import React, { useState, useEffect}  from 'react';
 import axios from 'axios';
-import {useParams, useSearchParams} from 'react-router-dom';
+import {useParams} from 'react-router-dom';
+import './NoticeSession_Create.css'
 
 
 export default function NoticeSession_Create() {
@@ -38,10 +39,15 @@ export default function NoticeSession_Create() {
 
     return(
         <div>
-            
-            <div class="container shadow my-5 col-md-9 p-6 align-items-center">
+            <br/> <br/> <br/> <br/>
+            <div class="btn-group">          
+                <button class="button">View Notice/Sessions</button>
+                <button class="button1">Student View</button>
+            </div>
+            <div className='form1'>
+            <div className="container shadow my-5 col-md-9 p-6 align-items-center">
                 <div className=" d-flex flex-column align-items-center text-dark justify-content-center" >   
-                <br/> <br/> <br/> <br/><br/> <br/> <br/> <br/>
+                <br/> <br/> <br/> <br/><br/> 
                     <h3> Module/Session Creation</h3>
                 </div>
                     <form onSubmit={sendData} action="/post" method="post">
@@ -51,10 +57,13 @@ export default function NoticeSession_Create() {
 
                         <div className="form-check">
                             <label for="name">Select Category</label><br/>
-                            <input type="text" className="form-control" id="name"                        
-                            onChange={(e) =>{
+                            <select onChange={(e) =>{
                                 setCategory(e.target.value);
-                            }}></input> 
+                            }}>
+                                <option>None</option>
+                                <option>Notice</option>
+                                <option>Session</option>    
+                            </select> 
                         </div>
 
                         <div className="form-check">
@@ -83,6 +92,7 @@ export default function NoticeSession_Create() {
                         <br/>
                         <button type="submit" class="btn btn-success w-100 rounded-pill">Publish</button>                  
                     </form>
+            </div>
             </div>
         </div>
 
