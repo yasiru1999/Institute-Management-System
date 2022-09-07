@@ -6,9 +6,14 @@ import LandingPage from "./views/LandingPage/LandingPage.js";
 import LoginPage from "./views/LoginPage/LoginPage.js";
 import RegisterPage from "./views/RegisterPage/RegisterPage";
 import NavBar from "./views/NavBar/NavBar";
+
+import Footer from "./views/Footer/Footer"
+import UserDetailsPage from "./views/UserDetailsPage/UserDetailsPage";
+
 import Footer from "./views/Footer/Footer";
 import NoticeSession_Create from './LecModule_Management/NoticeSessions/NoticeSession_Create';
 import NoticeSession_ViewL from './LecModule_Management/NoticeSessions/NoticeSession_ViewL'
+
 function App() {
   return (
     <Suspense fallback={(<div>Loading...</div>)}>
@@ -17,9 +22,14 @@ function App() {
         <Switch>
           <Route exact path="/" component={Auth(LandingPage, null)} />
           <Route exact path="/login" component={Auth(LoginPage, false)} />
+
+          <Route exact path="/register" component={Auth(RegisterPage, false)} />
+          <Route exact path="/user" component={UserDetailsPage} />
+
           <Route exact path="/register" component={Auth(RegisterPage, true)} />
           <Route exact path="/createNS/:no" component={Auth(NoticeSession_Create, false)} />
           <Route exact path="/allView/:Mno" component={Auth(NoticeSession_ViewL, false)} />
+
         </Switch>
       </div>
       <Footer />
