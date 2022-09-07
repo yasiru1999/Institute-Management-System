@@ -6,29 +6,29 @@ const TimetableSchema = new Schema({
 
     courseId : {
         type : String,
-        required: true
+        // required: true
     
     },
     subjectId : {
         type : String,
-        required: true
+        // required: true
     },
       examType : {
         type : String,
-        required: true
+        // required: true
     },
     date : {
         type : Date,
-        required: true
+        // required: true
     },
     time : {
         type : String,
-        required: true
+        // required: true
     },
 
     hallNumber : {
         type : String,
-        required: true
+        // required: true
     },
 
 }, {

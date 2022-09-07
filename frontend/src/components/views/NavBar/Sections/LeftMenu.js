@@ -16,7 +16,7 @@ function LeftMenu(props) {
     <Menu.Item className="leftbtn" key="mails">
      <a  href={`/createNS/It2005`}>Software Engineering</a>
     </Menu.Item>
-    
+
   </Menu>
 
   
