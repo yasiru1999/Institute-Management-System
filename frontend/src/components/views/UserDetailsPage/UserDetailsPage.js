@@ -32,92 +32,42 @@ function UserDetailsPage(props) {
             <br />
             <Fragment>
                 <Divider/>
-                <Row gutter={16}>
-                    <Title level={4}>Group ID : {User._id}</Title>
+                <Row gutter={86}>
+                    {/*<Title level={4}>Group ID : {User._id}</Title>*/}
                     <Col className="gutter-row" span={12}>
-                        <Divider orientation="left">Horizontal</Divider>fffff
-                        <Title level={4}>Student 1</Title>
-                        <p>
-                            test
-                        </p>
-                        <p>
-                            test
-                        </p>
-                        <p>
-                            test
-                        </p>
+                        <fieldset style={{border: '1px solid #000'}}>
+                            <legend>AAA</legend>
+                            <div style={{background:'#ffffff',border: '5px solid red',padding:'8px 10px'}}>
+                                <Divider orientation="left">Personal Info</Divider>
+                                <h4>Name</h4>
+                                <p>{User.name}</p>
+                                <h4>Email</h4>
+                                <p>{User.email}</p>
+                                <h4>Contact Number</h4>
+                                <p>{User.contactNumber}</p>
+                                <h4>Gender</h4>
+                                <p>{User.Gender}</p>
+                            </div>
+                        </fieldset>
+
                     </Col>
                     <Col className="gutter-row" span={12}>
-                        <Title level={4}>Student 2</Title>
-                        <p>
-                            test
-                        </p>
-                        <p>
-                            test
-                        </p>
-                        <p>
-                            test
-                        </p>
+                        <div style={{background:'#0092ff',padding:'8px 10px'}}>
+                            <Divider orientation="left">Course Details</Divider>
+                            <h4>ID</h4>
+                            <p>{User.UserID}</p>
+                            <h4>Course Name</h4>
+                            <p>{User.registeredCourse}</p>
+                            <h4>Module Names</h4>
+                            <p>Module 1</p>
+                        </div>
                     </Col>
                 </Row>
             </Fragment>
         </div>
 
     // <div style={{maxWidth:'700px',margin:'2rem auto'}}>
-    //         <Fragment>
-    //             <Divider/>
-    //             <Row gutter={16}>
-    //                 <Title level={4}>Group ID : {User._id}</Title>
-    //                 <Col className="gutter-row" span={6}>
-    //                     <Title level={4}>Student 1</Title>
-    //                     <p>
-    //                         test
-    //                     </p>
-    //                     <p>
-    //                         test
-    //                     </p>
-    //                     <p>
-    //                         test
-    //                     </p>
-    //                 </Col>
-    //                 <Col className="gutter-row" span={6}>
-    //                     <Title level={4}>Student 2</Title>
-    //                     <p>
-    //                         test
-    //                     </p>
-    //                     <p>
-    //                         test
-    //                     </p>
-    //                     <p>
-    //                         test
-    //                     </p>
-    //                 </Col>
-    //                 <Col className="gutter-row" span={6}>
-    //                     <Title level={4}>Student 3</Title>
-    //                     <p>
-    //                         test
-    //                     </p>
-    //                     <p>
-    //                         test
-    //                     </p>
-    //                     <p>
-    //                         test
-    //                     </p>
-    //                 </Col>
-    //                 <Col className="gutter-row" span={6}>
-    //                     <Title level={4}>Student 4</Title>
-    //                     <p>
-    //                         test
-    //                     </p>
-    //                     <p>
-    //                         test
-    //                     </p>
-    //                     <p>
-    //                         test
-    //                     </p>
-    //                 </Col>
-    //             </Row>
-    //         </Fragment>
+
     // </div>
     )
 }
