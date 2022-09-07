@@ -2,9 +2,11 @@ import React, { useState, useEffect}  from 'react';
 import axios from 'axios';
 import {useParams} from 'react-router-dom';
 import './NoticeSession.css'
+import { Link } from 'react-router-dom';
+import {Button} from 'react-bootstrap';
 
 
-export default function NoticeSession_Create() {
+export default function NoticeSession_ViewL() {
 
     //const {module} = useParams("");   
     const module = "IT2001";
@@ -61,7 +63,8 @@ export default function NoticeSession_Create() {
                                 <td>{notice.otherDetails}</td>
 
                                 <td>
-                                    <button>View</button>
+                                    <Link to={`/viewId/${notice._id}`}><Button className='btn btn-warning'>Update</Button></Link>
+                                    <Link to={`/panelAssign/${notice._id}`}><Button className='btn btn-warning'>Delete</Button></Link>
                                 </td>                        
                             </tr>
                         ))
@@ -102,7 +105,8 @@ export default function NoticeSession_Create() {
                                 <td>{session.otherDetails}</td>
 
                                 <td>
-                                    <button>View</button>
+                                <Link to={`/panelAssign/${session._id}`}><Button className='btn btn-warning'>Update</Button></Link>
+                                    <Link to={`/panelAssign/${session._id}`}><Button className='btn btn-warning'>Delete</Button></Link>
                                 </td>                        
                             </tr>
                         ))
