@@ -4,12 +4,12 @@ const Schema = mongoose.Schema;
 
 const TimetableSchema = new Schema({
 
-    courseName : {
+    courseId : {
         type : String,
         required: true
     
     },
-    subjectID : {
+    subjectId : {
         type : String,
         required: true
     },
@@ -18,16 +18,11 @@ const TimetableSchema = new Schema({
         required: true
     },
     date : {
-        type : Number,
-        required: true
-    },
-    email : {
-        type : String,
-        required: true
-    },
-
-    time : {
         type : Date,
+        required: true
+    },
+    time : {
+        type : String,
         required: true
     },
 
@@ -36,8 +31,9 @@ const TimetableSchema = new Schema({
         required: true
     },
 
-   
-})
+}, {
+    timestamps: true,
+});
 
 const Timetable = mongoose.model("Timetable", TimetableSchema);
 
