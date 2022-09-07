@@ -11,11 +11,11 @@ const SubMenu = Menu.SubMenu;
 
 function LeftMenu(props) {
 
-
   const user = useSelector(state => state.user)
 
   if (user.userData && !user.userData.isAuth) {
     return (
+        //For Not Logged in user
         <Menu mode={props.mode}>
           <Menu.Item className="leftbtn" key="mail">
             <a  href="/">Home</a>
@@ -24,6 +24,7 @@ function LeftMenu(props) {
     )
   } else if(user.userData && user.userData.isAdmin) {
     return (
+        //For Admin
         <Menu mode={props.mode}>
           <Menu.Item className="leftbtn" key="mail">
             <a  href="/">Admin</a>
@@ -32,59 +33,47 @@ function LeftMenu(props) {
     )
   } else if(user.userData && user.userData.isStudent) {
     return (
+        //For Student
         <Menu mode={props.mode}>
           <Menu.Item className="leftbtn" key="mail">
             <a  href="/">Home</a>
           </Menu.Item>
 
-            <SubMenu className="leftbtn" key="UserManagement" title="User Management">
-                <Menu.Item key="UserManagement">
-                    <a href="/">Update/Delete Users</a>
+            <SubMenu className="leftbtn" key="modules" title="Modules">
+                <Menu.Item key="se">
+                    <a href="/">Software Engineering</a>
                 </Menu.Item>
-                <Menu.Item key="UserManagement">
-                    <a href="/">Approved Supervisors</a>
+                <Menu.Item key="ds">
+                    <a href="/">Data Science</a>
                 </Menu.Item>
-                <Menu.Item key="UserManagement">
-                    <a href="/">Add panel members </a>
-                </Menu.Item>
-                <Menu.Item key="UserManagement">
-                    <a href="/">Allocate panel members </a>
+                <Menu.Item key="it">
+                    <a href="/">Information Technology</a>
                 </Menu.Item>
             </SubMenu>
         </Menu>
     )
   } else {
     return (
+        //for Lecturer
         <Menu mode={props.mode}>
           <Menu.Item className="leftbtn" key="mail">
-            <a  href="/">Lecturer</a>
+            <a  href="/">Home</a>
           </Menu.Item>
+
+            <SubMenu className="leftbtn" key="modules" title="Modules">
+                <Menu.Item key="se">
+                    <a href="/">Software Engineering</a>
+                </Menu.Item>
+                <Menu.Item key="ds">
+                    <a href="/">Data Science</a>
+                </Menu.Item>
+                <Menu.Item key="it">
+                    <a href="/">Information Technology</a>
+                </Menu.Item>
+            </SubMenu>
         </Menu>
     )
   }
-
 }
 
 export default withRouter(LeftMenu);
-
-  return (
-    <Menu mode={props.mode}>
-    <Menu.Item className="leftbtn" key="mail">
-      <a  href="/">Home</a>
-    </Menu.Item>
-    
-    <Menu.Item className="leftbtn" key="mails">
-     <a  href={`/createNS/It2005`}>Software Engineering</a>
-    </Menu.Item>
-    
-  </Menu>
-
-  
-  
-  )
-}
-
-export default LeftMenu
-
-
-
