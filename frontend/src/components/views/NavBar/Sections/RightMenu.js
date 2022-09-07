@@ -1,16 +1,17 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-import React from 'react';
+import React, {useState} from 'react';
 import { Menu, Icon, Badge } from 'antd';
 import axios from 'axios';
 import '../Sections/Navbar.css';
 import { USER_SERVER } from '../../../Config';
 import { withRouter } from 'react-router-dom';
 import { useSelector } from "react-redux";
+import { FaRegUserCircle } from 'react-icons/fa';
 
 function RightMenu(props) {
-  const user = useSelector(state => state.user)
+    const user = useSelector(state => state.user)
+    const name = localStorage.getItem("name");
 
-  const logoutHandler = () => {
+    const logoutHandler = () => {
     axios.get(`${USER_SERVER}/logout`).then(response => {
       if (response.status === 200) {
         props.history.push("/login");
@@ -33,7 +34,7 @@ function RightMenu(props) {
     )
   } else if(user.userData && user.userData.isAdmin){
     return (
-      <Menu mode={props.mode}>
+      <Menu className="rightbtn" mode={props.mode}>
 
         <Menu.Item key="history">
           <a href="/register">Register User</a>
@@ -46,10 +47,20 @@ function RightMenu(props) {
     )
   } else{
       return (
-          <Menu mode={props.mode}>
-              <Menu.Item key="logout">
-                  <a onClick={logoutHandler}>Logout</a>
+          <Menu className="rightbtn" mode={props.mode}>
+
+              <Menu.Item  key="logout">
+                  <h3>{name}</h3>
+                  <a className="rightbtnLogout" onClick={logoutHandler}>Logout</a>
               </Menu.Item>
+
+              <Menu.Item key="cart">
+              <Badge>
+                  <a href="/user" style={{color:'#667777'}}>
+                      <FaRegUserCircle style={{fontSize: 35}} />
+                  </a>
+              </Badge>
+          </Menu.Item>
           </Menu>
       )
   }

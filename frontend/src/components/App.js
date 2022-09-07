@@ -7,6 +7,7 @@ import LoginPage from "./views/LoginPage/LoginPage.js";
 import RegisterPage from "./views/RegisterPage/RegisterPage";
 import NavBar from "./views/NavBar/NavBar";
 import Footer from "./views/Footer/Footer"
+import UserDetailsPage from "./views/UserDetailsPage/UserDetailsPage";
 function App() {
   return (
     <Suspense fallback={(<div>Loading...</div>)}>
@@ -15,7 +16,8 @@ function App() {
         <Switch>
           <Route exact path="/" component={Auth(LandingPage, null)} />
           <Route exact path="/login" component={Auth(LoginPage, false)} />
-          <Route exact path="/register" component={Auth(RegisterPage, true)} />
+          <Route exact path="/register" component={Auth(RegisterPage, false)} />
+          <Route exact path="/user" component={UserDetailsPage} />
         </Switch>
       </div>
       <Footer />

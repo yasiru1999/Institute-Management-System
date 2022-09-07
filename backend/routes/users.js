@@ -1,10 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const { User } = require("../models/User");
-// const { Product } = require('../models/Product');
 const { auth } = require("../middleware/auth");
-
 const async = require('async');
+const {response} = require("express");
 
 //=================================
 //             User
@@ -14,6 +13,8 @@ router.get("/auth", auth, (req, res) => {
     res.status(200).json({
         _id: req.user._id,
         isAdmin: req.user.Role === "Admin" ? true : false,
+        isLecturer: req.user.Role === "Lecturer" ? true : false,
+        isStudent: req.user.Role === "Student" ? true : false,
         isAuth: true,
         email: req.user.email,
         name: req.user.name,
@@ -52,7 +53,9 @@ router.post("/login", (req, res) => {
                     .cookie("w_auth", user.token)
                     .status(200)
                     .json({
-                        loginSuccess: true, userId: user._id
+                        loginSuccess: true,
+                        userId: user._id,
+                        name: user.name
                     });
             });
         });
@@ -87,6 +90,32 @@ router.get('/createadmin', async (req, res) => {
     } catch (error) {
         res.send({ message: error.message });
     }
+});
+
+router.get("/user_by_id", (req, res) => {
+    let type = req.query.type
+    let productIds = req.query.id
+
+    console.log("req.query.id", req.query.id)
+
+    if (type === "array") {
+        let ids = req.query.id.split(',');
+        productIds = [];
+        productIds = ids.map(item => {
+            return item
+        })
+    }
+
+    console.log("productIds", productIds)
+
+
+    //we need to find the product information that belong to product Id
+    User.find({ '_id': { $in: productIds } })
+        .populate('writer')
+        .exec((err, product) => {
+            if (err) return res.status(400).send(err)
+            return res.status(200).send(product)
+        })
 });
 
 module.exports = router;
