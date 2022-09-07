@@ -23,25 +23,26 @@ router.post("/create", (req, res, next) => {
     }
 });
 
-
 //get Notices
-  router.get("/get/notices", async (req, res) => {
-    try {
-      const allNotices = await NoticeSession.find({ category: 'Notice' });
-      res.status(200).json(allNotices);
-    } catch (err) {
-      res.json(err);
-    }
+router.get("/getNotices/:module", async (req, res) => {
+  try {
+    let module = req.params.module;
+    const allNotices = await NoticeSession.find({ $and: [ {category: 'Notice'}, {moduleNo: module}] });
+    res.status(200).json(allNotices);
+  } catch (err) {
+    res.json(err);
+  }
 })
 
 //get Sessions
-router.get("/get/sessions", async (req, res) => {
-    try {
-      const allSessions = await NoticeSession.find({ category: 'Session' });
-      res.status(200).json(allSessions);
-    } catch (err) {
-      res.json(err);
-    }
+router.get("/getSessions/:module", async (req, res) => {
+  try {
+    let module = req.params.module;
+    const allSessions = await NoticeSession.find({ $and: [ {category: 'Session'}, {moduleNo: module}] });
+    res.status(200).json(allSessions);
+  } catch (err) {
+    res.json(err);
+  }
 })
 
   
