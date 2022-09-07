@@ -1,13 +1,13 @@
 import React, { useState, useEffect}  from 'react';
 import axios from 'axios';
 import {useParams} from 'react-router-dom';
-import './NoticeSession_Create.css'
+import './NoticeSession.css'
 
 
 export default function NoticeSession_Create() {
 
     //const {module} = useParams("");   
-    const module = "IT2003";
+    const module = "IT2001";
     //const [moduleNos] = useState(module);  
     //const [moduleNos, setModule] = useState("IT2001");  
  
@@ -42,6 +42,7 @@ export default function NoticeSession_Create() {
             <br/> <br/> <br/> <br/>
             <div class="btn-group">          
                 <button class="button">View Notice/Sessions</button>
+                <button class="button"><a  href={`/allView/IT2005`}>View Notice/Sessions</a></button>
                 <button class="button1">Student View</button>
             </div>
             <div className='form1'>
