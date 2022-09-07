@@ -3,7 +3,7 @@
   padding-bottom: 40px;
 }
 .menu {
-  padding-top: 20px;
+  padding-top: 10px;
   padding-bottom: 20px;
   border-bottom: solid 1px #e8e8e8;
   overflow: auto;
@@ -107,13 +107,24 @@
 .leftbtn{
   background-color: #e0e0e0;
 }
-
-.rightbtn {
+.rightbtnName{
+  margin-right: 0px;
+  margin-bottom: 20px;
+}
+.rightbtnLogout {
   background-color: #ff9800;
   border-radius: 10px;
-  margin-right: 10px;
   height: 45px;
-  padding-bottom: 60px;
+
+}
+
+.rightbtn {
+  top: 0;
+  padding: 0;
+  background-color: #4682b4;
+  /*margin-right: 10px;*/
+  height: 100%;
+  /*padding-bottom: 60px;*/
 }
 .kingdom{
   color: #ff9800;
