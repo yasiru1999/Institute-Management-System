@@ -92,6 +92,7 @@ router.get('/createadmin', async (req, res) => {
     }
 });
 
+
 router.get("/user_by_id", (req, res) => {
     let type = req.query.type
     let productIds = req.query.id
@@ -117,5 +118,8 @@ router.get("/user_by_id", (req, res) => {
             return res.status(200).send(product)
         })
 });
+
+//a
+
 
 module.exports = router;

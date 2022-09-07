@@ -11,6 +11,7 @@ const SubMenu = Menu.SubMenu;
 
 function LeftMenu(props) {
 
+
   const user = useSelector(state => state.user)
 
   if (user.userData && !user.userData.isAuth) {
@@ -65,3 +66,25 @@ function LeftMenu(props) {
 }
 
 export default withRouter(LeftMenu);
+
+  return (
+    <Menu mode={props.mode}>
+    <Menu.Item className="leftbtn" key="mail">
+      <a  href="/">Home</a>
+    </Menu.Item>
+    
+    <Menu.Item className="leftbtn" key="mails">
+     <a  href={`/createNS/It2005`}>Software Engineering</a>
+    </Menu.Item>
+    
+  </Menu>
+
+  
+  
+  )
+}
+
+export default LeftMenu
+
+
+

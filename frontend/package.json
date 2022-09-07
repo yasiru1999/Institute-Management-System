@@ -11,6 +11,7 @@
     "formik": "^1.5.8",
     "moment": "^2.29.1",
     "react": "^16.14.0",
+    "react-bootstrap": "^2.5.0",
     "react-dom": "^16.14.0",
     "react-dropzone": "^10.2.2",
     "react-icons": "^3.11.0",
