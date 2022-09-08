@@ -16,6 +16,8 @@ import NoticeSession_ViewL from './LecModule_Management/NoticeSessions/NoticeSes
 import AddPayments from "./views/Payment/AddPayments";
 import AdminPayments from "./views/Payment/AdminPayment";
 import UpdatePayment from "./views/Payment/UpdatePayment";
+import AddInquiry from "./views/Inquiry/AddInqiry";
+import AdminInquiry from "./views/Inquiry/AdminInquiry";
 
 function App() {
   return (
@@ -32,9 +34,12 @@ function App() {
           <Route exact path="/add" component={Auth(AddTimetable, false)} />
           <Route exact path="/all" component={Auth(AllTimetable, false)} />
           <Route exact path="/update/:id" component={Auth(UpdateTimetable, false)} />
-            <Route exact path="/payment" component={Auth(AddPayments, false)} />
-            <Route exact path="/paymentDetails" component={Auth(AdminPayments, false)} />
+            <Route exact path="/payment" component={Auth(AddPayments, true)} />
+            <Route exact path="/paymentDetails" component={Auth(AdminPayments, true)} />
             <Route exact path="/updatePaymentDetails" component={Auth(UpdatePayment, false)} />
+          <Route exact path="/inquiryDefault" component={Auth(AddInquiry, false)} />
+          <Route exact path="/inquiry" component={Auth(AddInquiry, true)} />
+          <Route exact path="/inquiryDetails" component={Auth(AdminInquiry, true)} />
         </Switch>
       </div>
       <Footer />
