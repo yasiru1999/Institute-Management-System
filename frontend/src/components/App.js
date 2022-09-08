@@ -13,6 +13,7 @@ import Footer from "./views/Footer/Footer"
 import UserDetailsPage from "./views/UserDetailsPage/UserDetailsPage";
 import NoticeSession_Create from './LecModule_Management/NoticeSessions/NoticeSession_Create';
 import NoticeSession_ViewL from './LecModule_Management/NoticeSessions/NoticeSession_ViewL'
+import AddPayments from "./views/Payment/AddPayments";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
           <Route exact path="/add" component={Auth(AddTimetable, false)} />
           <Route exact path="/all" component={Auth(AllTimetable, false)} />
           <Route exact path="/update/:id" component={Auth(UpdateTimetable, false)} />
+            <Route exact path="/payment" component={Auth(AddPayments, false)} />
         </Switch>
       </div>
       <Footer />
