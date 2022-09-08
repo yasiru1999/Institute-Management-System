@@ -1,96 +1,170 @@
-import React, {useState} from "react";
-import {Button, Form, Input} from "antd";
-import TextArea from "antd/es/input/TextArea";
+import React, {useEffect, useState} from "react";
 import Axios from "axios";
+import {useHistory, withRouter} from "react-router-dom";
+import GeneratePdf from "./PaymentReport";
 
 
-function AdminPayments(props) {
+function AdminPayments() {
+
+    const [Payments, setPayments] = useState([]);
+    const history = useHistory();
+
+    useEffect(() => {
+        Axios.get('http://localhost:5001/pay/getPayment')
+            .then(response => {
+                console.log(response.data);
+                setPayments(response.data);
+            })
+            .catch(err => {
+                console.log(err);
+            })
+    },[])
+
+    function approvedChange(ID,approval){
+        const submit = {
+            ID: ID,
+            isPanelMember: approval
+        }
+
+        console.log(submit);
+
+        Axios.put(`http://localhost:5001/pay/approvePayment/${ID}`,submit).then(response => {
+            if(response.data.success){
+                alert("Success");
+            }else{
+                console.log(response.data.error);
+            }
+        })
+    }
+
+    async function deleteSupervisor(item) {
+        console.log(item.ID);
+        await Axios.delete(`http://localhost:5001/pay/deletePayment/${item._id}`).then((res)=>{
+            console.log(res)
+            alert("Delete  Successfully");
+        });
+    }
 
     return(
         <div style={{ width: '98%', margin: '6rem auto' }}>
-            <div >
-                <h1 style={{ textAlign: 'left' }}>  Kingdom Institute Payment Portal </h1>
+            <div>
+                <h1 style={{ textAlign: 'left' }}>  Student Payments </h1>
             </div>
             <hr/>
+            <div style={{ width:'80%',  margin: '4rem auto'}}>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Student ID</th>
+                        <th>Student Name</th>
+                        <th>Phone</th>
+                        <th>Email</th>
+                        <th>Course</th>
+                        <th>Amount</th>
+                        <th>Bank Slip</th>
+                        <th>Date</th>
+                        <th>Respond</th>
+                        <th>Update</th>
+                        <th>Delete</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {Payments.filter(Payments => Payments.isApproved === false).map((item,key)=>{
+                        return(
+                            <tr key = {key}>
+                                <td>
+                                    <center>{item.StudentID}</center>
+                                </td>
+                                <td>
+                                    <center>{item.StudentName}</center>
+                                </td>
+                                <td>
+                                    <center>{item.PhoneNo}</center>
+                                </td>
+                                <td>
+                                    <center>{item.Email}</center>
+                                </td>
+                                <td>
+                                    <center>{item.RegisteredCourse}</center>
+                                </td>
+                                <td>
+                                    <center>{item.PaymentAmount}</center>
+                                </td>
+                                <td>
+                                    <center>{item.PaymentSlip}</center>
+                                </td>
+                                <td>
+                                    <center>{item.PaymentDate}</center>
+                                </td>
+                                <td><center><button onClick={() => {approvedChange(item._id,true); window.location.reload()}} >Respond</button></center></td>
+                                <td><center><button onClick={() => {history.push({pathname: "/updatePaymentDetails", state:{payment:item}})}} >Update</button></center></td>
+                                <td><center><button onClick={() => {deleteSupervisor(item); window.location.reload()}}>Delete</button></center></td>
+                            </tr>
+                        )
+                    })}
+                    </tbody>
+                </table>
+                <br/>
+                <button style={{marginLeft: '1000px'}} onClick={() => GeneratePdf(Payments.filter(Payments => Payments.isApproved === false))}>Generate Report</button>
+            </div>
 
-            <div style={{border: 'solid', width:'50%',  margin: '4rem auto'}}>
-                <h2 style={{textAlign: "center"}}> Kingdom institute Payment Form</h2>
-
-                <hr/>
-
-                <Form style={{ width: '50%', margin: '4rem auto'}} onSubmit={onSubmit} >
-
-                    <label>*Student Registered Number :</label>
-                    <Input
-                        onChange={onStudentIDChange}
-                        value={studentID}
-                    />
-                    <br />
-                    <br />
-
-                    <label>*Student Name :</label>
-                    <Input
-                        onChange={onStudentNameChange}
-                        value={studentName}
-                    />
-                    <br />
-                    <br />
-
-                    <label>*Phone Number :</label>
-                    <Input
-                        onChange={onPhoneNoChange}
-                        value={phoneNo}
-                    />
-                    <br />
-                    <br />
-
-                    <label>*Email Address :</label>
-                    <Input
-                        onChange={onEmailChange}
-                        value={email}
-                    />
-                    <br />
-                    <br />
-
-                    <label>*Registered Course :</label>
-                    <Input
-                        onChange={onRegisteredCourseChange}
-                        value={registeredCourse}
-                    />
-                    <br />
-                    <br />
-
-                    <label>*Payment Amount  :</label>
-                    <Input
-                        onChange={onPaymentAmountChange}
-                        value={paymentAmount}
-                    />
-                    <br />
-                    <br />
-
-                    <label>*Upload Bank Slip :</label>
-                    <Input
-                        type={"file"}
-                        name="file"
-                        onChange={fileChangeHandler}
-                    />
-                    <br />
-                    <br />
-
-                    <label>
-                        Date :
-                    </label>
-                    <br/>
-                    <input type="datetime-local" value={paymentDate} onChange={handleSelectDate} />
-                    <br />
-                    <br />
-
-                    <Button style={{marginLeft: '300px'}} onClick={onSubmit}>
-                        Submit
-                    </Button>
-
-                </Form>
-
+            <div >
+                <h1 style={{ textAlign: 'left' }}>  Approved Student Payments </h1>
+            </div>
+            <hr/>
+            <div style={{ width:'80%',  margin: '4rem auto'}}>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Student ID</th>
+                        <th>Student Name</th>
+                        <th>Phone</th>
+                        <th>Email</th>
+                        <th>Course</th>
+                        <th>Amount</th>
+                        <th>Bank Slip</th>
+                        <th>Date</th>
+                        <th>Update</th>
+                        <th>Delete</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {Payments.filter(Payments => Payments.isApproved === true).map((item,key)=>{
+                        return(
+                            <tr key = {key}>
+                                <td>
+                                    <center>{item.StudentID}</center>
+                                </td>
+                                <td>
+                                    <center>{item.StudentName}</center>
+                                </td>
+                                <td>
+                                    <center>{item.PhoneNo}</center>
+                                </td>
+                                <td>
+                                    <center>{item.Email}</center>
+                                </td>
+                                <td>
+                                    <center>{item.RegisteredCourse}</center>
+                                </td>
+                                <td>
+                                    <center>{item.PaymentAmount}</center>
+                                </td>
+                                <td>
+                                    <center>{item.PaymentSlip}</center>
+                                </td>
+                                <td>
+                                    <center>{item.PaymentDate}</center>
+                                </td>
+                                <td><center><button onClick={() => {history.push({pathname: "/updatePaymentDetails", state:{payment:item}})}} >Update</button></center></td>
+                                <td><center><button onClick={() => {deleteSupervisor(item); window.location.reload()}} >Delete</button></center></td>
+                            </tr>
+                        )
+                    })}
+                    </tbody>
+                </table>
+            <br/>
+                <button style={{marginLeft: '1000px'}} onClick={() => GeneratePdf(Payments.filter(Payments => Payments.isApproved === true))}>Generate Report</button>
             </div>
 
         </div>
