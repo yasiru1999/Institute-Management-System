@@ -2,7 +2,9 @@ import React, {useState} from "react"
 import axios from "axios";
 // import Swal from "sweetalert2";
 // import swal from 'sweetalert';
-//  import{ useHistory } from "react-router";
+//  import{ useHistory } from "react-router";import FormGroup from '@mui/material/FormGroup';
+
+
 
 
 export default function AddTimetable() {
@@ -45,61 +47,21 @@ export default function AddTimetable() {
 
     return (
         <div className="container">
-            <div className="row">
-                <div className="col-md-8 mt-4 mx-auto">
-                    <h1 className="h3 mb-3 font-weight-normal">Add Timetable</h1>
-                    <form className="needs-validation" noValidate>
-                        <div className="form-group" style={{marginBottom: '15px'}}>
-                            <label style={{marginBottom: '5px'}}>Course ID</label>
-                            <input type="text" className="form-control" name="courseId" placeholder="Enter Course ID" value={courseId} onChange={(e) => {
+  <div className="form-check">
+                            <label for="name">Select Category</label><br/>
+                            <select onChange={(e) =>{
                                 setCourseId(e.target.value);
-                            }}/>
+                            }}>
+                                <option>None</option>
+                                <option>Notice</option>
+                                <option>Session</option>    
+                            </select> 
                         </div>
+  
+  
+</div>
+ 
 
-                        <div className="form-group" style={{marginBottom: '15px'}}>
-                            <label style={{marginBottom: '5px'}}>Subject ID</label>
-                            <input type="text" className="form-control" name="subjectId" placeholder="Enter Subject ID" value={subjectId} onChange={(e) => {
-                                setSubjectId(e.target.value);
-                            }}/>
-                        </div>
-
-                        <div className="form-group" style={{marginBottom: '15px'}}>
-                            <label style={{marginBottom: '5px'}}>Exam Type</label>
-                            <input type="text" className="form-control" name="examType" placeholder="Enter Exam Type" value={examType} onChange={(e) => {
-                                setExamType(e.target.value);
-                            }}/>
-                        </div>
-
-                        <div className="form-group" style={{marginBottom: '15px'}}>
-                            <label style={{marginBottom: '5px'}}>Date</label>
-                            <input type="date" className="form-control" name="date" placeholder="Enter Date" value={date} onChange={(e) => {
-                                setDate(e.target.value);
-                            }}/>
-                        </div>
-
-                        <div className="form-group" style={{marginBottom: '15px'}}>
-                            <label style={{marginBottom: '5px'}}>Time</label>
-                            <input type="time" className="form-control" name="time" placeholder="Enter Time" value={time} onChange={(e) => {
-                                setTime(e.target.value);
-                            }}/>
-                        </div>
-                            
-                        <div className="form-group" style={{marginBottom: '15px'}}>
-                            <label style={{marginBottom: '5px'}}>Hall Number</label>
-                            <input type="text" className="form-control" name="hallNumber" placeholder="Enter Hall Number" value={hallNumber} onChange={(e) => {
-                                setProductHallNumber(e.target.value);
-                            }}/>
-                        </div>
-
-                        <button className="btn btn-success" type="submit" style={{marginTop: '15px'}} onClick={sendData}>
-                            <i className="far fa-check-square"></i>
-                            &nbsp; Save
-                        </button>
-                    </form>
-                </div>
-            </div>
-    
-        </div>
     )
 }
 
