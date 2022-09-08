@@ -36,7 +36,7 @@ const PaymentSchema = new Schema({
     },
 
     PaymentDate : {
-        type : Date
+        type : String
     },
 
     isApproved : {

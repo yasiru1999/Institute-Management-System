@@ -1,11 +1,13 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {Button, Form, Input} from "antd";
-import TextArea from "antd/es/input/TextArea";
 import Axios from "axios";
+import {useLocation} from "react-router-dom";
 
 
-function AddPayments(props) {
 
+function UpdatePayments(props) {
+
+    const [ID,setId] = useState("");
     const [studentID, setStudentID] = useState("");
     const [studentName, setStudentName] = useState("");
     const [phoneNo, setPhoneNo] = useState("");
@@ -13,15 +15,23 @@ function AddPayments(props) {
     const [registeredCourse, setRegisteredCourse] = useState("");
     const [paymentAmount, setPaymentAmount] = useState("");
 
-    const [paymentSlip, setPaymentSlip] = useState();
-    const [isFilePicked, setIsFilePicked] = useState(false);
-
     let [paymentsDate, setPaymentDate] = useState("");
 
-    const fileChangeHandler = (event) => {
-        setPaymentSlip(event.target.files[0]);
-        setIsFilePicked(true);
-    };
+    const location = useLocation();
+
+    useEffect(() =>{
+        setId(location.state.payment._id)
+        setStudentID(location.state.payment.StudentID)
+        setStudentName(location.state.payment.StudentName)
+        setPhoneNo(location.state.payment.PhoneNo)
+        setEmail(location.state.payment.Email)
+        setRegisteredCourse(location.state.payment.RegisteredCourse)
+        setPaymentAmount(location.state.payment.PaymentAmount)
+        setPaymentDate(location.state.payment.PaymentDate)
+    },[location])
+
+
+    console.log(location.state.payment.StudentID);
 
     const onStudentIDChange = (event) => {
         setStudentID(event.currentTarget.value)
@@ -51,7 +61,7 @@ function AddPayments(props) {
     const onSubmit = (event) => {
         event.preventDefault();
 
-        if (!studentID || !studentName || !phoneNo || !registeredCourse || !paymentAmount || !paymentAmount || !isFilePicked) {
+        if (!studentID || !studentName || !phoneNo || !registeredCourse || !paymentAmount || !paymentAmount) {
             return alert('fill all the fields first!')
         }
 
@@ -62,34 +72,18 @@ function AddPayments(props) {
             Email:email,
             RegisteredCourse: registeredCourse,
             PaymentAmount:paymentAmount,
-            PaymentSlip: paymentSlip.name,
             PaymentDate : paymentsDate,
-            isApproved: false
         }
 
-        const formData = new FormData();
-        formData.append('file',paymentSlip);
-        const config = {
-            headers: {
-                'content-type': 'multipart/form-data'
-            }
-        };
 
-        Axios.post('http://localhost:5001/pay/addPayment', variables)
+        Axios.put(`http://localhost:5001/pay/updatePayment/${ID}`, variables)
             .then(response => {
-                Axios.post("http://localhost:5001/pay/addPaymentSlip",formData,config)
-                    .then(() => {
-                        if (response.data.success) {
-                            alert('Payment Slip Successfully Uploaded')
-                            props.history.push('/')
-                        } else {
-                            alert('Failed to upload Payment Slip')
-                        }
-
-                    }).catch((error) => {
-                    alert(error.message);
-                });
-
+                if (response.data) {
+                    alert('Conference Successfully Edited')
+                    props.history.push('/paymentDetails')
+                } else {
+                    alert('Failed to edit Conference')
+                }
             })
 
     }
@@ -156,15 +150,6 @@ function AddPayments(props) {
                     <br />
                     <br />
 
-                    <label>*Upload Bank Slip :</label>
-                    <Input
-                        type={"file"}
-                        name="file"
-                        onChange={fileChangeHandler}
-                    />
-                    <br />
-                    <br />
-
                     <label>
                         Date :
                     </label>
@@ -185,4 +170,4 @@ function AddPayments(props) {
     )
 }
 
-export default AddPayments;
+export default UpdatePayments;
