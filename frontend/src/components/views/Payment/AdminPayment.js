@@ -8,6 +8,7 @@ function AdminPayments() {
 
     const [Payments, setPayments] = useState([]);
     const history = useHistory();
+    const[filter,setFilter] = useState('');
 
     useEffect(() => {
         Axios.get('http://localhost:5001/pay/getPayment')
@@ -37,7 +38,7 @@ function AdminPayments() {
         })
     }
 
-    async function deleteSupervisor(item) {
+    async function deletePayment(item) {
         console.log(item.ID);
         await Axios.delete(`http://localhost:5001/pay/deletePayment/${item._id}`).then((res)=>{
             console.log(res)
@@ -45,13 +46,23 @@ function AdminPayments() {
         });
     }
 
+    // const searchText = (event) =>{
+    //     setFilter(event.target.value);
+    // }
+    // let Payments = data.filter(item =>{
+    //     return Object.keys(item).some(key =>
+    //         item[key].toString().toLowerCase().includes(filter.toString().toLowerCase())
+    //     )
+    // });
+
     return(
         <div style={{ width: '98%', margin: '6rem auto' }}>
             <div>
                 <h1 style={{ textAlign: 'left' }}>  Student Payments </h1>
             </div>
+            {/*<input type="text" className="form-control" value={filter} onChange={searchText.bind(this)}/>*/}
             <hr/>
-            <div style={{ width:'80%',  margin: '4rem auto'}}>
+            <div style={{ width:'98%',  margin: '4rem auto'}}>
                 <table>
                     <thead>
                     <tr>
@@ -98,7 +109,7 @@ function AdminPayments() {
                                 </td>
                                 <td><center><button onClick={() => {approvedChange(item._id,true); window.location.reload()}} >Respond</button></center></td>
                                 <td><center><button onClick={() => {history.push({pathname: "/updatePaymentDetails", state:{payment:item}})}} >Update</button></center></td>
-                                <td><center><button onClick={() => {deleteSupervisor(item); window.location.reload()}}>Delete</button></center></td>
+                                <td><center><button onClick={() => {deletePayment(item); window.location.reload()}}>Delete</button></center></td>
                             </tr>
                         )
                     })}
@@ -112,7 +123,7 @@ function AdminPayments() {
                 <h1 style={{ textAlign: 'left' }}>  Approved Student Payments </h1>
             </div>
             <hr/>
-            <div style={{ width:'80%',  margin: '4rem auto'}}>
+            <div style={{ width:'98%',  margin: '4rem auto'}}>
                 <table>
                     <thead>
                     <tr>
@@ -157,7 +168,7 @@ function AdminPayments() {
                                     <center>{item.PaymentDate}</center>
                                 </td>
                                 <td><center><button onClick={() => {history.push({pathname: "/updatePaymentDetails", state:{payment:item}})}} >Update</button></center></td>
-                                <td><center><button onClick={() => {deleteSupervisor(item); window.location.reload()}} >Delete</button></center></td>
+                                <td><center><button onClick={() => {deletePayment(item); window.location.reload()}} >Delete</button></center></td>
                             </tr>
                         )
                     })}

@@ -20,6 +20,14 @@ function LeftMenu(props) {
           <Menu.Item className="leftbtn" key="mail">
             <a  href="/">Home</a>
           </Menu.Item>
+
+            <Menu.Item className="leftbtn" key="payment">
+                <a  href="/payment">Payment</a>
+            </Menu.Item>
+
+            <Menu.Item className="leftbtn" key="inquiry">
+                <a  href="/inquiryDefault">Inquiry</a>
+            </Menu.Item>
         </Menu>
     )
   } else if(user.userData && user.userData.isAdmin) {
@@ -29,6 +37,24 @@ function LeftMenu(props) {
           <Menu.Item className="leftbtn" key="mail">
             <a  href="/">Admin</a>
           </Menu.Item>
+
+            <SubMenu className="leftbtn" key="AdminPayment" title="Payment">
+                <Menu.Item key="addPayment">
+                    <a href="/payment">Payment Form</a>
+                </Menu.Item>
+                <Menu.Item key="PaymentDetails">
+                    <a href="/paymentDetails">Payment Details</a>
+                </Menu.Item>
+            </SubMenu>
+
+            <SubMenu className="leftbtn" key="AdminInquiry" title="Inquiry">
+                <Menu.Item key="addPayment">
+                    <a href="/inquiry">Inquiry Form</a>
+                </Menu.Item>
+                <Menu.Item key="PaymentDetails">
+                    <a href="/inquiryDetails">Inquiry Details</a>
+                </Menu.Item>
+            </SubMenu>
         </Menu>
     )
   } else if(user.userData && user.userData.isStudent) {
