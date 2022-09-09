@@ -15,7 +15,7 @@ const formItemLayout = {
   },
   wrapperCol: {
     xs: { span: 24 },
-    sm: { span: 16 },
+    sm: { span: 13 },
   },
 };
 const tailFormItemLayout = {
@@ -120,8 +120,8 @@ function StudentRegPage(props) {
           handleReset,
         } = props;
         return (
-          <div className="">
-            <Form style={{ minWidth: '375px' }} {...formItemLayout} onSubmit={handleSubmit} >
+          <div className="container">
+            <Form style={{minWidth: '600px' }} {...formItemLayout} onSubmit={handleSubmit} >
 
               <Form.Item required label="Student ID">
                 <Input

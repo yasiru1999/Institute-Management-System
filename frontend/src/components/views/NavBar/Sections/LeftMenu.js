@@ -19,15 +19,16 @@ function LeftMenu(props) {
         <Menu mode={props.mode}>
           <Menu.Item className="leftbtn" key="mail">
             <a  href="/">Home</a>
-          </Menu.Item>
 
+          </Menu.Item>
+            <Menu.Item className="leftbtn" key="inquiry">
+                <a  href="/inquiryDefault">Support</a>
+            </Menu.Item>
             <Menu.Item className="leftbtn" key="payment">
                 <a  href="/payment">Payment</a>
             </Menu.Item>
 
-            <Menu.Item className="leftbtn" key="inquiry">
-                <a  href="/inquiryDefault">Inquiry</a>
-            </Menu.Item>
+
         </Menu>
     )
   } else if(user.userData && user.userData.isAdmin) {
@@ -65,7 +66,20 @@ function LeftMenu(props) {
             <a  href="/">Home</a>
           </Menu.Item>
 
-            <SubMenu className="leftbtn" key="modules" title="Modules">
+            <SubMenu className="leftbtn" key="exam" title="Examinations">
+                <Menu.Item key="results">
+                    <a href="/">Exam Results</a>
+                </Menu.Item>
+                <Menu.Item key="viewExam">
+                    <a href="/">Exam Timetable</a>
+                </Menu.Item>
+            </SubMenu>
+
+            <Menu.Item className="leftbtn" key="library">
+                <a  href="/">Libraries</a>
+            </Menu.Item>
+
+            <SubMenu className="leftbtn" key="modules" title="My Courses">
                 <Menu.Item key="se">
                     <a href="/">Software Engineering</a>
                 </Menu.Item>

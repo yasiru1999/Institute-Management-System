@@ -11,6 +11,7 @@ import UpdateTimetable from "./views/Timetable/UpdateTimetable";
 import NavBar from "./views/NavBar/NavBar";
 import Footer from "./views/Footer/Footer"
 import UserDetailsPage from "./views/UserDetailsPage/UserDetailsPage";
+import UserDetailsUpdatePage from "./views/UserDetailsUpdatePage/UserDetailsUpdatePage";
 import NoticeSession_Create from './LecModule_Management/NoticeSessions/NoticeSession_Create';
 import NoticeSession_ViewL from './LecModule_Management/NoticeSessions/NoticeSession_ViewL'
 import AddPayments from "./views/Payment/AddPayments";
@@ -29,6 +30,7 @@ function App() {
           <Route exact path="/login" component={Auth(LoginPage, false)} />
           <Route exact path="/register" component={Auth(RegisterPage, true)} />
           <Route exact path="/user" component={UserDetailsPage} />
+          <Route exact path="/updateUserInfo" component={UserDetailsUpdatePage} />
           <Route exact path="/createNS/:no" component={Auth(NoticeSession_Create, false)} />
           <Route exact path="/allView/:Mno" component={Auth(NoticeSession_ViewL, false)} />
           <Route exact path="/add" component={Auth(AddTimetable, false)} />
