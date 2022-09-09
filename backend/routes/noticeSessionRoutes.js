@@ -57,6 +57,7 @@ router.get('/getDetails/:id', async (req, res) => {
 //Update Notices or Sessions
 router.put("/update/:id", (req, res, next) => {
   const NoticeSessionModel = ({
+      moduleNo: req.body.moduleNo,
     category: req.body.category,
     topic: req.body.topic,
     description: req.body.description,

@@ -31,13 +31,13 @@ function RegisterPage(props) {
             </Radio.Group>
 
             { regType=="0"  ?
-                <>
+                <><br/>
                     <StudentReg/>
                 </>
 
                 : null }
             { regType=="1"  ?
-                <>
+                <><br/>
                     <LecturerReg/>
                 </>
 

@@ -65,7 +65,7 @@ function AdminPayments() {
             <div style={{ width:'98%',  margin: '4rem auto'}}>
                 <table>
                     <thead>
-                    <tr>
+                    <tr style={{backgroundColor:'#4682b4'}}>
                         <th>Student ID</th>
                         <th>Student Name</th>
                         <th>Phone</th>
@@ -107,16 +107,16 @@ function AdminPayments() {
                                 <td>
                                     <center>{item.PaymentDate}</center>
                                 </td>
-                                <td><center><button onClick={() => {approvedChange(item._id,true); window.location.reload()}} >Respond</button></center></td>
-                                <td><center><button onClick={() => {history.push({pathname: "/updatePaymentDetails", state:{payment:item}})}} >Update</button></center></td>
-                                <td><center><button onClick={() => {deletePayment(item); window.location.reload()}}>Delete</button></center></td>
+                                <td><center><button style={{backgroundColor:'#4682b4'}} onClick={() => {approvedChange(item._id,true); window.location.reload()}} >Respond</button></center></td>
+                                <td><center><button style={{backgroundColor:'#ff9800'}} onClick={() => {history.push({pathname: "/updatePaymentDetails", state:{payment:item}})}} >Update</button></center></td>
+                                <td><center><button style={{backgroundColor:'red'}} onClick={() => {deletePayment(item); window.location.reload()}}>Delete</button></center></td>
                             </tr>
                         )
                     })}
                     </tbody>
                 </table>
                 <br/>
-                <button style={{marginLeft: '1000px'}} onClick={() => GeneratePdf(Payments.filter(Payments => Payments.isApproved === false))}>Generate Report</button>
+                <button style={{marginLeft: '1000px',backgroundColor:'#4682b4'}} onClick={() => GeneratePdf(Payments.filter(Payments => Payments.isApproved === false))}>Generate Report</button>
             </div>
 
             <div >
@@ -126,7 +126,7 @@ function AdminPayments() {
             <div style={{ width:'98%',  margin: '4rem auto'}}>
                 <table>
                     <thead>
-                    <tr>
+                    <tr style={{backgroundColor:'#4682b4'}}>
                         <th>Student ID</th>
                         <th>Student Name</th>
                         <th>Phone</th>
@@ -167,15 +167,15 @@ function AdminPayments() {
                                 <td>
                                     <center>{item.PaymentDate}</center>
                                 </td>
-                                <td><center><button onClick={() => {history.push({pathname: "/updatePaymentDetails", state:{payment:item}})}} >Update</button></center></td>
-                                <td><center><button onClick={() => {deletePayment(item); window.location.reload()}} >Delete</button></center></td>
+                                <td><center><button style={{backgroundColor:'#ff9800'}} onClick={() => {history.push({pathname: "/updatePaymentDetails", state:{payment:item}})}} >Update</button></center></td>
+                                <td><center><button style={{backgroundColor:'red'}} onClick={() => {deletePayment(item); window.location.reload()}} >Delete</button></center></td>
                             </tr>
                         )
                     })}
                     </tbody>
                 </table>
             <br/>
-                <button style={{marginLeft: '1000px'}} onClick={() => GeneratePdf(Payments.filter(Payments => Payments.isApproved === true))}>Generate Report</button>
+                <button style={{marginLeft: '1000px',backgroundColor:'#4682b4'}} onClick={() => GeneratePdf(Payments.filter(Payments => Payments.isApproved === true))}>Generate Report</button>
             </div>
 
         </div>

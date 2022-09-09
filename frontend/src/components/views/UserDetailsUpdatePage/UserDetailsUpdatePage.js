@@ -53,6 +53,7 @@ function UserDetailsUpdatePage(props) {
                     axios.put(`/api/users/updateUserInfo/${userId}`, dataToSubmit)
                         .then(res =>
                         {
+                            localStorage.setItem("name",values.name);
                             if( res){
                                 props.history.push("/user");
                                 alert('success');
@@ -80,11 +81,11 @@ function UserDetailsUpdatePage(props) {
                     handleReset,
                 } = props;
                 return (
-                    <div className="app" style={{ width: '75%', margin: '-6rem auto' }}>
+                    <div className="app" style={{ width: '75%', margin: '-4rem auto' }}>
                         <Title level={2}>Update User Info</Title>
                         <form onSubmit={handleSubmit} style={{ width: '350px' }}>
 
-                            <Form.Item required>
+                            <Form.Item required label="Name">
                                 <Input
                                     id="name"
                                     placeholder={User.name}
@@ -101,7 +102,7 @@ function UserDetailsUpdatePage(props) {
                                 )}
                             </Form.Item>
 
-                            <Form.Item required>
+                            <Form.Item required label="Email">
                                 <Input
                                     id="email"
                                     placeholder={User.email}
@@ -118,7 +119,7 @@ function UserDetailsUpdatePage(props) {
                                 )}
                             </Form.Item>
 
-                            <Form.Item required>
+                            <Form.Item required label="Contact Number">
                                 <Input
                                     id="contactNumber"
                                     placeholder={User.contactNumber}
@@ -142,7 +143,7 @@ function UserDetailsUpdatePage(props) {
                             <Form.Item>
                                 <div>
                                     <Button type="primary" htmlType="submit" className="login-form-button" style={{ minWidth: '100%' }} disabled={isSubmitting} onSubmit={handleSubmit}>
-                                        Log in
+                                        Update Info
                                     </Button>
                                 </div>
                             </Form.Item>
