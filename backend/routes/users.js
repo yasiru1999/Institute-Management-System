@@ -4,6 +4,7 @@ const { User } = require("../models/User");
 const { auth } = require("../middleware/auth");
 const async = require('async');
 const {response} = require("express");
+const Payment = require("../models/Payment");
 
 //=================================
 //             User
@@ -119,7 +120,24 @@ router.get("/user_by_id", (req, res) => {
         })
 });
 
-//a
+// router.put("/updateUserInfo", (req, res) => {
+//     const updatedUserInfo = ({
+//         name: req.body.name,
+//         email: req.body.email,
+//         contactNumber: req.body.contactNumber
+//     });
+//     User.updateOne({ _id: req.params.id }, updatedUserInfo).then(result => {
+//         console.log(result);
+//         res.status(200).json({ message: "Successfully Updated" })
+//     })
+// });
 
+router.put('/updateUserInfo/:id', (req,res)=>{
+    const updatedUserInfo = (req.body);
+    User.findByIdAndUpdate({ _id: req.params.id }, updatedUserInfo).then(result => {
+        console.log(result);
+        res.status(200).json({ message: "Successfully Updated" })
+    })
+})
 
 module.exports = router;
