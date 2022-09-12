@@ -25,6 +25,8 @@ app.use(cookieParser());
 app.use('/api/users', require('./routes/users'));
 app.use('/noticeSessions', require('./routes/noticeSessionRoutes'));
 app.use('/timetable', require('./routes/timetable'));
+app.use('/pay', require('./routes/payment'));
+app.use('/inquiry', require('./routes/inquiry'));
 
 // app.use('/api/timetables', require('./routes/timetables'));
 // app.use('/api/product', require('./routes/product'));

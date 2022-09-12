@@ -2,6 +2,13 @@
     padding: 8px 0;
     background: #00a0e9;
 }
-[data-theme="dark"] .gutter-box {
-    background: #028ac8;
+.userDetails{
+    float: left;
+    display: flex;
+    flex-direction: row;
+    width: 650px;
+}
+.editBtn{
+    margin-top: 210px;
+    margin-left: 300px;
 }

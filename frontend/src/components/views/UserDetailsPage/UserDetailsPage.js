@@ -1,6 +1,6 @@
 import React, {useEffect, useState, Fragment} from "react";
 import Axios from 'axios'
-import { Typography, Divider,Row,Col } from "antd";
+import {Typography, Divider, Row, Col, Button} from "antd";
 import { useDispatch } from 'react-redux';
 import {FaRegUserCircle} from "react-icons/fa";
 import "./UserDetailsPage.css";
@@ -26,33 +26,37 @@ function UserDetailsPage(props) {
                 <FaRegUserCircle style={{fontSize: 55,color: "black"}} />
                 <h3 style={{marginLeft: '30px', fontSize:20}}>{User.name}</h3>
             </div>
-            <div style={{ display: 'flex', justifyContent: 'center' }}>
-
-            </div>
             <br />
             <Fragment>
                 <Divider/>
                 <Row gutter={86}>
                     {/*<Title level={4}>Group ID : {User._id}</Title>*/}
                     <Col className="gutter-row" span={12}>
-                        <fieldset style={{border: '1px solid #000'}}>
-                            <legend>AAA</legend>
-                            <div style={{background:'#ffffff',border: '5px solid red',padding:'8px 10px'}}>
-                                <Divider orientation="left">Personal Info</Divider>
-                                <h4>Name</h4>
-                                <p>{User.name}</p>
-                                <h4>Email</h4>
-                                <p>{User.email}</p>
-                                <h4>Contact Number</h4>
-                                <p>{User.contactNumber}</p>
-                                <h4>Gender</h4>
-                                <p>{User.Gender}</p>
+                            <div className="userDetails" style={{border: '3px solid black',padding:'8px 10px'}}>
+                                <div>
+                                    <Divider orientation="left">Personal Info</Divider>
+                                    <h4>Name</h4>
+                                    <p>{User.name}</p>
+                                    <h4>Email</h4>
+                                    <p>{User.email}</p>
+                                    <h4>Contact Number</h4>
+                                    <p>{User.contactNumber}</p>
+                                    <h4>Gender</h4>
+                                    <p>{User.Gender}</p>
+                                </div>
+
+
+                                <div className="editBtn">
+                                    <Button type="primary" href="/updateUserInfo" shape="round" size='large'>
+                                        Edit Details
+                                    </Button>
+                                </div>
                             </div>
-                        </fieldset>
+
 
                     </Col>
                     <Col className="gutter-row" span={12}>
-                        <div style={{background:'#0092ff',padding:'8px 10px'}}>
+                        <div style={{border: '3px solid black',padding:'8px 10px'}}>
                             <Divider orientation="left">Course Details</Divider>
                             <h4>ID</h4>
                             <p>{User.UserID}</p>

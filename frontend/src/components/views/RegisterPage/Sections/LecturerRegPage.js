@@ -6,7 +6,7 @@ import * as Yup from 'yup';
 import { withRouter } from "react-router";
 import { registerUser } from "../../../../_actions/user_actions";
 import { useDispatch } from "react-redux";
-import {Form, Input, Button,} from 'antd';
+import {Form, Input, Button, Radio,} from 'antd';
 
 const formItemLayout = {
     labelCol: {
@@ -15,7 +15,7 @@ const formItemLayout = {
     },
     wrapperCol: {
         xs: { span: 24 },
-        sm: { span: 16 },
+        sm: { span: 13 },
     },
 };
 const tailFormItemLayout = {
@@ -122,9 +122,9 @@ function LecturerRegPage(props) {
                 } = props;
                 return (
                     <div className="">
-                        <Form style={{ minWidth: '375px' }} {...formItemLayout} onSubmit={handleSubmit} >
+                        <Form style={{ minWidth: '600px', alignItems: 'center'}} {...formItemLayout} onSubmit={handleSubmit} >
 
-                            <Form.Item required label="Lecturer ID">
+                            <Form.Item style={{}} required label="Lecturer ID">
                                 <Input
                                     id="UserID"
                                     placeholder="Enter Lecturer ID"
@@ -210,18 +210,24 @@ function LecturerRegPage(props) {
                             </Form.Item>
 
                             <Form.Item required label="Gender">
-                                <Select
-                                    id="Gender"
-                                    options = {Gender}
-                                    hasValue
-                                    setValue={values.Gender}
-                                    onBlur={handleBlur}
-                                    className = "basic-multi-select"
-                                    onChange={setGender}
-                                    className={
-                                        errors.Gender && touched.Gender ? 'text-input error' : 'text-input'
-                                    }
-                                />
+                                {/*<Select*/}
+                                {/*    id="Gender"*/}
+                                {/*    options = {Gender}*/}
+                                {/*    hasValue*/}
+                                {/*    setValue={values.Gender}*/}
+                                {/*    onBlur={handleBlur}*/}
+                                {/*    className = "basic-multi-select"*/}
+                                {/*    onChange={setGender}*/}
+                                {/*    className={*/}
+                                {/*        errors.Gender && touched.Gender ? 'text-input error' : 'text-input'*/}
+                                {/*    }*/}
+                                {/*/>*/}
+
+                                <Radio.Group>
+                                    <Radio value="male"> Male </Radio>
+                                    <Radio value="female"> Female </Radio>
+                                </Radio.Group>
+
                                 {errors.Gender && touched.Gender && (
                                     <div className="input-feedback">{errors.Gender}</div>
                                 )}
