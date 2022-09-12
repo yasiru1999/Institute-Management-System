@@ -100,6 +100,7 @@ function LeftMenu(props) {
             <a  href="/">Home</a>
           </Menu.Item>
 
+
             <SubMenu className="leftbtn" key="exam" title="Examinations">
                 <Menu.Item key="results">
                     <a href="/">Exam Results</a>
@@ -108,7 +109,6 @@ function LeftMenu(props) {
                     <a href="/">Exam Timetable</a>
                 </Menu.Item>
             </SubMenu>
-
 
             <SubMenu className="leftbtn" key="modules" title="Modules">
                 <Menu.Item key="se">
