@@ -19,6 +19,7 @@ import AdminPayments from "./views/Payment/AdminPayment";
 import UpdatePayment from "./views/Payment/UpdatePayment";
 import AddInquiry from "./views/Inquiry/AddInqiry";
 import AdminInquiry from "./views/Inquiry/AdminInquiry";
+import NoticeSession_Update from './LecModule_Management/NoticeSessions/NoticeSession_Update';
 
 function App() {
   return (
@@ -28,19 +29,11 @@ function App() {
         <Switch>
           <Route exact path="/" component={Auth(LandingPage, null)} />
           <Route exact path="/login" component={Auth(LoginPage, false)} />
-          <Route exact path="/register" component={Auth(RegisterPage, false)} />
+          <Route exact path="/register" component={Auth(RegisterPage, true)} />
           <Route exact path="/user" component={UserDetailsPage} />
-<<<<<<< HEAD
-          <Route exact path="/createNS/:no" component={Auth(NoticeSession_Create, true)} />
-          <Route exact path="/allViewNS/:Mno" component={Auth(NoticeSession_ViewL, true)} />
-          <Route exact path="/add" component={Auth(AddTimetable, false)} />
-          <Route exact path="/all" component={Auth(AllTimetable, false)} />
-          <Route exact path="/update/:id" component={Auth(UpdateTimetable, true)} />
-          <Route exact path="/updateNS/:id" component={Auth(NoticeSession_Update, true)} />
-=======
           <Route exact path="/updateUserInfo" component={UserDetailsUpdatePage} />
           <Route exact path="/createNS/:no" component={Auth(NoticeSession_Create, false)} />
-          <Route exact path="/allView/:Mno" component={Auth(NoticeSession_ViewL, false)} />
+          <Route exact path="/allViewNS/:Mno" component={Auth(NoticeSession_ViewL, false)} />
           <Route exact path="/add" component={Auth(AddTimetable, false)} />
           <Route exact path="/all" component={Auth(AllTimetable, false)} />
           <Route exact path="/update/:id" component={Auth(UpdateTimetable, false)} />
@@ -50,7 +43,7 @@ function App() {
           <Route exact path="/inquiryDefault" component={Auth(AddInquiry, false)} />
           <Route exact path="/inquiry" component={Auth(AddInquiry, true)} />
           <Route exact path="/inquiryDetails" component={Auth(AdminInquiry, true)} />
->>>>>>> 9a84a3f70342a4c32d6380d8ad40c1c7e08b89bb
+          <Route exact path="/updateNS/:id" component={Auth(NoticeSession_Update, true)} />
         </Switch>
       </div>
       <Footer />
