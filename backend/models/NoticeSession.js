@@ -4,11 +4,12 @@ const NoticeSessionSchema = new mongoose.Schema({
     moduleNo: {
         type: String,
         required: true,
-        default:"IT2000"
+        default:"IT2001"
     },
     category: {
         type: String,
         required: true,
+        trim: true
     },
     topic: {
         type: String,
