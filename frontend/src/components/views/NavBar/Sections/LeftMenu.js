@@ -102,7 +102,7 @@ function LeftMenu(props) {
 
             <SubMenu className="leftbtn" key="modules" title="Modules">
                 <Menu.Item key="se">
-                    <a href="/">Software Engineering</a>
+                    <a href="/allViewNS/IT2001">Software Engineering</a>
                 </Menu.Item>
                 <Menu.Item key="ds">
                     <a href="/">Data Science</a>

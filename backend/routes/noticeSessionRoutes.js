@@ -57,17 +57,29 @@ router.get('/getDetails/:id', async (req, res) => {
 //Update Notices or Sessions
 router.put("/update/:id", (req, res, next) => {
   const NoticeSessionModel = ({
-      moduleNo: req.body.moduleNo,
+    moduleNo: req.body.moduleNo,
     category: req.body.category,
     topic: req.body.topic,
     description: req.body.description,
     otherDetails: req.body.otherDetails
   });
-  NoticeSession.updateOne({ _id: req.params.id }, NoticeSessionModel).then(result => {
+  NoticeSession.findOneAndUpdate({ _id: req.params.id }, NoticeSessionModel).then(result => {
     console.log(result);
     res.status(200).json({ message: "Successfully Updated" })
   })
 });
+
+
+
+router.delete("/delete/:id", async (req, res) => {
+  try {
+      await NoticeSession.findByIdAndDelete(req.params.id)
+      res.json({ msg: "Successfully Deleted" })
+  } catch (err) {
+      return res.status(500).json({ msg: err.message })
+  }
+})
+
 
 
   
