@@ -3,7 +3,6 @@ import axios from 'axios';
 import {useParams} from 'react-router-dom';
 import './NoticeSession.css'
 import { Link } from 'react-router-dom';
-import {Button} from 'react-bootstrap';
 
 
 export default function NoticeSession_ViewL() {
@@ -85,9 +84,9 @@ export default function NoticeSession_ViewL() {
                                 <td>{notice.otherDetails}</td>
 
                                 <td>
-                                    <Link to={`/updateNS/${notice._id}`}><Button className='buttonUpdate'>Update</Button></Link>
+                                    <Link to={`/updateNS/${notice._id}`}><button className='buttonUpdate'>Update</button></Link>
 
-                                    <Link onClick={() => deleteDetail(notice._id)}><Button className='buttonDelete'>Delete</Button></Link>                               
+                                    <Link onClick={() => deleteDetail(notice._id)}><button className='buttonDelete'>Delete</button></Link>                               
                                 </td>                        
                             </tr>
                         ))
@@ -126,8 +125,8 @@ export default function NoticeSession_ViewL() {
                                 <td>{session.otherDetails}</td>
 
                                 <td>
-                                    <Link to={`/updateNS/${session._id}`}><Button className='buttonUpdate'>Update</Button></Link>
-                                    <Link to={`/panelAssign/${session._id}`}><Button className='buttonDelete'>Delete</Button></Link>
+                                    <Link to={`/updateNS/${session._id}`}><button className='buttonUpdate'>Update</button></Link>
+                                    <Link to={`/panelAssign/${session._id}`}><button className='buttonDelete'>Delete</button></Link>
                                 </td>                        
                             </tr>
                         ))
