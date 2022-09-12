@@ -8,7 +8,7 @@ import {Button} from 'react-bootstrap';
 
 export default function NoticeSession_ViewL() {
 
-    //const {module} = useParams("");   
+    //const {ids} = useParams("");   
     const module = "IT2001";
  
     /*const [noticeList, setNoticeList] = useState({
@@ -20,6 +20,8 @@ export default function NoticeSession_ViewL() {
    /* const [sessionList, setSessionList] = useState({
         moduleNo:"", category:"", topic:"", description:"", otherDetails:""
     });*/
+
+    const [userRouter, setUserRouter] = useState([]);
     
     useEffect(() => {
         const getDetailsList = async() => {
@@ -35,20 +37,42 @@ export default function NoticeSession_ViewL() {
         getDetailsList()
     },[]);
 
+    const deleteDetail = async (id) => {
+        try {
+          const res = await axios.delete(`http://localhost:5001/noticeSessions/delete/${id}`)
+          const newListItems = userRouter.filter(topic => topic._id !== id);
+          setUserRouter(newListItems);
+        } catch (err) {
+          console.log(err);
+        }
+      }
+
     return(
         <div>
             <br/><br/><br/><br/>
-            <div className='groupTable'>
-            <div className="container shadow py-5 ">
-            <h3 className=" fw-bolder mb-4"><center>Notices in Module no: <b>{module}</b></center></h3>
+
+            <h2>Module: Software Engineering / IT2001</h2>
+            <hr className='hrLine'/>
+
+            <div className="btn-group">        
+                <a  href={`/createNS/IT2001`}><button className="button">Create Notice/Sessions</button></a>
+                <button className="button1">Student View</button>
+            </div>
+
+            <br/> <br/> <br/> <br/>
+
+        <div className='viewTags'>
+            <u><b><h3 className=" fw-bolder mb-4">Notices</h3></b></u>
+        </div>
+
+        <div className='tablePadding'>
                 <table className="table ">
-                    <thead className='table-dark'>
+                    <thead className='tableHeader'>
                         <tr  key={"1"}>
-                            <th> Module No</th>
-                            <th> Category </th>
                             <th> Topic </th>
                             <th> Description </th>
                             <th> Other Details </th>
+                            <th> Actions </th>
                         </tr>
                     </thead>
 
@@ -56,41 +80,40 @@ export default function NoticeSession_ViewL() {
                     {
                         noticeList.map((notice, id) => (
                             <tr key={id}>
-                                <td>{notice.moduleNo}</td>
-                                <td>{notice.category}</td>
                                 <td>{notice.topic}</td>
                                 <td>{notice.description}</td>
                                 <td>{notice.otherDetails}</td>
 
                                 <td>
-                                    <Link to={`/viewId/${notice._id}`}><Button className='btn btn-warning'>Update</Button></Link>
-                                    <Link to={`/panelAssign/${notice._id}`}><Button className='btn btn-warning'>Delete</Button></Link>
+                                    <Link to={`/updateNS/${notice._id}`}><Button className='buttonUpdate'>Update</Button></Link>
+
+                                    <Link onClick={() => deleteDetail(notice._id)}><Button className='buttonDelete'>Delete</Button></Link>                               
                                 </td>                        
                             </tr>
                         ))
                     }
                     </tbody>
                 </table>
-
-            </div>
-            </div>
-
+        </div>         
+           
 
 
 
 
             <br/><br/><br/><br/>
-            <div className='groupTable'>
-            <div className="container shadow py-5 ">
-            <h3 className=" fw-bolder mb-4"><center>Sessions in Module no: <b>{module}</b></center></h3>
+            
+            <div className='viewTags'>
+                <u><b><h3 className=" fw-bolder mb-4">Sessions</h3></b></u>
+            </div>
+
+            <div className='tablePadding'>
                 <table className="table ">
-                    <thead className='table-dark'>
+                    <thead className='tableHeader'>
                         <tr  key={"1"}>
-                            <th> Module No</th>
-                            <th> Category </th>
                             <th> Topic </th>
                             <th> Description </th>
                             <th> Other Details </th>
+                            <th> Actions </th>
                         </tr>
                     </thead>
 
@@ -98,24 +121,22 @@ export default function NoticeSession_ViewL() {
                     {
                         sessionList.map((session, id) => (
                             <tr key={id}>
-                                <td>{session.moduleNo}</td>
-                                <td>{session.category}</td>
                                 <td>{session.topic}</td>
                                 <td>{session.description}</td>
                                 <td>{session.otherDetails}</td>
 
                                 <td>
-                                <Link to={`/panelAssign/${session._id}`}><Button className='btn btn-warning'>Update</Button></Link>
-                                    <Link to={`/panelAssign/${session._id}`}><Button className='btn btn-warning'>Delete</Button></Link>
+                                    <Link to={`/updateNS/${session._id}`}><Button className='buttonUpdate'>Update</Button></Link>
+                                    <Link to={`/panelAssign/${session._id}`}><Button className='buttonDelete'>Delete</Button></Link>
                                 </td>                        
                             </tr>
                         ))
                     }
                     </tbody>
                 </table>
+            </div>
 
-            </div>
-            </div>
+            
 
 
 

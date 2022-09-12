@@ -4,24 +4,27 @@ import {useParams} from 'react-router-dom';
 import './NoticeSession.css'
 
 
-export default function NoticeSession_Update() {
+export default function NoticeSession_Update(props) {
 
     const {id} = useParams("");   
-   
-    const [category, setCategory] = useState("");
-    const [topic, setTopic] = useState("");
-    const [description, setDescription] = useState("");
-    const [otherDetails, setOtherDetails] = useState("");
+    //const [detailList, setDetailList] = useState([]);
 
-    const [noticeList, setNoticeList] = useState({
+    const [detailList, setDetailList] = useState({
         moduleNo:"", category:""
     });
+
+    const [updatedetailList, setUpdateDetailList] = useState({
+        category:"", topic:"", description:"", otherDetails:""
+    });
+
 
     useEffect(() => {
         const getDetailsList = async() => {
             try {
                 const results = await axios.get(`http://localhost:5001/noticeSessions/getDetails/${id}`)
-                setNoticeList(results.data);
+                setDetailList(results.data);
+                const res = await axios.get(`http://localhost:5001/noticeSessions/getDetails/${id}`)
+                setUpdateDetailList(res.data);
             } catch(err) {
                 console.log(err);
             }
@@ -29,23 +32,48 @@ export default function NoticeSession_Update() {
         getDetailsList()
     },[]);
 
-    const resetForm = () => {
+    /*const resetForm = () => {
         setCategory({ category: ""});
         setTopic({topic: ""});
         setDescription({ description: ""});
         setOtherDetails({ otherDetails: ""});
-    }
+    }*/
+
+    /*function sendData(e){
+        (values, { setSubmitting }) => {
+        setTimeout(() => {
+            let dataToSubmit = {
+                topic:values.topic,
+                description: values.description,
+                otherDetails: values.otherDetails
+            };
+            console.log(dataToSubmit);
+            axios.put(`http://localhost:5001/noticeSessions/update/${id}`, dataToSubmit)
+                .then(res =>
+                {
+                    if( res){
+                        props.history.push("/allViewNS/IT2001");
+                        alert('success');
+                    }else{
+                        alert("Error while registering user");
+                    }
+                }).
+            catch(err => {
+                console.log(err);
+            });
+            setSubmitting(false);
+        }, 500);
+    }}*/
 
 
     function sendData(e){
         e.preventDefault();
-        const newNoticeSession = {
-            category, topic, description, otherDetails
-        }
-        axios.post("http://localhost:5001/noticeSessions/create", newNoticeSession).then(() => {
-            alert("Successfully Created");
-            resetForm();
+        axios.put(`http://localhost:5001/noticeSessions/update/${id}`, updatedetailList).then(() => {
+            alert("Successfully Updated");
+            //props.history.push('/allViewNS/IT2001')
+            //resetForm();
         }).catch((err) => {
+            alert("Fild to update");
             alert(err)
         });
     }
@@ -53,69 +81,53 @@ export default function NoticeSession_Update() {
     return(
         <div>
             <br/> <br/> <br/> <br/>
-            <div class="btn-group">          
-                <button class="button">View Notice/Sessions</button>
-                <h3>{id}</h3>
-                <button class="button"><a  href={`/allView/IT2005`}>Update Notice/Sessions</a></button>
-                <button class="button1">Student View</button>
+            <h2>Module: Software Engineering / IT2001</h2>
+            <hr className='hrLine'/>
+
+            <div className="btn-group">                
+                <a  href={`/allViewNS/IT2001`}><button className="button">View Notice/Sessions</button></a>
+                <button className="button1">Student View</button>
             </div>
+
+            <br/> <br/> <br/> <br/>
+
+            <div className='formStyle'>
+            <center><h2>Notice/Session Update</h2></center>
             <div className='form1'>
-            <div className="container shadow my-5 col-md-9 p-6 align-items-center">
-                <div className=" d-flex flex-column align-items-center text-dark justify-content-center" >   
-                <br/> <br/> <br/> <br/><br/> 
-                    <h3> Module/Session Creation</h3>
-                </div>
-                    <form onSubmit={sendData} action="/post" method="post">
-                        <div className="form-check">
-                        <label for="name">Module No: <b>{module}</b></label>
-                        </div>
+                    <form onSubmit={sendData} >
 
-                        <label><b>Group ID: </b>{noticeList.moduleNo}</label> <br/>
-                    <label><b>Student ID: </b>{noticeList.category}</label><br/>
+                        <label htmlFor="name"><b>Module No:</b> {detailList.moduleNo}</label> <br/>
+                        <label htmlFor="name"><b>Category:</b>{detailList.category}</label>
+                        <br/><br/>
+                                          
+                            <label htmlFor="name"><b>Enter Topic</b></label>
+                            <input type="text" className="form-control" id="topc" placeholder="Enter Topic"
+                                value={updatedetailList.topic}
+                                onChange={(e) => { setUpdateDetailList({ topic: e.target.value }) 
+                            }}></input>
+                      
+                            <label htmlFor="name"><b>Description</b></label>
+                            <input type="text" className="form-control" id="des" placeholder="Enter Name"
+                                value={updatedetailList.description}
+                                onChange={(e) => { setUpdateDetailList({ description: e.target.value }) 
+                            }}></input>
+
+                            <label htmlFor="name"><b>Other Details</b></label>
+                            <input type="text" className="form-control" id="other" placeholder="Enter Name"
+                                value={updatedetailList.otherDetails}
+                                onChange={(e) => { setUpdateDetailList({ otherDetails: e.target.value }) 
+                            }}></input>
                     
+                <div className='btS'>	
+				    <button className='buttonSubmit' type="submit">Update</button>
+				</div>
+            </form>
 
-                        <div className="form-check">
-                            <label for="name">Select Category</label><br/>
-                            <select onChange={(e) =>{
-                                setCategory(e.target.value);
-                            }}>
-                                <option>None</option>
-                                <option>Notice</option>
-                                <option>Session</option>    
-                            </select> 
-                        </div>
-
-                        <div className="form-check">
-                            <label for="name">Enter Topic</label><br/>
-                            <input type="text" className="form-control" id="name"                           
-                            onChange={(e) =>{
-                                setTopic(e.target.value);
-                            }}></input> 
-                        </div>
-
-                        <div className="form-check">
-                            <label for="name">Enter Content</label><br/>
-                            <input type="text" className="form-control" id="name"                           
-                            onChange={(e) =>{
-                                setDescription(e.target.value);
-                            }}></input> 
-                        </div>
-
-                        <div className="form-check">
-                            <label for="name">Enter Other Details</label><br/>
-                            <input type="text" className="form-control" id="name"                          
-                            onChange={(e) =>{
-                                setOtherDetails(e.target.value);
-                            }}></input> 
-                        </div>
-                        <br/>
-                        <button type="submit" class="btn btn-success w-100 rounded-pill">Publish</button>                  
-                    </form>
             </div>
             </div>
+           
         </div>
 
 
     )
-
 }
