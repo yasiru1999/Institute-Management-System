@@ -71,7 +71,7 @@ function LeftMenu(props) {
                     <a href="/">Exam Results</a>
                 </Menu.Item>
                 <Menu.Item key="viewExam">
-                    <a href="/">Exam Timetable</a>
+                    <a href="/sall">Exam Timetable</a>
                 </Menu.Item>
             </SubMenu>
 
@@ -106,7 +106,7 @@ function LeftMenu(props) {
                     <a href="/">Exam Results</a>
                 </Menu.Item>
                 <Menu.Item key="viewExam">
-                    <a href="/">Exam Timetable</a>
+                    <a href="/all">Exam Timetable</a>
                 </Menu.Item>
             </SubMenu>
 

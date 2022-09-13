@@ -7,21 +7,21 @@ import { Link } from 'react-router-dom';
 
 export default function NoticeSession_ViewL() {
 
-    //const {ids} = useParams("");   
+    //const {ids} = useParams("");
     const module = "IT2001";
- 
+
     /*const [noticeList, setNoticeList] = useState({
         moduleNo:"", category:"", topic:"", description:"", otherDetails:""
     });*/
     const [noticeList, setNoticeList] = useState([]);
     const [sessionList, setSessionList] = useState([]);
 
-   /* const [sessionList, setSessionList] = useState({
-        moduleNo:"", category:"", topic:"", description:"", otherDetails:""
-    });*/
+    /* const [sessionList, setSessionList] = useState({
+         moduleNo:"", category:"", topic:"", description:"", otherDetails:""
+     });*/
 
     const [userRouter, setUserRouter] = useState([]);
-    
+
     useEffect(() => {
         const getDetailsList = async() => {
             try {
@@ -38,13 +38,13 @@ export default function NoticeSession_ViewL() {
 
     const deleteDetail = async (id) => {
         try {
-          const res = await axios.delete(`http://localhost:5001/noticeSessions/delete/${id}`)
-          const newListItems = userRouter.filter(topic => topic._id !== id);
-          setUserRouter(newListItems);
+            const res = await axios.delete(`http://localhost:5001/noticeSessions/delete/${id}`)
+            const newListItems = userRouter.filter(topic => topic._id !== id);
+            setUserRouter(newListItems);
         } catch (err) {
-          console.log(err);
+            console.log(err);
         }
-      }
+    }
 
     return(
         <div>
@@ -53,26 +53,26 @@ export default function NoticeSession_ViewL() {
             <h2>Module: Software Engineering / IT2001</h2>
             <hr className='hrLine'/>
 
-            <div className="btn-group">        
+            <div className="btn-group">
                 <a  href={`/createNS/IT2001`}><button className="button">Create Notice/Sessions</button></a>
                 <button className="button1">Student View</button>
             </div>
 
             <br/> <br/> <br/> <br/>
 
-        <div className='viewTags'>
-            <u><b><h3 className=" fw-bolder mb-4">Notices</h3></b></u>
-        </div>
+            <div className='viewTags'>
+                <u><b><h3 className=" fw-bolder mb-4">Notices</h3></b></u>
+            </div>
 
-        <div className='tablePadding'>
+            <div className='tablePadding'>
                 <table className="table ">
                     <thead className='tableHeader'>
-                        <tr  key={"1"}>
-                            <th> Topic </th>
-                            <th> Description </th>
-                            <th> Other Details </th>
-                            <th> Actions </th>
-                        </tr>
+                    <tr  key={"1"}>
+                        <th> Topic </th>
+                        <th> Description </th>
+                        <th> Other Details </th>
+                        <th> Actions </th>
+                    </tr>
                     </thead>
 
                     <tbody className='table-group-divider'>
@@ -86,21 +86,21 @@ export default function NoticeSession_ViewL() {
                                 <td>
                                     <Link to={`/updateNS/${notice._id}`}><button className='buttonUpdate'>Update</button></Link>
 
-                                    <Link onClick={() => deleteDetail(notice._id)}><button className='buttonDelete'>Delete</button></Link>                               
-                                </td>                        
+                                    <Link onClick={() => deleteDetail(notice._id)}><button className='buttonDelete'>Delete</button></Link>
+                                </td>
                             </tr>
                         ))
                     }
                     </tbody>
                 </table>
-        </div>         
-           
+            </div>
+
 
 
 
 
             <br/><br/><br/><br/>
-            
+
             <div className='viewTags'>
                 <u><b><h3 className=" fw-bolder mb-4">Sessions</h3></b></u>
             </div>
@@ -108,12 +108,12 @@ export default function NoticeSession_ViewL() {
             <div className='tablePadding'>
                 <table className="table ">
                     <thead className='tableHeader'>
-                        <tr  key={"1"}>
-                            <th> Topic </th>
-                            <th> Description </th>
-                            <th> Other Details </th>
-                            <th> Actions </th>
-                        </tr>
+                    <tr  key={"1"}>
+                        <th> Topic </th>
+                        <th> Description </th>
+                        <th> Other Details </th>
+                        <th> Actions </th>
+                    </tr>
                     </thead>
 
                     <tbody className='table-group-divider'>
@@ -127,7 +127,7 @@ export default function NoticeSession_ViewL() {
                                 <td>
                                     <Link to={`/updateNS/${session._id}`}><button className='buttonUpdate'>Update</button></Link>
                                     <Link to={`/panelAssign/${session._id}`}><button className='buttonDelete'>Delete</button></Link>
-                                </td>                        
+                                </td>
                             </tr>
                         ))
                     }
@@ -135,7 +135,7 @@ export default function NoticeSession_ViewL() {
                 </table>
             </div>
 
-            
+
 
 
 

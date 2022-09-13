@@ -1,200 +1,157 @@
-// import React, { useEffect, useState } from "react";
-// import axios from "axios";
-// import { useHistory } from "react-router";
-// // import Swal from "sweetalert2";
-
-// export default function EditTimetable(props) {
-
-//     const [TimetableList, setTimetable] = useState([]);
-
-//     const [proData, setData] = useState({
-//         courseId: "",
-//         subjectId: "",
-//         examType: "",
-//         date: "",
-//         time: "",
-//         hallNumber: "",
-//     });
-        
-
-//     useEffect(() => {
-//         const pid = props.match.params.id
-//         axios.get('http://localhost:5001/timetable/get/' + pid).then((res) => {
-//             setData(res.data)
-//         }).catch((err) => {
-//             Swal.fire({
-//                 title: err,
-//                 icon: 'error'
-//             })
-//         })
-//     }, [])
-
-//     const history = useHistory();
-//     function updateTimetable(e) {
-//         e.preventDefault();
-
-//         const pid = props.match.params.id
-//         axios.put('http://localhost:5001/timetable/update/' + pid, proData).then((then) => {
-//             Swal.fire({
-//                 title: "Updated Successfully",
-//                 icon: 'success'
-//             });
-//             history.push("/");
-//         }).catch((err) => {
-//             Swal.fire({
-//                 title: err,
-//                 icon: 'error'
-//             })
-//         })
-//     }
-
-//     function handle(e) {
-//         const newdata = { ...proData }
-//         newdata[e.target.id] = e.target.value;
-//         setData(newdata)
-//     }
-
-//     const gotoAdd = ()=>{
-//         let path = "/";
-//         history.push(path);
-//     }
-//     return (
-//         <div style={{
-//             maxWidth: "100%"
-//         }}
-//             className={"UpdateSVGBackground"}
-//         >
-//             <div className="pt-24 container">
-//                 <h2 class="display-3 font-black mb-3"> Update Timetable </h2>
-
-//                 <span className="border">
-//                     <div className="shadow p-3 mb-5 bg-white rounded">
-//                         <form onSubmit={updateSupplier}>
-//                             <div className="form-group">
-//                                 <label for=" supplierId">Supplier Id</label>
-//                                 <input type="text" className="form-control" id=" supplierId" placeholder="Enter Supplier Id"
-//                                     value={proData.supplierId}
-//                                     onChange={(e) => {
-//                                         handle(e);
-//                                     }} />
-
-//                             </div>
-//                             <div className="form-group">
-
-//                                 <label for="suppliertName">Supplier Name</label>
-//                                 <input type="text" className="form-control" id="supplierName" placeholder="Enter Supplier Name"
-//                                     value={proData.supplierName}
-//                                     onChange={(e) => {
-//                                         handle(e);
-//                                     }} />
-
-//                             </div>
-//                             <div className="form-group">
-
-//                                 <label for="address">Supplier Address</label>
-//                                 <input type="text" className="form-control" id="address" placeholder="Enter Supplier Address"
-//                                     value={proData.address}
-//                                     onChange={(e) => {
-//                                         handle(e);
-//                                     }} />
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { useHistory } from "react-router";
+import Swal from "sweetalert2";
 
 
-//                             </div>
-//                             <div className="form-group">
 
-//                                 <label for="phoneNumber">Supplier Phone Number</label>
-//                                 <input type="text" className="form-control" id="phoneNumber" placeholder="Enter Supplier Phone Number"
-//                                     value={proData.phoneNumber}
-//                                     onChange={(e) => {
-//                                         handle(e);
-//                                     }} />
+export default function EditTimetable(props) {
+    console.log(props.location.state);
+    const editDetails= props.location.state;
 
+    // const [TimetableList, setTimetable] = useState([]);
 
-//                             </div>
+    const [proData, setData] = useState(
+        {
+            courseId: editDetails.courseId,
+            subjectId: editDetails.subjectId,
+            examType: editDetails.examType,
+            date: editDetails.date,
+            time: editDetails.time,
+            hallNumber: editDetails.hallNumber,
+        }
 
-//                             <div className="form-group">
+    );
 
-//                                 <label for="email">Supplier Email</label>
-//                                 <input type="text" className="form-control" id="email" placeholder="Enter Supplier Email"
-//                                     value={proData.email}
-//                                     onChange={(e) => {
-//                                         handle(e);
-//                                     }} />
+    const { courseId, subjectId, examType, date, time, hallNumber } = proData;
 
+    const onInputChange = e => {
+        setData({ ...proData, [e.target.name]: e.target.value });
+    };
 
-//                             </div>
-//                             <div className="form-group">
+    useEffect(() => {
+        loadTimetable();
+    }, []);
 
-//                                 <label for="orderId">Order Id</label>
-//                                 <input type="text" className="form-control" id="orderId" placeholder="Enter Order Id"
-//                                     value={proData.orderId}
-//                                     onChange={(e) => {
-//                                         handle(e);
-//                                     }} />
+    const onSubmit = async e => {
+        e.preventDefault();
+        await axios.put(`http://localhost:5001/timetable/update/${props.match.params.id}`, proData);
+        Swal.fire({
+            title: "Updated Successfully",
+            icon: 'success',
+        });
+        props.history.push("/all");
+    };
 
+    const loadTimetable = async () => {
+        const result = await axios.get(`http://localhost:5001/timetable/${props.match.params.id}`);
+        setData(result.data);
+    };
 
-//                             </div>
-//                             <div className="form-group">
+    useEffect(() => {
+        setData(editDetails);
+    }, [editDetails]);
 
-//                                 <label for="productDescription">Product Description</label>
-//                                 <input type="text" className="form-control" id="productDescription" placeholder="Enter Product Description"
-//                                     value={proData.productDescription}
-//                                     onChange={(e) => {
-//                                         handle(e);
-//                                     }} />
-
-
-//                             </div>
-
-//                             <div className="form-group">
-
-//                                 <label for="unitCost">Unit Cost</label>
-//                                 <input type="text" className="form-control" id="unitCost" placeholder="Enter Unit Cost"
-//                                     value={proData.unitCost}
-//                                     onChange={(e) => {
-//                                         handle(e);
-//                                     }} />
-
-
-//                             </div>
-
-//                             <div className="form-group">
-
-//                                 <label for="quantity">Quantity</label>
-//                                 <input type="text" className="form-control" id="quantity" placeholder="Enter Quantity "
-//                                     value={proData.quantity}
-//                                     onChange={(e) => {
-//                                         handle(e);
-//                                     }} />
+    return (
+        <div className="container">
+            <div className="row">
+                <div className="col-md-50 mt-4 mx-auto">
+                    <h1 className="h3 mb-3 font-weight-normal">Update Timetable</h1>
+                    <form onSubmit={e => onSubmit(e)}>
 
 
-//                             </div>
-//                             <div className="form-group">
+                        <div>
+                            <div className="form-check" style={{marginBottom: '15px'}}>
+                                <label for="name">Course Name</label><br/>
+                                <select onChange={(e) =>{
+                                    setData((dt) => ({ ...dt, courseId: (e.target.value) }));
+                                }}  >
 
-//                                 <label for="totalAmount">Total Amount</label>
-//                                 <input type="text" className="form-control" id="totalAmount" placeholder="Enter Total Amount"
-//                                     value={proData.totalAmount}
-//                                     onChange={(e) => {
-//                                         handle(e);
-//                                     }} />
+                                    <option>SE1000 - Software Engineering</option>
+                                    <option>DS3000 - Data Science</option>
+                                    <option>IT2000 - Information Technology</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div className="form-check" style={{marginBottom: '15px'}}>
+                                <label for="name">Subject ID and Name</label><br/>
+                                <select onChange={(e) =>{
+                                    setData((dt) => ({ ...dt, subjectId: (e.target.value) }));
+                                }}>
+                                    <option>IT2030 - Algorithms</option>
+                                    <option>SE1030 - Software Architecture</option>
+                                    <option>SE1040 - Database Management</option>
+                                    <option>IT2040 - Artificial Intelligence</option>
+                                    <option>DS3060 - Machine Learning</option>
+                                    <option>DS3070 - Cloud Computing</option>
+                                    <option>DS3080 - Big Data</option>
+                                    <option>IT2050 - Internet of Things</option>
+                                    <option>SE1050 - Software Testing</option>
 
 
-//                             </div>
+                                </select>
+                            </div>
+                        </div>
 
 
-//                             <button type="submit" className="btn btn-primary min-w-full">Submit</button>
+                        <div>
+                            <div className="form-check" style={{marginBottom: '15px'}}>
+                                <label for="name">Exam Type</label><br/>
+                                <select onChange={(e) =>{
+                                    setData((dt) => ({ ...dt, examType: (e.target.value) }));
+                                }}>
+                                    <option>Mid</option>
+                                    <option>Final</option>
+                                    <option>Assignment</option>
+                                    <option>Lab</option>
+                                    <option>Quiz</option>
+                                </select>
+                            </div>
+                        </div>
 
-//                             <div class="grid place-items-center pt-5">
-//                                 <button class="btn btn-primary bg-blue-400" type="button" onClick={() => gotoAdd()}
-//                                     style={{ width: "30em" }}>Timetable List</button>
-//                             </div>
+                        <div className="form-group" style={{marginBottom: '15px', width: '300px', marginLeft: '20px'}}>
+                            <label style={{marginBottom: '5px'}}>Date</label>
+                            <input type="date" className="form-control" name="date" placeholder="Enter Date" value={date} onChange={(e) => {
+                                setData((dt) => ({ ...dt, date: (e.target.value) }));
+                            }}/>
+                        </div>
 
-//                         </form>
-//                     </div>
-//                 </span>
+                        <div className="form-group" style={{marginBottom: '15px', width: '300px', marginLeft: '20px'}}>
+                            <label style={{marginBottom: '5px'}}>Time</label>
+                            <input type="time" className="form-control" name="time" placeholder="Enter Time" value={time} onChange={(e) => {
+                                setData((dt) => ({ ...dt, time: (e.target.value) }));
+                            }}/>
+                        </div>
 
 
-//             </div>
-//         </div>
-//     )
-// }
+                        <div>
+                            <div className="form-check" style={{marginBottom: '15px'}}>
+                                <label for="name">Hall Number</label><br/>
+                                <select onChange={(e) =>{
+                                    setData((dt) => ({ ...dt, hallNumber: (e.target.value) }));
+                                }}>
+                                    <option>Hall A3b </option>
+                                    <option>Hall A4c</option>
+                                    <option>Hall A5d</option>
+                                    <option>Hall A6e</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <button className="btn btn-warning">Update Timetable</button>
+
+                        <button className="btn btn-danger" type="reset" style={{ marginLeft: '100px'}}> Clear  </button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    );
+}
+
+
+
+
+

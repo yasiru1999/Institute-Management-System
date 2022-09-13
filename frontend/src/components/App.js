@@ -8,6 +8,7 @@ import RegisterPage from "./views/RegisterPage/RegisterPage";
 import AddTimetable from "./views/Timetable/AddTimetable";
 import AllTimetable from "./views/Timetable/AllTimetable";
 import UpdateTimetable from "./views/Timetable/UpdateTimetable";
+import SAllTimetable from "./views/Timetable/SAllTimetable";
 import NavBar from "./views/NavBar/NavBar";
 import Footer from "./views/Footer/Footer"
 import UserDetailsPage from "./views/UserDetailsPage/UserDetailsPage";
@@ -34,9 +35,10 @@ function App() {
           <Route exact path="/updateUserInfo" component={UserDetailsUpdatePage} />
           <Route exact path="/createNS/:no" component={Auth(NoticeSession_Create, true)} />
           <Route exact path="/allViewNS/:Mno" component={Auth(NoticeSession_ViewL, true)} />
-          <Route exact path="/add" component={Auth(AddTimetable, false)} />
-          <Route exact path="/all" component={Auth(AllTimetable, false)} />
-          <Route exact path="/update/:id" component={Auth(UpdateTimetable, false)} />
+          <Route exact path="/add" component={Auth(AddTimetable, true)} />
+          <Route exact path="/all" component={Auth(AllTimetable, true)} />
+          <Route exact path="/update/:id" component={Auth(UpdateTimetable, true)} />
+          <Route exact path="/sall" component={Auth(SAllTimetable, true)} />
             <Route exact path="/payment" component={Auth(AddPayments, true)} />
             <Route exact path="/paymentDetails" component={Auth(AdminPayments, true)} />
             <Route exact path="/updatePaymentDetails" component={Auth(UpdatePayment, false)} />
