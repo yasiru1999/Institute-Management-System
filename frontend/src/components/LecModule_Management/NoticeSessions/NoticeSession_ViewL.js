@@ -9,16 +9,9 @@ export default function NoticeSession_ViewL() {
 
     //const {ids} = useParams("");
     const module = "IT2001";
-
-    /*const [noticeList, setNoticeList] = useState({
-        moduleNo:"", category:"", topic:"", description:"", otherDetails:""
-    });*/
+ 
     const [noticeList, setNoticeList] = useState([]);
     const [sessionList, setSessionList] = useState([]);
-
-    /* const [sessionList, setSessionList] = useState({
-         moduleNo:"", category:"", topic:"", description:"", otherDetails:""
-     });*/
 
     const [userRouter, setUserRouter] = useState([]);
 
