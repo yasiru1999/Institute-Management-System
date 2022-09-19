@@ -7,13 +7,13 @@ const TimetableSchema = new Schema({
     courseId : {
         type : String,
         // required: true
-    
+
     },
     subjectId : {
         type : String,
         // required: true
     },
-      examType : {
+    examType : {
         type : String,
         // required: true
     },
