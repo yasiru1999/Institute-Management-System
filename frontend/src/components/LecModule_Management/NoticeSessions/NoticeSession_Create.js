@@ -8,33 +8,27 @@ export default function NoticeSession_Create() {
 
     //const {module} = useParams("");   
     const module = "IT2001";
-    //const [moduleNos] = useState(module);  
-    //const [moduleNos, setModule] = useState("IT2001");  
- 
-    const [category, setCategory] = useState("");
-    const [topic, setTopic] = useState("");
-    const [description, setDescription] = useState("");
-    const [otherDetails, setOtherDetails] = useState("");
+
+    const [noticeSession, setNoticeSession] = useState({
+        category:"", topic:"", description:"", otherDetails:"" 
+    });
 
     const resetForm = () => {
-        setCategory({ category: ""});
-        setTopic({topic: ""});
-        setDescription({ description: ""});
-        setOtherDetails({ otherDetails: ""});
+        setNoticeSession({ category:"", topic:"", description:"", otherDetails:"" });
     }
-
 
     function sendData(e){
         e.preventDefault();
-        const newNoticeSession = {
-            category, topic, description, otherDetails
-        }
-        axios.post("http://localhost:5001/noticeSessions/create", newNoticeSession).then(() => {
+        axios.post("http://localhost:5001/noticeSessions/create", noticeSession).then(() => {
             alert("Successfully Created");
             resetForm();
         }).catch((err) => {
             alert(err)
         });
+    }
+
+    const onChange = e => {
+        setNoticeSession({ ...noticeSession, [e.target.name]: e.target.value });
     }
 
     return(
@@ -58,31 +52,27 @@ export default function NoticeSession_Create() {
             <form onSubmit={sendData} action="/post" method="post">
 			
 				<b><label htmlFor="name">Select Category</label></b>
-				<select onChange={(e) =>{
-                    setCategory(e.target.value);
-                }}>
+				<select name='category' value={noticeSession.category}
+                onChange={onChange}>
 				  <option>None</option>
                   <option>Notice</option>
                   <option>Session</option> 
 				</select>
 				
 				<b><label for="name">Enter Topic</label></b>
-                            <input type="text" className="form-control" id="name" placeholder="Topic.."
-                            onChange={(e) =>{
-                                setTopic(e.target.value);
-                }} required></input> 
+                <input type="text" className="form-control" id="name" placeholder="Topic.." name='topic'
+                value={noticeSession.topic}
+                onChange={onChange} required></input> 
 				
 				<b><label for="name">Enter Content</label><br/></b>
-                            <input type="text" className="form-control" id="name" placeholder="Content.."                           
-                            onChange={(e) =>{
-                                setDescription(e.target.value);
-                 }} required></input> 
+                <input type="text" className="form-control" id="name" placeholder="Content.." name='description'
+                value={noticeSession.description}                        
+                 onChange={onChange} required></input> 
 				 
-				 <b><label for="name">Enter Other Details</label><br/></b>
-                            <input type="text" className="form-control" id="name" placeholder="Other details.."                            
-                            onChange={(e) =>{
-                                setOtherDetails(e.target.value);
-                }}required></input> 
+				<b><label for="name">Enter Other Details</label><br/></b>
+                <input type="text" className="form-control" id="name" placeholder="Other details.." name='otherDetails'
+                value={noticeSession.otherDetails}                           
+                  onChange={onChange} required></input> 
 
                 <div className='btS'>	
 				<button className='buttonSubmit' type="submit">Publish</button>

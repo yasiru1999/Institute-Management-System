@@ -7,22 +7,27 @@ import './NoticeSession.css'
 export default function NoticeSession_Update(props) {
 
     const {id} = useParams("");   
-    //const [detailList, setDetailList] = useState([]);
 
-    const [detailList, setDetailList] = useState({
+    /*const [detailList, setDetailList] = useState({
         moduleNo:"", category:""
-    });
+    });*/
 
     const [updatedetailList, setUpdateDetailList] = useState({
-        category:"", topic:"", description:"", otherDetails:""
+        moduleNo:"", category:"", topic:"", description:"", otherDetails:""
     });
+
+    const onChange = e => {
+        setUpdateDetailList({ ...updatedetailList, [e.target.name]: e.target.value });
+    }
+
+    const resetForm = () => {
+        setUpdateDetailList({ category:"", topic:"", description:"", otherDetails:"" });
+    }
 
 
     useEffect(() => {
         const getDetailsList = async() => {
             try {
-                const results = await axios.get(`http://localhost:5001/noticeSessions/getDetails/${id}`)
-                setDetailList(results.data);
                 const res = await axios.get(`http://localhost:5001/noticeSessions/getDetails/${id}`)
                 setUpdateDetailList(res.data);
             } catch(err) {
@@ -32,46 +37,12 @@ export default function NoticeSession_Update(props) {
         getDetailsList()
     },[]);
 
-    /*const resetForm = () => {
-        setCategory({ category: ""});
-        setTopic({topic: ""});
-        setDescription({ description: ""});
-        setOtherDetails({ otherDetails: ""});
-    }*/
-
-    /*function sendData(e){
-        (values, { setSubmitting }) => {
-        setTimeout(() => {
-            let dataToSubmit = {
-                topic:values.topic,
-                description: values.description,
-                otherDetails: values.otherDetails
-            };
-            console.log(dataToSubmit);
-            axios.put(`http://localhost:5001/noticeSessions/update/${id}`, dataToSubmit)
-                .then(res =>
-                {
-                    if( res){
-                        props.history.push("/allViewNS/IT2001");
-                        alert('success');
-                    }else{
-                        alert("Error while registering user");
-                    }
-                }).
-            catch(err => {
-                console.log(err);
-            });
-            setSubmitting(false);
-        }, 500);
-    }}*/
-
-
     function sendData(e){
         e.preventDefault();
         axios.put(`http://localhost:5001/noticeSessions/update/${id}`, updatedetailList).then(() => {
             alert("Successfully Updated");
-            //props.history.push('/allViewNS/IT2001')
-            //resetForm();
+            props.history.push('/allViewNS/IT2001')
+            resetForm();
         }).catch((err) => {
             alert("Fild to update");
             alert(err)
@@ -92,31 +63,31 @@ export default function NoticeSession_Update(props) {
             <br/> <br/> <br/> <br/>
 
             <div className='formStyle'>
-            <center><h2>Notice/Session Update</h2></center>
-            <div className='form1'>
+                <center><h2>Notice/Session Update</h2></center>
+                <div className='form1'>
                     <form onSubmit={sendData} >
 
-                        <label htmlFor="name"><b>Module No:</b> {detailList.moduleNo}</label> <br/>
-                        <label htmlFor="name"><b>Category:</b>{detailList.category}</label>
-                        <br/><br/>
+                        <label htmlFor="name"><b>Module No:</b>{updatedetailList.moduleNo}</label> <br/>
+                        <label htmlFor="name"><b>Category:</b>{updatedetailList.category}</label>
+                        <br/><br/>                     
                                           
-                            <label htmlFor="name"><b>Enter Topic</b></label>
-                            <input type="text" className="form-control" id="topc" placeholder="Enter Topic"
-                                value={updatedetailList.topic}
-                                onChange={(e) => { setUpdateDetailList({ topic: e.target.value }) 
-                            }}></input>
+                        <label htmlFor="name"><b>Enter Topic</b></label>
+                        <input type="text" className="form-control" name="topic" placeholder="Enter Topic.."
+                            value={updatedetailList.topic}
+                            onChange={onChange}>
+                        </input>
                       
-                            <label htmlFor="name"><b>Description</b></label>
-                            <input type="text" className="form-control" id="des" placeholder="Enter Name"
-                                value={updatedetailList.description}
-                                onChange={(e) => { setUpdateDetailList({ description: e.target.value }) 
-                            }}></input>
+                        <label htmlFor="name"><b>Description</b></label>
+                        <input type="text" className="form-control" name="description" placeholder="Enter Description.."
+                            value={updatedetailList.description}
+                            onChange={onChange}>        
+                        </input>
 
-                            <label htmlFor="name"><b>Other Details</b></label>
-                            <input type="text" className="form-control" id="other" placeholder="Enter Name"
-                                value={updatedetailList.otherDetails}
-                                onChange={(e) => { setUpdateDetailList({ otherDetails: e.target.value }) 
-                            }}></input>
+                        <label htmlFor="name"><b>Other Details</b></label>
+                        <input type="text" className="form-control" name="otherDetails" placeholder="Enter Other Details.."
+                            value={updatedetailList.otherDetails}
+                            onChange={onChange}>
+                        </input>
                     
                 <div className='btS'>	
 				    <button className='buttonSubmit' type="submit">Update</button>

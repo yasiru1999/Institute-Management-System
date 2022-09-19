@@ -20,6 +20,7 @@ import UpdatePayment from "./views/Payment/UpdatePayment";
 import AddInquiry from "./views/Inquiry/AddInqiry";
 import AdminInquiry from "./views/Inquiry/AdminInquiry";
 import NoticeSession_Update from './LecModule_Management/NoticeSessions/NoticeSession_Update';
+import LecMaterials_homeLec from './LecModule_Management/LecMaterials/LecMaterials_homeLec';
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
           <Route exact path="/inquiry" component={Auth(AddInquiry, true)} />
           <Route exact path="/inquiryDetails" component={Auth(AdminInquiry, true)} />
           <Route exact path="/updateNS/:id" component={Auth(NoticeSession_Update, true)} />
+          <Route exact path="/homeLecMat/:id" component={Auth(LecMaterials_homeLec, true)} />
         </Switch>
       </div>
       <Footer />
