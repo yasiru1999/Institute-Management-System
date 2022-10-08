@@ -27,9 +27,7 @@ export default function ReadTimetable() {
         history.push(path);
     }
 
-    return (<div style={{
-        maxWidth: "100%",
-    }}
+    return (<div style={{  margin: '6rem auto' }}
                  className={"h-full DisplaySVGBackground"}
     >
         <div class="pt-24 container">
@@ -56,9 +54,9 @@ export default function ReadTimetable() {
                 }
             }).map((val, key) => {
 
-                return <div>
+                return <div className='tablePadding'>
                     <table Id = "Timetable" class="table table-dark rounded-lg">
-                        <thead class="thead-dark">
+                        <thead class="tableHeader">
                         <tr>
 
                             <th scope="col">Course ID</th>
@@ -96,7 +94,7 @@ export default function ReadTimetable() {
 
                 id="test-table-xls-button"
 
-                className="btn btn-primary"
+                className="buttonSubmit"
 
                 table="Timetable"
 

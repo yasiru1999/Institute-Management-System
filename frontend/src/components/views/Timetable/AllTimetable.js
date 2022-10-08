@@ -47,9 +47,7 @@ export default function ReadTimetable() {
         history.push(path);
     }
 
-    return (<div style={{
-        maxWidth: "100%",
-    }}
+    return (<div style={{  margin: '6rem auto' }}
                  className={"h-full DisplaySVGBackground"}
     >
         <div class="pt-24 container">
@@ -76,9 +74,9 @@ export default function ReadTimetable() {
                 }
             }).map((val, key) => {
 
-                return <div>
+                return  <div className='tablePadding'>
                     <table Id = "Timetable" class="table table-dark rounded-lg">
-                        <thead class="thead-dark">
+                        <thead class="tableHeader">
                         <tr>
                             <th scope="col">Actions</th>
                             <th scope="col">Course ID</th>
@@ -98,10 +96,10 @@ export default function ReadTimetable() {
                                 <br/><br/><br/>
 
                                 <div className={"grid grid-rows-1 grid-cols-2 gap-3"}>
-                                    <a type="button" className="btn btn-danger "
+                                    <a type="button" className="buttonDelete "
                                        onClick={() => deleteTimetable(val._id)}> Delete </a>
 
-                                    <a type="button" className="btn btn-info"
+                                    <a type="button" className="buttonUpdate"
                                        onClick={() => updateTimetable(val._id)}> Edit </a>
 
                                 </div>
@@ -121,7 +119,7 @@ export default function ReadTimetable() {
                 </div>
             })}
             <div class="grid place-items-center">
-                <button class="btn btn-primary bg-blue-400" type="button" onClick={() => gotoAdd()}
+                <button class="buttonSubmit" type="button" onClick={() => gotoAdd()}
                         style={{width:"18em"}}>Add New Timetable</button>
 
                 &nbsp;&nbsp;&nbsp;&nbsp;
@@ -130,7 +128,7 @@ export default function ReadTimetable() {
 
                     id="test-table-xls-button"
 
-                    className="btn btn-primary"
+                    className="buttonSubmit"
 
                     table="Timetable"
 
