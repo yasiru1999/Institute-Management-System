@@ -6,13 +6,14 @@ import axios from 'axios';
 export default function HeaderBar() {
  
     const {id} = useParams("");   
+    const course = localStorage.getItem('registeredCourse');
 
     const [moduleNames, setModuleNames] = useState({moduleName:"", moduleNo:""});
 
     useEffect(() => {
         const getDetailsList = async() => {
             try {
-                const res = await axios.get(`http://localhost:5001/module/getOneModule/${id}`)
+                const res = await axios.get(`http://localhost:5001/module/getOneCourse/${course}`)
                 setModuleNames(res.data);
             } catch(err) {
                 console.log(err);
@@ -23,7 +24,10 @@ export default function HeaderBar() {
   
     return(
         <div style={{ paddingTop: '5%'}}>
-            <h2>Module: {moduleNames.moduleName} / {id}</h2>         
+
+
+            <h2>{course} {moduleNames.moduleName} / Module : {id}</h2>
+            
             <hr className='hrLine'/>          
         </div>
     )

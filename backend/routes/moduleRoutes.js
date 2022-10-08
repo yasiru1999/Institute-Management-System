@@ -13,8 +13,8 @@ router.get("/getAll", async (req, res) => {
 })
 
 
-//Get module details by Module Name
-router.get("/getOneModule/:module", async (req, res) => {
+//Get module details by using Module no
+router.get("/getOneCourse/:module", async (req, res) => {
   try {
     let module = req.params.module;
     const OneModule = await Modules.findOne({ moduleNo: module });
