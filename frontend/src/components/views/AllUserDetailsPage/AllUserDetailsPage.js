@@ -24,9 +24,10 @@ function AllUserDetailsPage() {
 
     async function deletePayment(item) {
         console.log(item.ID);
-        await Axios.delete(`http://localhost:5001/pay/deletePayment/${item._id}`).then((res)=>{
+        alert("Are you want to Delete ?");
+        await Axios.delete(`http://localhost:5001/api/users/deleteUser/${item._id}`).then((res)=>{
             console.log(res)
-            alert("Delete  Successfully");
+
         });
     }
 

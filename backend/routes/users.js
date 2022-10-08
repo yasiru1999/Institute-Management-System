@@ -148,4 +148,11 @@ router.get('/getAllUsers' , (req,res) => {
     })
 })
 
+router.delete('/deleteUser/:id', (req,res)=>{
+    const user = (req.body);
+    User.findByIdAndDelete({ _id: req.params.id }, user).then(() => {
+        res.status(200).json({ message: "Successfully Deleted" })
+    })
+})
+
 module.exports = router;
