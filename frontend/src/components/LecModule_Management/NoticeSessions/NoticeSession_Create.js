@@ -1,20 +1,20 @@
-import React, { useState, useEffect}  from 'react';
+import React, { useState}  from 'react';
 import axios from 'axios';
-import {useParams} from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import './NoticeSession.css'
+import HeaderBar from '../LecMaterials/HeaderBar';
 
 
 export default function NoticeSession_Create() {
 
-    //const {module} = useParams("");   
-    const module = "IT2001";
+    const {id} = useParams("");
 
     const [noticeSession, setNoticeSession] = useState({
-        category:"", topic:"", description:"", otherDetails:"" 
+        moduleNo:id, category:"", topic:"", description:"", otherDetails:"" 
     });
 
     const resetForm = () => {
-        setNoticeSession({ category:"", topic:"", description:"", otherDetails:"" });
+        setNoticeSession({ moduleNo:id, category:"", topic:"", description:"", otherDetails:"" });
     }
 
     function sendData(e){
@@ -33,13 +33,10 @@ export default function NoticeSession_Create() {
 
     return(
         <div>
-            <br/> <br/> <br/> <br/> 
-
-            <h2>Module: Software Engineering / IT2001</h2>
-            <hr className='hrLine'/>
+             <div><HeaderBar/></div>
 
             <div className="btn-group">        
-                <a  href={`/allViewNS/IT2001`}><button className="button">View Notice/Sessions</button></a>
+                <a  href={`/allViewNS/${id}`}><button className="button">View Notice/Sessions</button></a>
                 <button className="button1">Student View</button>
             </div>
 
@@ -50,6 +47,10 @@ export default function NoticeSession_Create() {
             <div className="form1">
             
             <form onSubmit={sendData} action="/post" method="post">
+
+            <input type="text" className="form-control" id="name" name='moduleNo'
+                value={noticeSession.moduleNo}
+                onChange={onChange} required disabled></input>
 			
 				<b><label htmlFor="name">Select Category</label></b>
 				<select name='category' value={noticeSession.category}

@@ -12,4 +12,4 @@ const ModuleSchema = new mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model('Modules', ModuleSchema);
+module.exports = mongoose.model('Module', ModuleSchema);

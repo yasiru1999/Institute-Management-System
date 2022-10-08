@@ -1,16 +1,11 @@
 import React, { useState, useEffect}  from 'react';
 import axios from 'axios';
 import {useParams} from 'react-router-dom';
-import './NoticeSession.css'
-
+import './NoticeSession.css';
 
 export default function NoticeSession_Update(props) {
 
     const {id} = useParams("");   
-
-    /*const [detailList, setDetailList] = useState({
-        moduleNo:"", category:""
-    });*/
 
     const [updatedetailList, setUpdateDetailList] = useState({
         moduleNo:"", category:"", topic:"", description:"", otherDetails:""
@@ -23,7 +18,6 @@ export default function NoticeSession_Update(props) {
     const resetForm = () => {
         setUpdateDetailList({ category:"", topic:"", description:"", otherDetails:"" });
     }
-
 
     useEffect(() => {
         const getDetailsList = async() => {
@@ -41,7 +35,7 @@ export default function NoticeSession_Update(props) {
         e.preventDefault();
         axios.put(`http://localhost:5001/noticeSessions/update/${id}`, updatedetailList).then(() => {
             alert("Successfully Updated");
-            props.history.push('/allViewNS/IT2001')
+            props.history.push(`/allViewNS/${updatedetailList.moduleNo}`)
             resetForm();
         }).catch((err) => {
             alert("Fild to update");
@@ -51,12 +45,14 @@ export default function NoticeSession_Update(props) {
 
     return(
         <div>
-            <br/> <br/> <br/> <br/>
-            <h2>Module: Software Engineering / IT2001</h2>
-            <hr className='hrLine'/>
-
+            
+            <div style={{ paddingTop: '5%'}}>
+                <h2>Module no:   {updatedetailList.moduleNo}</h2>         
+                <hr className='hrLine'/>
+            </div>
+            
             <div className="btn-group">                
-                <a  href={`/allViewNS/IT2001`}><button className="button">View Notice/Sessions</button></a>
+                <a  href={`/allViewNS/${updatedetailList.moduleNo}`}><button className="button">View Notice/Sessions</button></a>
                 <button className="button1">Student View</button>
             </div>
 

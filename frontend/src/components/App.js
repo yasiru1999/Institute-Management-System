@@ -32,11 +32,11 @@ function App() {
           <Route exact path="/" component={Auth(LandingPage, null)} />
           <Route exact path="/login" component={Auth(LoginPage, false)} />
           <Route exact path="/register" component={Auth(RegisterPage, true)} />
+          <Route exact path="/createNS/:id" component={Auth(NoticeSession_Create, true)} />
+          <Route exact path="/allViewNS/:id" component={Auth(NoticeSession_ViewL, true)} />
           <Route exact path="/user" component={Auth(UserDetailsPage, true)} />
           <Route exact path="/updateUserInfo" component={Auth(UserDetailsUpdatePage, true)} />
           <Route exact path="/AllUsers" component={Auth(AllUserDetailsPage, true)} />
-          <Route exact path="/createNS/:no" component={Auth(NoticeSession_Create, true)} />
-          <Route exact path="/allViewNS/:Mno" component={Auth(NoticeSession_ViewL, true)} />
           <Route exact path="/add" component={Auth(AddTimetable, true)} />
           <Route exact path="/all" component={Auth(AllTimetable, true)} />
           <Route exact path="/update/:id" component={Auth(UpdateTimetable, true)} />

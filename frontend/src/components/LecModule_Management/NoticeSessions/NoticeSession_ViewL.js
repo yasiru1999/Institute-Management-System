@@ -1,15 +1,15 @@
 import React, { useState, useEffect}  from 'react';
 import axios from 'axios';
-import {useParams} from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import './NoticeSession.css'
 import { Link } from 'react-router-dom';
+import HeaderBar from '../LecMaterials/HeaderBar';
 
 
 export default function NoticeSession_ViewL() {
 
-    //const {ids} = useParams("");
-    const module = "IT2001";
- 
+    const {id} = useParams("");
+    const history = useHistory();
     const [noticeList, setNoticeList] = useState([]);
     const [sessionList, setSessionList] = useState([]);
 
@@ -18,9 +18,9 @@ export default function NoticeSession_ViewL() {
     useEffect(() => {
         const getDetailsList = async() => {
             try {
-                const NoticeResults = await axios.get(`http://localhost:5001/noticeSessions/getNotices/${module}`)
+                const NoticeResults = await axios.get(`http://localhost:5001/noticeSessions/getNotices/${id}`)
                 setNoticeList(NoticeResults.data);
-                const sessionResults = await axios.get(`http://localhost:5001/noticeSessions/getSessions/${module}`)
+                const sessionResults = await axios.get(`http://localhost:5001/noticeSessions/getSessions/${id}`)
                 setSessionList(sessionResults.data);
             } catch(err) {
                 console.log(err);
@@ -29,25 +29,23 @@ export default function NoticeSession_ViewL() {
         getDetailsList()
     },[]);
 
-    const deleteDetail = async (id) => {
+    const deleteDetail = async (ids) => {
         try {
-            const res = await axios.delete(`http://localhost:5001/noticeSessions/delete/${id}`)
-            const newListItems = userRouter.filter(topic => topic._id !== id);
-            setUserRouter(newListItems);
+            const res = await axios.delete(`http://localhost:5001/noticeSessions/delete/${ids}`)
+            alert("Successfully Deteted");
         } catch (err) {
+            alert("Fild to delete");
             console.log(err);
         }
     }
 
     return(
         <div>
-            <br/><br/><br/><br/>
 
-            <h2>Module: Software Engineering / IT2001</h2>
-            <hr className='hrLine'/>
+            <div><HeaderBar/></div>
 
             <div className="btn-group">
-                <a  href={`/createNS/IT2001`}><button className="button">Create Notice/Sessions</button></a>
+                <a  href={`/createNS/${id}`}><button className="button">Create Notice/Sessions</button></a>
                 <button className="button1">Student View</button>
             </div>
 
@@ -78,8 +76,7 @@ export default function NoticeSession_ViewL() {
 
                                 <td>
                                     <Link to={`/updateNS/${notice._id}`}><button className='buttonUpdate'>Update</button></Link>
-
-                                    <Link onClick={() => deleteDetail(notice._id)}><button className='buttonDelete'>Delete</button></Link>
+                                    <Link onClick={() => {deleteDetail(notice._id);  window.location.reload()}}><button className='buttonDelete'>Delete</button></Link>
                                 </td>
                             </tr>
                         ))
@@ -87,10 +84,6 @@ export default function NoticeSession_ViewL() {
                     </tbody>
                 </table>
             </div>
-
-
-
-
 
             <br/><br/><br/><br/>
 
@@ -119,7 +112,7 @@ export default function NoticeSession_ViewL() {
 
                                 <td>
                                     <Link to={`/updateNS/${session._id}`}><button className='buttonUpdate'>Update</button></Link>
-                                    <Link to={`/panelAssign/${session._id}`}><button className='buttonDelete'>Delete</button></Link>
+                                    <Link onClick={() => {deleteDetail(session._id);  window.location.reload()}}><button className='buttonDelete'>Delete</button></Link>
                                 </td>
                             </tr>
                         ))

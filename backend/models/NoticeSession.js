@@ -3,8 +3,7 @@ const mongoose = require('mongoose');
 const NoticeSessionSchema = new mongoose.Schema({
     moduleNo: {
         type: String,
-        required: true,
-        default:"IT2001"
+        required: true
     },
     category: {
         type: String,
