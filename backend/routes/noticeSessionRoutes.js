@@ -6,7 +6,7 @@ const router = express.Router();
 router.post("/create", (req, res, next) => {
     try{
         const NoticeSessionModel = new NoticeSession({
-            //moduleNo: req.body.moduleNo,
+            moduleNo: req.body.moduleNo,
             category: req.body.category,
             topic: req.body.topic,
             description: req.body.description,
@@ -69,8 +69,7 @@ router.put("/update/:id", (req, res, next) => {
   })
 });
 
-
-
+//Delete Notices or Sessions
 router.delete("/delete/:id", async (req, res) => {
   try {
       await NoticeSession.findByIdAndDelete(req.params.id)
@@ -79,11 +78,6 @@ router.delete("/delete/:id", async (req, res) => {
       return res.status(500).json({ msg: err.message })
   }
 })
-
-
-
-  
-
 
 
 module.exports = router;

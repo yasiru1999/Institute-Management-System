@@ -1,22 +1,36 @@
 import React, { useState, useEffect}  from 'react';
-import axios from 'axios';
-import {useParams} from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+//import axios from 'axios';
+import HeaderBar from './HeaderBar';
 
 
 export default function LecMaterials_homeLec() {
+ 
+    const {id} = useParams("");
 
+    /*const [moduleNames, setModuleNames] = useState({moduleName:"", moduleNo:""});
+
+    useEffect(() => {
+        const getDetailsList = async() => {
+            try {
+                const res = await axios.get(`http://localhost:5001/module/getOneModule/${id}`)
+                setModuleNames(res.data);
+            } catch(err) {
+                console.log(err);
+            }
+        }
+        getDetailsList()
+    },[]);*/
+  
     return(
-        <div style={{ paddingTop: '5%'}}>
+        <div>
 
+            <div><HeaderBar/></div>
 
-            <h2>Module: Software Engineering / IT2001</h2>
-            <hr className='hrLine'/>
-
-            <div className="btn-group">                
-                <a  href={`/allViewNS/IT2001`}><button className="button">View Notice/Sessions</button></a>
-                <button className="button1">Student View</button>
+            <div className="btn-group">               
+                <a  href={`/allViewNS/${id}`}><button className="button">View Notice/Sessions</button></a>
+                <a  href={`/allView/${id}`}><button className="button">Student View</button></a>              
             </div>
-
 
             
         </div>

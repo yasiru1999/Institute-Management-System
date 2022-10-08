@@ -34,8 +34,8 @@ function App() {
           <Route exact path="/register" component={Auth(RegisterPage, true)} />
           <Route exact path="/user" component={UserDetailsPage} />
           <Route exact path="/updateUserInfo" component={UserDetailsUpdatePage} />
-          <Route exact path="/createNS/:no" component={Auth(NoticeSession_Create, true)} />
-          <Route exact path="/allViewNS/:Mno" component={Auth(NoticeSession_ViewL, true)} />
+          <Route exact path="/createNS/:id" component={Auth(NoticeSession_Create, true)} />
+          <Route exact path="/allViewNS/:id" component={Auth(NoticeSession_ViewL, true)} />
           <Route exact path="/add" component={Auth(AddTimetable, true)} />
           <Route exact path="/all" component={Auth(AllTimetable, true)} />
           <Route exact path="/update/:id" component={Auth(UpdateTimetable, true)} />

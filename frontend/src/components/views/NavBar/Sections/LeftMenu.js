@@ -1,15 +1,30 @@
-import React from 'react';
+import React, {useState, useEffect}  from 'react';
 import { Menu } from 'antd';
 import {Link} from "react-router-dom";
 import '../Sections/Navbar.css';
 import { USER_SERVER } from '../../../Config';
 import { withRouter } from 'react-router-dom';
 import { useSelector } from "react-redux";
+import axios from 'axios';
 
 const SubMenu = Menu.SubMenu;
 // const MenuItemGroup = Menu.ItemGroup;
 
 function LeftMenu(props) {
+
+    const [moduleNames, setModuleNames] = useState([]);
+
+    useEffect(() => {
+        const getDetailsList = async() => {
+            try {
+                const res = await axios.get(`http://localhost:5001/module/getAll`)
+                setModuleNames(res.data);
+            } catch(err) {
+                console.log(err);
+            }
+        }
+        getDetailsList()
+    },[]);
 
   const user = useSelector(state => state.user)
 
@@ -110,17 +125,22 @@ function LeftMenu(props) {
                 </Menu.Item>
             </SubMenu>
 
-            <SubMenu className="leftbtn" key="modules" title="Modules">
-                <Menu.Item key="se">
-                    <a href="/homeLecMat/IT2001">Software Engineering</a>
+            <SubMenu className="leftbtn" key="mod" title="Modules">
+            {
+                moduleNames.map((notice, id) => (
+                <Menu.Item key={id}>
+                    <a href={`/homeLecMat/${notice.moduleNo}`}>{notice.moduleName}</a>
                 </Menu.Item>
-                <Menu.Item key="ds">
-                    <a href="/">Data Science</a>
-                </Menu.Item>
-                <Menu.Item key="it">
-                    <a href="/">Information Technology</a>
-                </Menu.Item>
-            </SubMenu>
+                ))
+            }
+            </SubMenu>     
+                
+            
+          
+
+        
+        
+        
         </Menu>
     )
   }
