@@ -47,7 +47,7 @@ export default function NoticeSession_Update(props) {
         <div>
             
             <div style={{ paddingTop: '5%'}}>
-                <h2>Module no:   {updatedetailList.moduleNo}</h2>         
+                <h2>Module :   {updatedetailList.moduleNo}</h2>         
                 <hr className='hrLine'/>
             </div>
             
