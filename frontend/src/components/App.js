@@ -22,7 +22,7 @@ import AddInquiry from "./views/Inquiry/AddInqiry";
 import AdminInquiry from "./views/Inquiry/AdminInquiry";
 import NoticeSession_Update from './LecModule_Management/NoticeSessions/NoticeSession_Update';
 import LecMaterials_homeLec from './LecModule_Management/LecMaterials/LecMaterials_homeLec';
-
+import AllUserDetailsPage from "./views/AllUserDetailsPage/AllUserDetailsPage";
 function App() {
   return (
     <Suspense fallback={(<div>Loading...</div>)}>
@@ -32,8 +32,9 @@ function App() {
           <Route exact path="/" component={Auth(LandingPage, null)} />
           <Route exact path="/login" component={Auth(LoginPage, false)} />
           <Route exact path="/register" component={Auth(RegisterPage, true)} />
-          <Route exact path="/user" component={UserDetailsPage} />
-          <Route exact path="/updateUserInfo" component={UserDetailsUpdatePage} />
+          <Route exact path="/user" component={Auth(UserDetailsPage, true)} />
+          <Route exact path="/updateUserInfo" component={Auth(UserDetailsUpdatePage, true)} />
+          <Route exact path="/AllUsers" component={Auth(AllUserDetailsPage, true)} />
           <Route exact path="/createNS/:no" component={Auth(NoticeSession_Create, true)} />
           <Route exact path="/allViewNS/:Mno" component={Auth(NoticeSession_ViewL, true)} />
           <Route exact path="/add" component={Auth(AddTimetable, true)} />

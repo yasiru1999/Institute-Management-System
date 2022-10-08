@@ -140,4 +140,12 @@ router.put('/updateUserInfo/:id', (req,res)=>{
     })
 })
 
+router.get('/getAllUsers' , (req,res) => {
+    User.find().then((users) => {
+        res.json(users)
+    }).catch((err) => {
+        console.log(err);
+    })
+})
+
 module.exports = router;

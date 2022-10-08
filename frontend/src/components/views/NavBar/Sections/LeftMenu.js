@@ -56,6 +56,11 @@ function LeftMenu(props) {
                     <a href="/inquiryDetails">Inquiry Details</a>
                 </Menu.Item>
             </SubMenu>
+            <SubMenu className="leftbtn" title="Users">
+                <Menu.Item key="viewUsers">
+                    <a href="/AllUsers">View All Users</a>
+                </Menu.Item>
+            </SubMenu>
         </Menu>
     )
   } else if(user.userData && user.userData.isStudent) {
