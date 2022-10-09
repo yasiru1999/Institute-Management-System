@@ -19,7 +19,7 @@ const AttendanceSchema = new mongoose.Schema({
         required: true,
     },
     feedback: {
-        type: String,
+        type: String
     }
 });
 
