@@ -9,7 +9,7 @@ function AllUserDetailsPage() {
 
     const [AllUsers, setAllUsers] = useState([]);
     const history = useHistory();
-    const[filter,setFilter] = useState('');
+    const[search,setSearch] = useState('');
 
     useEffect(() => {
         Axios.get('http://localhost:5001/api/users/getAllUsers')
