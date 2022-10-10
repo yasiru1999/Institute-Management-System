@@ -77,7 +77,7 @@ function AllUserDetailsPage() {
                                 <td>
                                     <center>{item.Role}</center>
                                 </td>
-                                <td><center><button style={{backgroundColor:'#ff9800'}} onClick={() => {history.push({pathname: "/updatePaymentDetails", state:{payment:item}})}} ><FaEdit /></button></center></td>
+                                <td><center><button style={{backgroundColor:'#ff9800'}} onClick={() => {history.push({pathname: "/AllUsersUpdate", state:{user:item}})}} ><FaEdit /></button></center></td>
                                 <td><center><button style={{backgroundColor:'red'}} onClick={() => {deletePayment(item); window.location.reload()}}><FaTrashAlt /></button></center></td>
                             </tr>
                         )

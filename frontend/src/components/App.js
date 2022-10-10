@@ -23,8 +23,10 @@ import AdminInquiry from "./views/Inquiry/AdminInquiry";
 import NoticeSession_Update from './LecModule_Management/NoticeSessions/NoticeSession_Update';
 import LecMaterials_homeLec from './LecModule_Management/LecMaterials/LecMaterials_homeLec';
 import AllUserDetailsPage from "./views/AllUserDetailsPage/AllUserDetailsPage";
+import AllUserDetailsUpdate from "./views/AllUserDetailsPage/AllUserDetailsUpdate";
 import Attendance_Create from "./LecModule_Management/Attendance/Attendance_Create";
 import StudentModuleHome from "./LecModule_Management/LecMaterials/StudentModuleHome";
+
 
 function App() {
   return (
@@ -40,13 +42,14 @@ function App() {
           <Route exact path="/user" component={Auth(UserDetailsPage, true)} />
           <Route exact path="/updateUserInfo" component={Auth(UserDetailsUpdatePage, true)} />
           <Route exact path="/AllUsers" component={Auth(AllUserDetailsPage, true)} />
+          <Route exact path="/AllUsersUpdate" component={Auth(AllUserDetailsUpdate, true)} />
           <Route exact path="/add" component={Auth(AddTimetable, true)} />
           <Route exact path="/all" component={Auth(AllTimetable, true)} />
           <Route exact path="/update/:id" component={Auth(UpdateTimetable, true)} />
           <Route exact path="/sall" component={Auth(SAllTimetable, true)} />
             <Route exact path="/payment" component={Auth(AddPayments, true)} />
             <Route exact path="/paymentDetails" component={Auth(AdminPayments, true)} />
-            <Route exact path="/updatePaymentDetails" component={Auth(UpdatePayment, false)} />
+            <Route exact path="/updatePaymentDetails" component={Auth(UpdatePayment, true)} />
           <Route exact path="/inquiryDefault" component={Auth(AddInquiry, false)} />
           <Route exact path="/inquiry" component={Auth(AddInquiry, true)} />
           <Route exact path="/inquiryDetails" component={Auth(AdminInquiry, true)} />
