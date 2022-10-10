@@ -13,11 +13,12 @@ const SubMenu = Menu.SubMenu;
 function LeftMenu(props) {
 
     const [moduleNames, setModuleNames] = useState([]);
+    const course = localStorage.getItem('registeredCourse');
 
     useEffect(() => {
         const getDetailsList = async() => {
             try {
-                const res = await axios.get(`http://localhost:5001/module/getAll`)
+                const res = await axios.get(`http://localhost:5001/module/getOneCourse/${course}`)
                 setModuleNames(res.data);
             } catch(err) {
                 console.log(err);
@@ -107,17 +108,21 @@ function LeftMenu(props) {
                 <a  href="/">Libraries</a>
             </Menu.Item>
 
-            <SubMenu className="leftbtn" key="modules" title="My Courses">
-                <Menu.Item key="se">
-                    <a href="/">Software Engineering</a>
+            <SubMenu className="leftbtn" key="subj" title="My courses">
+                <Menu.Item key="results">
+                    <a href={`/stuHome/${moduleNames.subject1}`}>{moduleNames.subject1}</a>
                 </Menu.Item>
-                <Menu.Item key="ds">
-                    <a href="/">Data Science</a>
+                <Menu.Item key="viewExam">
+                    <a href={`/stuHome/${moduleNames.subject2}`}>{moduleNames.subject2}</a>
                 </Menu.Item>
-                <Menu.Item key="it">
-                    <a href="/">Information Technology</a>
+                <Menu.Item key="viewExam">
+                    <a href={`/stuHome/${moduleNames.subject3}`}>{moduleNames.subject3}</a>
+                </Menu.Item>
+                <Menu.Item key="viewExam">
+                    <a href={`/stuHome/${moduleNames.subject4}`}>{moduleNames.subject4}</a>
                 </Menu.Item>
             </SubMenu>
+
         </Menu>
     )
   } else {
@@ -138,21 +143,21 @@ function LeftMenu(props) {
                 </Menu.Item>
             </SubMenu>
 
-            <SubMenu className="leftbtn" key="mod" title="Modules">
-            {
-                moduleNames.map((notice, id) => (
-                <Menu.Item key={id}>
-                    <a href={`/homeLecMat/${notice.moduleNo}`}>{notice.moduleName}</a>
+            <SubMenu className="leftbtn" key="subj" title="My courses">
+                <Menu.Item key="results">
+                    <a href={`/homeLecMat/${moduleNames.subject1}`}>{moduleNames.subject1}</a>
                 </Menu.Item>
-                ))
-            }
-            </SubMenu>     
-                
-            
-          
-
-        
-        
+                <Menu.Item key="viewExam">
+                    <a href={`/homeLecMat/${moduleNames.subject2}`}>{moduleNames.subject2}</a>
+                </Menu.Item>
+                <Menu.Item key="viewExam">
+                    <a href={`/homeLecMat/${moduleNames.subject3}`}>{moduleNames.subject3}</a>
+                </Menu.Item>
+                <Menu.Item key="viewExam">
+                    <a href={`/homeLecMat/${moduleNames.subject4}`}>{moduleNames.subject4}</a>
+                </Menu.Item>
+            </SubMenu>
+         
         
         </Menu>
     )

@@ -24,6 +24,10 @@ import NoticeSession_Update from './LecModule_Management/NoticeSessions/NoticeSe
 import LecMaterials_homeLec from './LecModule_Management/LecMaterials/LecMaterials_homeLec';
 import AllUserDetailsPage from "./views/AllUserDetailsPage/AllUserDetailsPage";
 import AllUserDetailsUpdate from "./views/AllUserDetailsPage/AllUserDetailsUpdate";
+import Attendance_Create from "./LecModule_Management/Attendance/Attendance_Create";
+import StudentModuleHome from "./LecModule_Management/LecMaterials/StudentModuleHome";
+
+
 function App() {
   return (
     <Suspense fallback={(<div>Loading...</div>)}>
@@ -51,6 +55,8 @@ function App() {
           <Route exact path="/inquiryDetails" component={Auth(AdminInquiry, true)} />
           <Route exact path="/updateNS/:id" component={Auth(NoticeSession_Update, true)} />
           <Route exact path="/homeLecMat/:id" component={Auth(LecMaterials_homeLec, true)} />
+          <Route exact path="/addAtte/:id" component={Auth(Attendance_Create, true)} />
+          <Route exact path="/stuHome/:id" component={Auth(StudentModuleHome, true)} />
         </Switch>
       </div>
       <Footer />

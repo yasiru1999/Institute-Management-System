@@ -9,7 +9,27 @@ const ModuleSchema = new mongoose.Schema({
         type: String,
         required: true,
         trim: true
+    },
+    subject1: {
+        type: String,
+        required: true,
+        trim: true
+    },
+    subject2: {
+        type: String,
+        required: true,
+        trim: true
+    },
+    subject3: {
+        type: String,
+        required: true,
+        trim: true
+    },subject4: {
+        type: String,
+        required: true,
+        trim: true
     }
+
 });
 
 module.exports = mongoose.model('Module', ModuleSchema);
