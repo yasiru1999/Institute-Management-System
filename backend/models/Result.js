@@ -2,39 +2,40 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const TimetableSchema = new Schema({
+const ResultSchema = new Schema({
 
+
+    registrationNumber : {
+        type : String,
+        // required: true
+    },
+    studentName : {
+        type : String,
+        // required: true
+    },
     courseId : {
         type : String,
         // required: true
 
     },
-    subjectId : {
+    subjectCode : {
         type : String,
         // required: true
     },
-    examType : {
+    subjectName : {
         type : String,
         // required: true
     },
-    date : {
-        type : Date,
-        // required: true
-    },
-    time : {
+    result : {
         type : String,
         // required: true
     },
-
-    hallNumber : {
-        type : String,
-        // required: true
-    },
+   
 
 }, {
     timestamps: true,
 });
 
-const Timetable = mongoose.model("Timetable", TimetableSchema);
+const Result = mongoose.model("Result", ResultSchema);
 
-module.exports = Timetable;
+module.exports = Result;

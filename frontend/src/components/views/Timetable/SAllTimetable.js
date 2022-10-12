@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from "react";
 import axios from "axios";
 import {useHistory} from "react-router";
-import Swal from "sweetalert2";
 import ReactHTMLTableToExcel from 'react-html-table-to-excel';
 
 
@@ -17,30 +16,11 @@ export default function ReadTimetable() {
 
     const [TimetableList, setTimetable] = useState([]);
     const [searchItem, setSearchItem] = useState("");
-    const [resultJson,setResultJson] = useState({});
+    // const [resultJson,setResultJson] = useState({});
 
-    const deleteTimetable = (id) => {
-        axios.delete(`http://localhost:5001/timetable/delete/${id}`).then((then => {
-            Swal.fire({
-                title: "Deleted Successfully",
-                icon: 'success',
-            });
-        }))
-    };
 
     const history = useHistory();
-    const updateTimetable = async(id) => {
-        console.log(id);
-        const result = await axios.get(`http://localhost:5001/timetable/get/${id}`);
-        setResultJson(result.data);
-        console.log(result);
-        let path = `/update/${id}`;
-        history.push({
-            pathname: path,
-            state: resultJson,
-        });
-        history.push(path, result.data);
-    }
+
 
     const gotoAdd = ()=>{
         let path = "/add";
@@ -74,11 +54,11 @@ export default function ReadTimetable() {
                 }
             }).map((val, key) => {
 
-                return  <div className='tablePadding'>
+                return <div className='tablePadding'>
                     <table Id = "Timetable" class="table table-dark rounded-lg">
                         <thead class="tableHeader">
                         <tr>
-                            <th scope="col">Actions</th>
+
                             <th scope="col">Course ID</th>
                             <th scope="col">Subject ID and Name</th>
                             <th scope="col">Exam Type</th>
@@ -92,18 +72,6 @@ export default function ReadTimetable() {
                         <tbody>
 
                         <tr>
-                            <td>
-                                <br/><br/><br/>
-
-                                <div className={"grid grid-rows-1 grid-cols-2 gap-3"}>
-                                    <a type="button" className="buttonDelete "
-                                       onClick={() => deleteTimetable(val._id)}> Delete </a>
-
-                                    <a type="button" className="buttonUpdate"
-                                       onClick={() => updateTimetable(val._id)}> Edit </a>
-
-                                </div>
-                            </td>
 
                             <td>{val.courseId}  </td>
                             <td>{val.subjectId} </td>
@@ -118,27 +86,25 @@ export default function ReadTimetable() {
                     </table>
                 </div>
             })}
-            <div class="grid place-items-center">
-                <button class="buttonSubmit" type="button" onClick={() => gotoAdd()}
-                        style={{width:"18em"}}>Add New Timetable</button>
 
-                &nbsp;&nbsp;&nbsp;&nbsp;
 
-                <ReactHTMLTableToExcel
+            &nbsp;&nbsp;&nbsp;&nbsp;
 
-                    id="test-table-xls-button"
+            <ReactHTMLTableToExcel
 
-                    className="buttonSubmit"
+                id="test-table-xls-button"
 
-                    table="Timetable"
+                className="buttonSubmit"
 
-                    filename="tablexls"
+                table="Timetable"
 
-                    sheet="tablexls"
+                filename="tablexls"
 
-                    buttonText="Generate Report"/>
+                sheet="tablexls"
 
-            </div>
+                buttonText="Download Timetable"/>
+
         </div>
+
     </div>)
 }

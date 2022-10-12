@@ -55,7 +55,7 @@ function AdminPayments() {
             <div style={{ width:'98%',  margin: '4rem auto'}}>
                 <table>
                     <thead>
-                    <tr>
+                    <tr style={{backgroundColor:'#4682b4'}}>
                         <th>First Name</th>
                         <th>Last Name</th>
                         <th>Phone</th>
@@ -91,14 +91,14 @@ function AdminPayments() {
                                 <td>
                                     <center>{item.Inquiry}</center>
                                 </td>
-                                <td><center><button onClick={() => {approvedChange(item._id,true); window.location.reload()}} >Respond</button></center></td>
+                                <td><center><button style={{backgroundColor:'#4682b4'}} onClick={() => {approvedChange(item._id,true); window.location.reload()}} >Respond</button></center></td>
                             </tr>
                         )
                     })}
                     </tbody>
                 </table>
                 <br/>
-                <button style={{marginLeft: '1000px'}} onClick={() => GeneratePdf(Inquiries.filter(Inquiries => Inquiries.isRespond === false))}>Generate Report</button>
+                <button style={{marginLeft: '1000px',backgroundColor:'#4682b4'}} onClick={() => GeneratePdf(Inquiries.filter(Inquiries => Inquiries.isRespond === false))}>Generate Report</button>
             </div>
 
             <div >
@@ -108,7 +108,7 @@ function AdminPayments() {
             <div style={{ width:'98%',  margin: '4rem auto'}}>
                 <table>
                     <thead>
-                    <tr>
+                    <tr style={{backgroundColor:'#4682b4'}}>
                         <th>First Name</th>
                         <th>Last Name</th>
                         <th>Phone</th>
@@ -144,14 +144,14 @@ function AdminPayments() {
                                 <td>
                                     <center>{item.Inquiry}</center>
                                 </td>
-                                <td><center><button onClick={() => {deleteInquiry(item); window.location.reload()}}>Delete</button></center></td>
+                                <td><center><button style={{backgroundColor:'red'}} onClick={() => {deleteInquiry(item); window.location.reload()}}>Delete</button></center></td>
                             </tr>
                         )
                     })}
                     </tbody>
                 </table>
                 <br/>
-                <button style={{marginLeft: '1000px'}} onClick={() => GeneratePdf(Inquiries.filter(Payments => Payments.isRespond === true))}>Generate Report</button>
+                <button style={{marginLeft: '1000px',backgroundColor:'#4682b4'}} onClick={() => GeneratePdf(Inquiries.filter(Payments => Payments.isRespond === true))}>Generate Report</button>
             </div>
 
         </div>

@@ -173,7 +173,7 @@ function AddPayments(props) {
                     <br />
                     <br />
 
-                    <Button style={{marginLeft: '300px'}} onClick={onSubmit}>
+                    <Button style={{marginLeft: '300px',backgroundColor:'#4682b4'}} onClick={onSubmit}>
                         Submit
                     </Button>
 

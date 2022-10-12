@@ -56,7 +56,8 @@ router.post("/login", (req, res) => {
                     .json({
                         loginSuccess: true,
                         userId: user._id,
-                        name: user.name
+                        name: user.name,
+                        registeredCourse: user.registeredCourse
                     });
             });
         });
@@ -137,6 +138,21 @@ router.put('/updateUserInfo/:id', (req,res)=>{
     User.findByIdAndUpdate({ _id: req.params.id }, updatedUserInfo).then(result => {
         console.log(result);
         res.status(200).json({ message: "Successfully Updated" })
+    })
+})
+
+router.get('/getAllUsers' , (req,res) => {
+    User.find().then((users) => {
+        res.json(users)
+    }).catch((err) => {
+        console.log(err);
+    })
+})
+
+router.delete('/deleteUser/:id', (req,res)=>{
+    const user = (req.body);
+    User.findByIdAndDelete({ _id: req.params.id }, user).then(() => {
+        res.status(200).json({ message: "Successfully Deleted" })
     })
 })
 

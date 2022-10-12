@@ -1,27 +1,26 @@
 const mongoose = require('mongoose');
 
-const NoticeSessionSchema = new mongoose.Schema({
-    moduleNo: {
+const AttendanceSchema = new mongoose.Schema({
+    curDate: {
         type: String,
         required: true
     },
-    category: {
+    studentName: {
         type: String,
         required: true,
         trim: true
     },
-    topic: {
+    moduleName: {
         type: String,
         required: true,
     },
-    description: {
+    session: {
         type: String,
         required: true,
     },
-    otherDetails: {
-        type: String,
+    feedback: {
+        type: String
     }
-    
 });
 
-module.exports = mongoose.model('NoticeSession', NoticeSessionSchema);
+module.exports = mongoose.model('Attendance', AttendanceSchema);
