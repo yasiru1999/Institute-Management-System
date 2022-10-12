@@ -27,6 +27,7 @@ app.use('/noticeSessions', require('./routes/noticeSessionRoutes'));
 app.use('/timetable', require('./routes/timetable'));
 app.use('/pay', require('./routes/payment'));
 app.use('/inquiry', require('./routes/inquiry'));
+app.use('/library', require('./routes/library'));
 app.use('/module', require('./routes/moduleRoutes'));
 app.use('/attendance', require('./routes/attendanceRoutes'));
 
