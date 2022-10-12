@@ -21,6 +21,8 @@ import UpdatePayment from "./views/Payment/UpdatePayment";
 import AddInquiry from "./views/Inquiry/AddInqiry";
 import AdminInquiry from "./views/Inquiry/AdminInquiry";
 import AddLibrary from "./views/Library/AddLibraryContent";
+import AdminLibrary from "./views/Library/AdminLibrary";
+import UpdateLibrary from "./views/Library/UpdateLibrary";
 import NoticeSession_Update from './LecModule_Management/NoticeSessions/NoticeSession_Update';
 import LecMaterials_homeLec from './LecModule_Management/LecMaterials/LecMaterials_homeLec';
 import AllUserDetailsPage from "./views/AllUserDetailsPage/AllUserDetailsPage";
@@ -52,6 +54,8 @@ function App() {
           <Route exact path="/inquiry" component={Auth(AddInquiry, true)} />
           <Route exact path="/inquiryDetails" component={Auth(AdminInquiry, true)} />
           <Route exact path="/library" component={Auth(AddLibrary, false)} />
+          <Route exact path="/libraryDetails" component={Auth(AdminLibrary, false)} />
+          <Route exact path="/updateLibraryDetails" component={Auth(UpdateLibrary, false)} />
           <Route exact path="/createNS/:id" component={Auth(NoticeSession_Create, true)} />
           <Route exact path="/allViewNS/:id" component={Auth(NoticeSession_ViewL, true)} />
           <Route exact path="/user" component={Auth(UserDetailsPage, true)} />

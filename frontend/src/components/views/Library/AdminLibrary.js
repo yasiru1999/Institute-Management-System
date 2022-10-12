@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import Axios from "axios";
 import {useHistory, withRouter} from "react-router-dom";
-import GeneratePdf from "./PaymentReport";
+import GeneratePdf from "./LibraryReport";
 
 
 function AdminLibrary() {
