@@ -90,7 +90,18 @@ function LeftMenu(props) {
                     <a href="/">Information Technology</a>
                 </Menu.Item>
             </SubMenu>
+
+            <Menu.Item className="leftbtn" key="payment">
+                <a  href="/payment">Payment</a>
+            </Menu.Item>
+
+            <Menu.Item className="leftbtn" key="addPayment">
+                <a href="/inquiry">Inquiry Form</a>
+            </Menu.Item>
+
         </Menu>
+
+
     )
   } else {
     return (

@@ -38,7 +38,7 @@ function App() {
           <Route exact path="/update/:id" component={Auth(UpdateTimetable, false)} />
             <Route exact path="/payment" component={Auth(AddPayments, true)} />
             <Route exact path="/paymentDetails" component={Auth(AdminPayments, true)} />
-            <Route exact path="/updatePaymentDetails" component={Auth(UpdatePayment, false)} />
+            <Route exact path="/updatePaymentDetails" component={Auth(UpdatePayment, true)} />
           <Route exact path="/inquiryDefault" component={Auth(AddInquiry, false)} />
           <Route exact path="/inquiry" component={Auth(AddInquiry, true)} />
           <Route exact path="/inquiryDetails" component={Auth(AdminInquiry, true)} />
