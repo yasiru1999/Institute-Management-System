@@ -1,5 +1,6 @@
 const express = require("express");
 const Modules = require('../models/Module');
+const Payment = require("../models/Payment");
 const router = express.Router();
 
 //Get all modules
@@ -33,5 +34,17 @@ router.get('/getoneModule/:id', async (req, res) => {
   });
 });
 
+router.post('/addCourse', (req, res) => {
+
+  const course = new Modules(req.body);
+
+  course.save((err, doc) => {
+    if (err) return res.json({ success: false, err });
+    return res.status(200).json({
+      success: true
+    });
+  });
+
+});
 
 module.exports = router;
