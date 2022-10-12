@@ -40,13 +40,6 @@ function LecturerRegPage(props) {
 
     const dispatch = useDispatch();
 
-    const [gender, setGender] = useState('');
-
-    const onChangeGender = ({ target: { value } }) => {
-        console.log('radio1 checked', value);
-        setGender(value);
-    };
-
     return (
 
         <Formik
@@ -88,10 +81,10 @@ function LecturerRegPage(props) {
                     Axios.post('http://localhost:5001/module/addCourse', dataToSubmit)
                         .then(response => {
                             if (response.data.success) {
-                                alert('Inquiry  Successfully Uploaded')
+                                alert('Course  Successfully Added')
                                 props.history.push('/')
                             } else {
-                                alert('Failed to upload Inquiry')
+                                alert('Failed to add Course')
                             }
 
                         }).catch((error) => {
@@ -120,107 +113,108 @@ function LecturerRegPage(props) {
                             <h1 style={{ textAlign: 'left' }}>  All Users </h1>
                         </div>
                         <hr/>
+                        <div className="" style={{ width: '80%', margin: '6rem auto',border: '5px solid red' }}>
                         <Form style={{ width: '60%',marginLeft:'220px', alignItems: 'center'}} {...formItemLayout} onSubmit={handleSubmit} >
 
                             <Form.Item style={{}} required label="Course ID">
                                 <Input
-                                    id="UserID"
-                                    placeholder="Enter Lecturer ID"
+                                    id="moduleNo"
+                                    placeholder="Enter Course ID"
                                     type="text"
-                                    value={values.UserID}
+                                    value={values.moduleNo}
                                     onChange={handleChange}
                                     onBlur={handleBlur}
                                     className={
-                                        errors.UserID && touched.UserID ? 'text-input error' : 'text-input'
+                                        errors.moduleNo && touched.moduleNo ? 'text-input error' : 'text-input'
                                     }
                                 />
-                                {errors.UserID && touched.UserID && (
-                                    <div className="input-feedback">{errors.UserID}</div>
+                                {errors.moduleNo && touched.moduleNo && (
+                                    <div className="input-feedback">{errors.moduleName}</div>
                                 )}
                             </Form.Item>
 
                             <Form.Item required label="Course Name">
                                 <Input
-                                    id="name"
-                                    placeholder="Enter Name"
+                                    id="moduleName"
+                                    placeholder="Enter Course Name"
                                     type="text"
-                                    value={values.name}
+                                    value={values.moduleName}
                                     onChange={handleChange}
                                     onBlur={handleBlur}
                                     className={
-                                        errors.name && touched.name ? 'text-input error' : 'text-input'
+                                        errors.moduleName && touched.moduleName ? 'text-input error' : 'text-input'
                                     }
                                 />
-                                {errors.name && touched.name && (
-                                    <div className="input-feedback">{errors.name}</div>
+                                {errors.moduleName && touched.moduleName && (
+                                    <div className="input-feedback">{errors.moduleName}</div>
                                 )}
                             </Form.Item>
 
                             <Form.Item required label="Subject 1">
                                 <Input
-                                    id="registeredCourse"
-                                    placeholder="Enter registeredCourse"
+                                    id="subject1"
+                                    placeholder="Enter subject 1"
                                     type="text"
-                                    value={values.registeredCourse}
+                                    value={values.subject1}
                                     onChange={handleChange}
                                     onBlur={handleBlur}
                                     className={
-                                        errors.registeredCourse && touched.registeredCourse ? 'text-input error' : 'text-input'
+                                        errors.subject1 && touched.subject1 ? 'text-input error' : 'text-input'
                                     }
                                 />
-                                {errors.registeredCourse && touched.registeredCourse && (
-                                    <div className="input-feedback">{errors.registeredCourse}</div>
+                                {errors.subject1 && touched.subject1 && (
+                                    <div className="input-feedback">{errors.subject1}</div>
                                 )}
                             </Form.Item>
 
                             <Form.Item required label="Subject 2">
                                 <Input
-                                    id="contactNumber"
+                                    id="subject2"
                                     placeholder="Enter contactNumber"
                                     type="text"
-                                    value={values.contactNumber}
+                                    value={values.subject2}
                                     onChange={handleChange}
                                     onBlur={handleBlur}
                                     className={
-                                        errors.contactNumber && touched.contactNumber ? 'text-input error' : 'text-input'
+                                        errors.subject2 && touched.subject2 ? 'text-input error' : 'text-input'
                                     }
                                 />
-                                {errors.contactNumber && touched.contactNumber && (
-                                    <div className="input-feedback">{errors.contactNumber}</div>
+                                {errors.subject2 && touched.subject2 && (
+                                    <div className="input-feedback">{errors.subject2}</div>
                                 )}
                             </Form.Item>
 
                             <Form.Item required label="Subject 3">
                                 <Input
-                                    id="contactNumber"
+                                    id="subject3"
                                     placeholder="Enter contactNumber"
                                     type="text"
-                                    value={values.contactNumber}
+                                    value={values.subject3}
                                     onChange={handleChange}
                                     onBlur={handleBlur}
                                     className={
-                                        errors.contactNumber && touched.contactNumber ? 'text-input error' : 'text-input'
+                                        errors.subject3 && touched.subject3 ? 'text-input error' : 'text-input'
                                     }
                                 />
-                                {errors.contactNumber && touched.contactNumber && (
-                                    <div className="input-feedback">{errors.contactNumber}</div>
+                                {errors.subject3 && touched.subject3 && (
+                                    <div className="input-feedback">{errors.subject3}</div>
                                 )}
                             </Form.Item>
 
                             <Form.Item required label="Subject 4">
                                 <Input
-                                    id="contactNumber"
+                                    id="subject4"
                                     placeholder="Enter contactNumber"
                                     type="text"
-                                    value={values.contactNumber}
+                                    value={values.subject4}
                                     onChange={handleChange}
                                     onBlur={handleBlur}
                                     className={
-                                        errors.contactNumber && touched.contactNumber ? 'text-input error' : 'text-input'
+                                        errors.subject4 && touched.subject4 ? 'text-input error' : 'text-input'
                                     }
                                 />
-                                {errors.contactNumber && touched.contactNumber && (
-                                    <div className="input-feedback">{errors.contactNumber}</div>
+                                {errors.subject4 && touched.subject4 && (
+                                    <div className="input-feedback">{errors.subject4}</div>
                                 )}
                             </Form.Item>
 
@@ -230,6 +224,7 @@ function LecturerRegPage(props) {
                                 </Button>
                             </Form.Item>
                         </Form>
+                        </div>
                     </div>
                 );
             }}
