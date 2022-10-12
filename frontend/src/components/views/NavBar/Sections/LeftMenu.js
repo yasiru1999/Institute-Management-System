@@ -108,6 +108,25 @@ function LeftMenu(props) {
                 <a  href="/">Libraries</a>
             </Menu.Item>
 
+            <SubMenu className="leftbtn" key="modules" title="My Courses">
+                <Menu.Item key="se">
+                    <a href="/">Software Engineering</a>
+                </Menu.Item>
+                <Menu.Item key="ds">
+                    <a href="/">Data Science</a>
+                </Menu.Item>
+                <Menu.Item key="it">
+                    <a href="/">Information Technology</a>
+                </Menu.Item>
+            </SubMenu>
+
+            <Menu.Item className="leftbtn" key="payment">
+                <a  href="/payment">Payment</a>
+            </Menu.Item>
+
+            <Menu.Item className="leftbtn" key="addPayment">
+                <a href="/inquiry">Inquiry Form</a>
+            </Menu.Item>
             {/*<SubMenu className="leftbtn" key="subj" title="My courses">*/}
             {/*    <Menu.Item key="results">*/}
             {/*        <a href={`/stuHome/${moduleNames.subject1}`}>{moduleNames.subject1}</a>*/}
@@ -124,6 +143,8 @@ function LeftMenu(props) {
             {/*</SubMenu>*/}
 
         </Menu>
+
+
     )
   } else {
     return (
