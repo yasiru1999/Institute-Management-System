@@ -4,18 +4,49 @@ let Timetable = require("../models/Timetable");
 router.route("/add").post((req, res) => {
     const courseId = req.body.courseId;
     const subjectId = req.body.subjectId;
+    const subjectId2 = req.body.subjectId2;
+    const subjectId3 = req.body.subjectId3;
+    const subjectId4 = req.body.subjectId4;
     const examType = req.body.examType;
+    const examType2 = req.body.examType2;
+    const examType3 = req.body.examType3;
+    const examType4 = req.body.examType4;   
     const date = req.body.date;
+    const date2 = req.body.date2;
+    const date3 = req.body.date3;
+    const date4 = req.body.date4;
     const time = req.body.time;
+    const time2 = req.body.time2;
+    const time3 = req.body.time3;
+    const time4 = req.body.time4;
     const hallNumber = req.body.hallNumber;
+    const hallNumber2 = req.body.hallNumber2;
+    const hallNumber3 = req.body.hallNumber3;
+    const hallNumber4 = req.body.hallNumber4;
+
 
     const newTimetable = new Timetable({
         courseId,
         subjectId,
+        subjectId2,
+        subjectId3,
+        subjectId4,
         examType,
+        examType2,
+        examType3,
+        examType4,
         date,
+        date2,
+        date3,
+        date4,
         time,
-        hallNumber
+        time2,
+        time3,
+        time4,
+        hallNumber,
+        hallNumber2,
+        hallNumber3,
+        hallNumber4
 
     })
 

@@ -9,6 +9,7 @@ import AddTimetable from "./views/Timetable/AddTimetable";
 import AllTimetable from "./views/Timetable/AllTimetable";
 import UpdateTimetable from "./views/Timetable/UpdateTimetable";
 import SAllTimetable from "./views/Timetable/SAllTimetable";
+// import AddResult from "./views/Result/AddResult";
 import NavBar from "./views/NavBar/NavBar";
 import Footer from "./views/Footer/Footer"
 import UserDetailsPage from "./views/UserDetailsPage/UserDetailsPage";
@@ -31,6 +32,7 @@ import Attendance_Create from "./LecModule_Management/Attendance/Attendance_Crea
 import StudentModuleHome from "./LecModule_Management/LecMaterials/StudentModuleHome";
 import AddNewCourse from "./views/HandleCoursesByAdmin/AddNewCourse";
 
+
 function App() {
   return (
     <Suspense fallback={(<div>Loading...</div>)}>
@@ -44,9 +46,10 @@ function App() {
           <Route exact path="/updateUserInfo" component={UserDetailsUpdatePage} />
           <Route exact path="/createNS/:no" component={Auth(NoticeSession_Create, false)} />
           <Route exact path="/allView/:Mno" component={Auth(NoticeSession_ViewL, false)} />
-          <Route exact path="/add" component={Auth(AddTimetable, false)} />
+          {/* <Route exact path="/add" component={Auth(AddTimetable, false)} />
           <Route exact path="/all" component={Auth(AllTimetable, false)} />
           <Route exact path="/update/:id" component={Auth(UpdateTimetable, false)} />
+          <Route exact path="/sall" component={Auth(SAllTimetable, false)} /> */}
           <Route exact path="/payment" component={Auth(AddPayments, true)} />
           <Route exact path="/paymentDetails" component={Auth(AdminPayments, true)} />
           <Route exact path="/updatePaymentDetails" component={Auth(UpdatePayment, true)} />
@@ -63,10 +66,14 @@ function App() {
           <Route exact path="/AllUsers" component={Auth(AllUserDetailsPage, true)} />
           <Route exact path="/AllUsersUpdate" component={Auth(AllUserDetailsUpdate, true)} />
           <Route exact path="/AddNewCourse" component={Auth(AddNewCourse, true)} />
+
           <Route exact path="/add" component={Auth(AddTimetable, true)} />
           <Route exact path="/all" component={Auth(AllTimetable, true)} />
           <Route exact path="/update/:id" component={Auth(UpdateTimetable, true)} />
           <Route exact path="/sall" component={Auth(SAllTimetable, true)} />
+
+          {/* <Route exact path="/addResult" component={Auth(AddResult, true)} /> */}
+      
             <Route exact path="/payment" component={Auth(AddPayments, true)} />
             <Route exact path="/paymentDetails" component={Auth(AdminPayments, true)} />
             <Route exact path="/updatePaymentDetails" component={Auth(UpdatePayment, true)} />
