@@ -55,7 +55,7 @@ export default function ReadTimetable() {
 
         <h1 style={{textAlign: "center"}}>All Timetable</h1>
 
-            <div class="input-group rounded">
+            <div class="input-group rounded"  style={{marginLeft: '25px'}}>
                 <input type="search" class="form-control rounded" placeholder="Search " aria-label="Search"
                        aria-describedby="search-addon"
                        onChange={(e) => {
