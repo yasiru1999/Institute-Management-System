@@ -82,7 +82,7 @@ function LeftMenu(props) {
                     <a href="/AddNewCourse">Add New Course</a>
                 </Menu.Item>
                 <Menu.Item key="viewCourses">
-                    <a href="/">View Courses</a>
+                    <a href="/ViewAllModules">View Courses</a>
                 </Menu.Item>
             </SubMenu>
         </Menu>
