@@ -114,116 +114,116 @@ function LecturerRegPage(props) {
                         </div>
                         <hr/>
                         <div className="" style={{ width: '80%', margin: '6rem auto',border: '5px solid red' }}>
-                        <Form style={{ width: '60%',marginLeft:'220px', alignItems: 'center'}} {...formItemLayout} onSubmit={handleSubmit} >
+                            <Form style={{ width: '60%',marginLeft:'220px', alignItems: 'center'}} {...formItemLayout} onSubmit={handleSubmit} >
 
-                            <Form.Item style={{}} required label="Course ID">
-                                <Input
-                                    id="moduleNo"
-                                    placeholder="Enter Course ID"
-                                    type="text"
-                                    value={values.moduleNo}
-                                    onChange={handleChange}
-                                    onBlur={handleBlur}
-                                    className={
-                                        errors.moduleNo && touched.moduleNo ? 'text-input error' : 'text-input'
-                                    }
-                                />
-                                {errors.moduleNo && touched.moduleNo && (
-                                    <div className="input-feedback">{errors.moduleName}</div>
-                                )}
-                            </Form.Item>
+                                <Form.Item style={{}} required label="Course ID">
+                                    <Input
+                                        id="moduleNo"
+                                        placeholder="Enter Course ID"
+                                        type="text"
+                                        value={values.moduleNo}
+                                        onChange={handleChange}
+                                        onBlur={handleBlur}
+                                        className={
+                                            errors.moduleNo && touched.moduleNo ? 'text-input error' : 'text-input'
+                                        }
+                                    />
+                                    {errors.moduleNo && touched.moduleNo && (
+                                        <div className="input-feedback">{errors.moduleName}</div>
+                                    )}
+                                </Form.Item>
 
-                            <Form.Item required label="Course Name">
-                                <Input
-                                    id="moduleName"
-                                    placeholder="Enter Course Name"
-                                    type="text"
-                                    value={values.moduleName}
-                                    onChange={handleChange}
-                                    onBlur={handleBlur}
-                                    className={
-                                        errors.moduleName && touched.moduleName ? 'text-input error' : 'text-input'
-                                    }
-                                />
-                                {errors.moduleName && touched.moduleName && (
-                                    <div className="input-feedback">{errors.moduleName}</div>
-                                )}
-                            </Form.Item>
+                                <Form.Item required label="Course Name">
+                                    <Input
+                                        id="moduleName"
+                                        placeholder="Enter Course Name"
+                                        type="text"
+                                        value={values.moduleName}
+                                        onChange={handleChange}
+                                        onBlur={handleBlur}
+                                        className={
+                                            errors.moduleName && touched.moduleName ? 'text-input error' : 'text-input'
+                                        }
+                                    />
+                                    {errors.moduleName && touched.moduleName && (
+                                        <div className="input-feedback">{errors.moduleName}</div>
+                                    )}
+                                </Form.Item>
 
-                            <Form.Item required label="Subject 1">
-                                <Input
-                                    id="subject1"
-                                    placeholder="Enter subject 1"
-                                    type="text"
-                                    value={values.subject1}
-                                    onChange={handleChange}
-                                    onBlur={handleBlur}
-                                    className={
-                                        errors.subject1 && touched.subject1 ? 'text-input error' : 'text-input'
-                                    }
-                                />
-                                {errors.subject1 && touched.subject1 && (
-                                    <div className="input-feedback">{errors.subject1}</div>
-                                )}
-                            </Form.Item>
+                                <Form.Item required label="Subject 1">
+                                    <Input
+                                        id="subject1"
+                                        placeholder="Enter subject 1"
+                                        type="text"
+                                        value={values.subject1}
+                                        onChange={handleChange}
+                                        onBlur={handleBlur}
+                                        className={
+                                            errors.subject1 && touched.subject1 ? 'text-input error' : 'text-input'
+                                        }
+                                    />
+                                    {errors.subject1 && touched.subject1 && (
+                                        <div className="input-feedback">{errors.subject1}</div>
+                                    )}
+                                </Form.Item>
 
-                            <Form.Item required label="Subject 2">
-                                <Input
-                                    id="subject2"
-                                    placeholder="Enter contactNumber"
-                                    type="text"
-                                    value={values.subject2}
-                                    onChange={handleChange}
-                                    onBlur={handleBlur}
-                                    className={
-                                        errors.subject2 && touched.subject2 ? 'text-input error' : 'text-input'
-                                    }
-                                />
-                                {errors.subject2 && touched.subject2 && (
-                                    <div className="input-feedback">{errors.subject2}</div>
-                                )}
-                            </Form.Item>
+                                <Form.Item required label="Subject 2">
+                                    <Input
+                                        id="subject2"
+                                        placeholder="Enter contactNumber"
+                                        type="text"
+                                        value={values.subject2}
+                                        onChange={handleChange}
+                                        onBlur={handleBlur}
+                                        className={
+                                            errors.subject2 && touched.subject2 ? 'text-input error' : 'text-input'
+                                        }
+                                    />
+                                    {errors.subject2 && touched.subject2 && (
+                                        <div className="input-feedback">{errors.subject2}</div>
+                                    )}
+                                </Form.Item>
 
-                            <Form.Item required label="Subject 3">
-                                <Input
-                                    id="subject3"
-                                    placeholder="Enter contactNumber"
-                                    type="text"
-                                    value={values.subject3}
-                                    onChange={handleChange}
-                                    onBlur={handleBlur}
-                                    className={
-                                        errors.subject3 && touched.subject3 ? 'text-input error' : 'text-input'
-                                    }
-                                />
-                                {errors.subject3 && touched.subject3 && (
-                                    <div className="input-feedback">{errors.subject3}</div>
-                                )}
-                            </Form.Item>
+                                <Form.Item required label="Subject 3">
+                                    <Input
+                                        id="subject3"
+                                        placeholder="Enter contactNumber"
+                                        type="text"
+                                        value={values.subject3}
+                                        onChange={handleChange}
+                                        onBlur={handleBlur}
+                                        className={
+                                            errors.subject3 && touched.subject3 ? 'text-input error' : 'text-input'
+                                        }
+                                    />
+                                    {errors.subject3 && touched.subject3 && (
+                                        <div className="input-feedback">{errors.subject3}</div>
+                                    )}
+                                </Form.Item>
 
-                            <Form.Item required label="Subject 4">
-                                <Input
-                                    id="subject4"
-                                    placeholder="Enter contactNumber"
-                                    type="text"
-                                    value={values.subject4}
-                                    onChange={handleChange}
-                                    onBlur={handleBlur}
-                                    className={
-                                        errors.subject4 && touched.subject4 ? 'text-input error' : 'text-input'
-                                    }
-                                />
-                                {errors.subject4 && touched.subject4 && (
-                                    <div className="input-feedback">{errors.subject4}</div>
-                                )}
-                            </Form.Item>
+                                <Form.Item required label="Subject 4">
+                                    <Input
+                                        id="subject4"
+                                        placeholder="Enter contactNumber"
+                                        type="text"
+                                        value={values.subject4}
+                                        onChange={handleChange}
+                                        onBlur={handleBlur}
+                                        className={
+                                            errors.subject4 && touched.subject4 ? 'text-input error' : 'text-input'
+                                        }
+                                    />
+                                    {errors.subject4 && touched.subject4 && (
+                                        <div className="input-feedback">{errors.subject4}</div>
+                                    )}
+                                </Form.Item>
 
-                            <Form.Item {...tailFormItemLayout}>
-                                <Button onClick={handleSubmit} type="primary" disabled={isSubmitting}>
-                                    Register
-                                </Button>
-                            </Form.Item>
-                        </Form>
+                                <Form.Item {...tailFormItemLayout}>
+                                    <Button onClick={handleSubmit} type="primary" disabled={isSubmitting}>
+                                        Register
+                                    </Button>
+                                </Form.Item>
+                            </Form>
                         </div>
                     </div>
                 );

@@ -47,7 +47,7 @@ function App() {
           <Route exact path="/createNS/:no" component={Auth(NoticeSession_Create, false)} />
           <Route exact path="/allView/:Mno" component={Auth(NoticeSession_ViewL, false)} />
           {/* <Route exact path="/add" component={Auth(AddTimetable, false)} />
-          <Route exact path="/all" component={Auth(AllTimetable, false)} />
+          <Route exact path="/all" component={Auth(AllTimetable, true)} />
           <Route exact path="/update/:id" component={Auth(UpdateTimetable, false)} />
           <Route exact path="/sall" component={Auth(SAllTimetable, false)} /> */}
           <Route exact path="/payment" component={Auth(AddPayments, true)} />
@@ -56,8 +56,8 @@ function App() {
           <Route exact path="/inquiryDefault" component={Auth(AddInquiry, false)} />
           <Route exact path="/inquiry" component={Auth(AddInquiry, true)} />
           <Route exact path="/inquiryDetails" component={Auth(AdminInquiry, true)} />
-          <Route exact path="/library" component={Auth(AddLibrary, false)} />
-          <Route exact path="/libraryDetails" component={Auth(AdminLibrary, false)} />
+          <Route exact path="/library" component={Auth(AddLibrary, true)} />
+          <Route exact path="/libraryDetails" component={Auth(AdminLibrary, true)} />
           <Route exact path="/updateLibraryDetails" component={Auth(UpdateLibrary, false)} />
           <Route exact path="/createNS/:id" component={Auth(NoticeSession_Create, true)} />
           <Route exact path="/allViewNS/:id" component={Auth(NoticeSession_ViewL, true)} />
