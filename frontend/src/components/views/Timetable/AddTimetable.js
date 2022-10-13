@@ -21,14 +21,14 @@ export default function AddTimetable() {
     const [time2, setTime2] = useState("");
     const [hallNumber2, setHallNumber2] = useState("");
 
-    const [courseId3, setCourseId3] = useState("");
+    
     const [subjectId3, setSubjectId3] = useState("");
     const [examType3, setExamType3] = useState("");
     const [date3, setDate3] = useState("");
     const [time3, setTime3] = useState("");
     const [hallNumber3, setHallNumber3] = useState("");
 
-    const [courseId4, setCourseId4] = useState("");
+    
     const [subjectId4, setSubjectId4] = useState("");
     const [examType4, setExamType4] = useState("");
     const [date4, setDate4] = useState("");
