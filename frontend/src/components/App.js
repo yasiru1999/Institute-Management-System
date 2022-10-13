@@ -9,7 +9,9 @@ import AddTimetable from "./views/Timetable/AddTimetable";
 import AllTimetable from "./views/Timetable/AllTimetable";
 import UpdateTimetable from "./views/Timetable/UpdateTimetable";
 import SAllTimetable from "./views/Timetable/SAllTimetable";
+
 // import AddResult from "./views/Result/AddResult";
+
 import NavBar from "./views/NavBar/NavBar";
 import Footer from "./views/Footer/Footer"
 import UserDetailsPage from "./views/UserDetailsPage/UserDetailsPage";

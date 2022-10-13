@@ -106,11 +106,38 @@ export default function ReadTimetable() {
                             </td>
 
                             <td>{val.courseId}  </td>
-                            <td>{val.subjectId} </td>
-                            <td>{val.examType} </td>
-                            <td>{val.date} </td>
-                            <td>{val.time} </td>
-                            <td>{val.hallNumber} </td>
+                            <td>
+                                {val.subjectId} <br/>
+                                {val.subjectId2} <br/>
+                                {val.subjectId3} <br/>
+                                {val.subjectId4} <br/>
+                                </td>
+
+                            <td>
+                                {val.examType} <br/>
+                                {val.examType2} <br/>
+                                {val.examType3} <br/>
+                                {val.examType4} <br/>
+                                </td>
+
+                            <td> 
+                                {val.date} <br/>
+                                {val.date2} <br/>
+                                {val.date3} <br/>
+                                {val.date4} <br/>
+                                </td>
+                            <td>
+                                {val.time} <br/>
+                                {val.time2} <br/>
+                                {val.time3} <br/>
+                                {val.time4} <br/>
+                                </td>
+                            <td>
+                                {val.hallNumber} <br/>
+                                {val.hallNumber2} <br/>
+                                {val.hallNumber3} <br/>
+                                {val.hallNumber4} <br/>
+                                </td>
 
 
                         </tr>

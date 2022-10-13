@@ -160,7 +160,7 @@ export default function AddTimetable() {
                             <div className="form-check" style={{marginBottom: '15px'}}>
                                <b> <label for="name">Course Name</label> </b>
                                <br/>
-                                <select onChange={(e) =>{
+                                <select value={courseId} onChange={(e) =>{
                                     setCourseId(e.target.value);
                                 }}>
                                     <option selected>Select</option>
@@ -182,7 +182,7 @@ export default function AddTimetable() {
                         <div className="column">
                             <div className="form-check" style={{marginBottom: '15px'}}>
                               <b>  <label for="name">Subject and name</label>  </b> <br/>
-                                <select onChange={(e) =>{
+                                <select value={subjectId} onChange={(e) =>{
                                     setSubjectId(e.target.value);
                                 }}>
                                     <option selected>Select</option>
@@ -204,7 +204,7 @@ export default function AddTimetable() {
                         <div className="column">
                             <div className="form-check" style={{marginBottom: '15px'}}>
                                 <b><label for="name">Exam Type</label></b><br/>
-                                <select onChange={(e) =>{
+                                <select value={examType} onChange={(e) =>{
                                     setExamType(e.target.value);
                                 }}>
                                     <option selected>Select</option>
@@ -237,7 +237,7 @@ export default function AddTimetable() {
                         <div className="column">
                             <div className="form-check" style={{marginBottom: '15px'}}>
                                <b> <label for="name">Hall Number</label>  </b> <br/>
-                                <select onChange={(e) =>{
+                                <select value={hallNumber} onChange={(e) =>{
                                     setHallNumber(e.target.value);
                                 }}>
                                     <option selected>Select</option>
@@ -260,7 +260,7 @@ export default function AddTimetable() {
                         <div className="column">
                             <div className="form-check" style={{marginBottom: '15px' ,marginTop : '-150px'}}>
                               <b>  <label for="name">Subject and name</label>  </b> <br/>
-                                <select onChange={(e) =>{
+                                <select value={subjectId2} onChange={(e) =>{
                                     setSubjectId2(e.target.value);
                                 }}>
                                     <option selected>Select</option>
@@ -282,7 +282,7 @@ export default function AddTimetable() {
                         <div className="column">
                             <div className="form-check" style={{marginBottom: '15px',marginTop : '-150px'}}>
                                 <b><label for="name">Exam Type</label></b><br/>
-                                <select onChange={(e) =>{
+                                <select value={examType2} onChange={(e) =>{
                                     setExamType2(e.target.value);
                                 }}>
                                     <option selected>Select</option>
@@ -298,7 +298,7 @@ export default function AddTimetable() {
                         <div className="column dateTime">
                             <div className="form-group " style={{marginBottom: '15px', width: '300px', marginLeft: '20px' ,marginTop : '-150px'}}>
                             <b> <label style={{marginBottom: '5px'}}>Date</label> </b> <br/>
-                                <input type="date" className="form-control" name="date" placeholder="Enter Date" value={date} onChange={(e) => {
+                                <input type="date" className="form-control" name="date" placeholder="Enter Date" value={date2} onChange={(e) => {
                                     setDate2(e.target.value);
                                 }}/>
                             </div>
@@ -307,7 +307,7 @@ export default function AddTimetable() {
                         <div className="column dateTime">
                             <div className="form-group" style={{marginBottom: '55px', width: '300px', marginLeft: '20px',marginTop : '-150px'}}>
                             <b>  <label style={{marginBottom: '5px'}}>Time</label> </b> <br/>
-                                <input type="time" className="form-control" name="time" placeholder="Enter Time" value={time} onChange={(e) => {
+                                <input type="time" className="form-control" name="time" placeholder="Enter Time" value={time2} onChange={(e) => {
                                     setTime2(e.target.value);
                                 }}/>
                             </div>
@@ -315,7 +315,7 @@ export default function AddTimetable() {
                         <div className="column">
                             <div className="form-check" style={{marginBottom: '15px',marginTop : '-150px'}}>
                                <b> <label for="name">Hall Number</label>  </b> <br/>
-                                <select onChange={(e) =>{
+                                <select value={hallNumber2} onChange={(e) =>{
                                     setHallNumber2(e.target.value);
                                 }}>
                                     <option selected>Select</option>
@@ -342,7 +342,7 @@ export default function AddTimetable() {
                         <div className="column">
                             <div className="form-check" style={{marginBottom: '15px',marginTop : '-275px'}}>
                               <b>  <label for="name">Subject and name</label>  </b> <br/>
-                                <select onChange={(e) =>{
+                                <select value={subjectId3} onChange={(e) =>{
                                     setSubjectId3(e.target.value);
                                 }}>
                                     <option selected>Select</option>
@@ -364,7 +364,7 @@ export default function AddTimetable() {
                         <div className="column">
                             <div className="form-check" style={{marginBottom: '15px',marginTop : '-275px'}}>
                                 <b><label for="name">Exam Type</label></b><br/>
-                                <select onChange={(e) =>{
+                                <select value={examType3} onChange={(e) =>{
                                     setExamType3(e.target.value);
                                 }}>
                                     <option selected>Select</option>
@@ -380,7 +380,7 @@ export default function AddTimetable() {
                         <div className="column dateTime">
                             <div className="form-group " style={{marginBottom: '15px', width: '300px', marginLeft: '20px',marginTop : '-275px' }}>
                             <b> <label style={{marginBottom: '5px'}}>Date</label> </b> <br/>
-                                <input type="date" className="form-control" name="date" placeholder="Enter Date" value={date} onChange={(e) => {
+                                <input type="date" className="form-control" name="date" placeholder="Enter Date" value={date3} onChange={(e) => {
                                     setDate3(e.target.value);
                                 }}/>
                             </div>
@@ -389,7 +389,7 @@ export default function AddTimetable() {
                         <div className="column dateTime">
                             <div className="form-group" style={{marginBottom: '55px', width: '300px', marginLeft: '20px',marginTop : '-275px'}}>
                             <b>  <label style={{marginBottom: '5px'}}>Time</label> </b> <br/>
-                                <input type="time" className="form-control" name="time" placeholder="Enter Time" value={time} onChange={(e) => {
+                                <input type="time" className="form-control" name="time" placeholder="Enter Time" value={time3} onChange={(e) => {
                                     setTime3(e.target.value);
                                 }}/>
                             </div>
@@ -398,7 +398,7 @@ export default function AddTimetable() {
                          <div className="column">
                             <div className="form-check" style={{marginBottom: '15px',marginTop : '-275px'}}>
                                <b> <label for="name">Hall Number</label>  </b> <br/>
-                                <select onChange={(e) =>{
+                                <select value={hallNumber3} onChange={(e) =>{
                                     setHallNumber3(e.target.value);
                                 }}>
                                     <option selected>Select</option>
@@ -419,7 +419,7 @@ export default function AddTimetable() {
                         <div className="column">
                             <div className="form-check" style={{marginBottom: '15px',marginTop : '-400px'}}>
                               <b>  <label for="name">Subject and name</label>  </b> <br/>
-                                <select onChange={(e) =>{
+                                <select value={subjectId4} onChange={(e) =>{
                                     setSubjectId4(e.target.value);
                                 }}>
                                     <option selected>Select</option>
@@ -441,7 +441,7 @@ export default function AddTimetable() {
                         <div className="column">
                             <div className="form-check" style={{marginBottom: '15px',marginTop : '-400px'}}>
                                 <b><label for="name">Exam Type</label></b><br/>
-                                <select onChange={(e) =>{
+                                <select value={examType4} onChange={(e) =>{
                                     setExamType4(e.target.value);
                                 }}>
                                     <option selected>Select</option>
@@ -457,7 +457,7 @@ export default function AddTimetable() {
                         <div className="column dateTime">
                             <div className="form-group " style={{marginBottom: '15px', width: '300px', marginLeft: '20px',marginTop : '-400px' }}>
                             <b> <label style={{marginBottom: '5px'}}>Date</label> </b> <br/>
-                                <input type="date" className="form-control" name="date" placeholder="Enter Date" value={date} onChange={(e) => {
+                                <input type="date" className="form-control" name="date" placeholder="Enter Date" value={date4} onChange={(e) => {
                                     setDate4(e.target.value);
                                 }}/>
                             </div>
@@ -466,7 +466,7 @@ export default function AddTimetable() {
                         <div className="column dateTime">
                             <div className="form-group" style={{marginBottom: '55px', width: '300px', marginLeft: '20px',marginTop : '-400px'}}>
                             <b>  <label style={{marginBottom: '5px'}}>Time</label> </b> <br/>
-                                <input type="time" className="form-control" name="time" placeholder="Enter Time" value={time} onChange={(e) => {
+                                <input type="time" className="form-control" name="time" placeholder="Enter Time" value={time4} onChange={(e) => {
                                     setTime4(e.target.value);
                                 }}/>
                             </div>
@@ -474,7 +474,7 @@ export default function AddTimetable() {
                         <div className="column">
                             <div className="form-check" style={{marginBottom: '15px',marginTop : '-400px'}}>
                                <b> <label for="name">Hall Number</label>  </b> <br/>
-                                <select onChange={(e) =>{
+                                <select value={hallNumber4} onChange={(e) =>{
                                     setHallNumber4(e.target.value);
                                 }}>
                                     <option selected>Select</option>

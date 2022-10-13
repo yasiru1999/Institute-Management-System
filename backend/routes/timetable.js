@@ -68,16 +68,51 @@ router.route("/").get((req, res) => {
 
 router.route("/update/:id").put(async (req, res) => {
     let courseID = req.params.id;
-    const {courseId, subjectId, examType, date, time, hallNumber} = req.body;
+    const {courseId,
+        subjectId,
+        subjectId2,
+        subjectId3,
+        subjectId4,
+        examType,
+        examType2,
+        examType3,
+        examType4,
+        date,
+        date2,
+        date3,
+        date4,
+        time,
+        time2,
+        time3,
+        time4,
+        hallNumber,
+        hallNumber2,
+        hallNumber3,
+        hallNumber4} = req.body;
 
 
     const updateTimetable = {
         courseId,
         subjectId,
+        subjectId2,
+        subjectId3,
+        subjectId4,
         examType,
+        examType2,
+        examType3,
+        examType4,
         date,
+        date2,
+        date3,
+        date4,
         time,
-        hallNumber
+        time2,
+        time3,
+        time4,
+        hallNumber,
+        hallNumber2,
+        hallNumber3,
+        hallNumber4
 
     }
 
