@@ -53,9 +53,9 @@ export default function ReadTimetable() {
         <div class="pt-24 container">
 
 
-            <h2 class="display-3 font-black mb-3"> All Timetables </h2>
+        <h1 style={{textAlign: "center"}}>All Timetable</h1>
 
-            <div class="input-group rounded">
+            <div class="input-group rounded"  style={{marginLeft: '25px'}}>
                 <input type="search" class="form-control rounded" placeholder="Search " aria-label="Search"
                        aria-describedby="search-addon"
                        onChange={(e) => {
@@ -120,7 +120,7 @@ export default function ReadTimetable() {
             })}
             <div class="grid place-items-center">
                 <button class="buttonSubmit" type="button" onClick={() => gotoAdd()}
-                        style={{width:"18em"}}>Add New Timetable</button>
+                        style={{marginLeft: '10px',width:'20%', backgroundColor:'#4682b4'}}>Add New Timetable</button>
 
                 &nbsp;&nbsp;&nbsp;&nbsp;
 

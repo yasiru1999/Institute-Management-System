@@ -127,20 +127,20 @@ function LeftMenu(props) {
             <Menu.Item className="leftbtn" key="addPayment">
                 <a href="/inquiry">Inquiry Form</a>
             </Menu.Item>
-            {/*<SubMenu className="leftbtn" key="subj" title="My courses">*/}
-            {/*    <Menu.Item key="results">*/}
-            {/*        <a href={`/stuHome/${moduleNames.subject1}`}>{moduleNames.subject1}</a>*/}
-            {/*    </Menu.Item>*/}
-            {/*    <Menu.Item key="viewExam">*/}
-            {/*        <a href={`/stuHome/${moduleNames.subject2}`}>{moduleNames.subject2}</a>*/}
-            {/*    </Menu.Item>*/}
-            {/*    <Menu.Item key="viewExam">*/}
-            {/*        <a href={`/stuHome/${moduleNames.subject3}`}>{moduleNames.subject3}</a>*/}
-            {/*    </Menu.Item>*/}
-            {/*    <Menu.Item key="viewExam">*/}
-            {/*        <a href={`/stuHome/${moduleNames.subject4}`}>{moduleNames.subject4}</a>*/}
-            {/*    </Menu.Item>*/}
-            {/*</SubMenu>*/}
+            {/* <SubMenu className="leftbtn" key="subj" title="My courses">
+               <Menu.Item key="results">
+               <a href={`/stuHome/${moduleNames.subject1}`}>{moduleNames.subject1}</a>
+               </Menu.Item>
+               <Menu.Item key="viewExam">
+                   <a href={`/stuHome/${moduleNames.subject2}`}>{moduleNames.subject2}</a>
+               </Menu.Item>
+                <Menu.Item key="viewExam">
+                   <a href={`/stuHome/${moduleNames.subject3}`}>{moduleNames.subject3}</a>
+               </Menu.Item>
+               <Menu.Item key="viewExam">
+                  <a href={`/stuHome/${moduleNames.subject4}`}>{moduleNames.subject4}</a>
+                </Menu.Item>
+            </SubMenu> */}
 
         </Menu>
 

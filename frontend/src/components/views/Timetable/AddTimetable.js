@@ -15,6 +15,27 @@ export default function AddTimetable() {
     const [hallNumber, setHallNumber] = useState("");
 
 
+    const [subjectId2, setSubjectId2] = useState("");
+    const [examType2, setExamType2] = useState("");
+    const [date2, setDate2] = useState("");
+    const [time2, setTime2] = useState("");
+    const [hallNumber2, setHallNumber2] = useState("");
+
+    
+    const [subjectId3, setSubjectId3] = useState("");
+    const [examType3, setExamType3] = useState("");
+    const [date3, setDate3] = useState("");
+    const [time3, setTime3] = useState("");
+    const [hallNumber3, setHallNumber3] = useState("");
+
+    
+    const [subjectId4, setSubjectId4] = useState("");
+    const [examType4, setExamType4] = useState("");
+    const [date4, setDate4] = useState("");
+    const [time4, setTime4] = useState("");
+    const [hallNumber4, setHallNumber4] = useState("");
+
+
     const [visibility, setVisibility] = useState(false);
     const [errorMsg, setErrorMsg] = useState('');
 
@@ -40,7 +61,7 @@ export default function AddTimetable() {
             return;
         }
 
-        if (subjectId.trim().length === 0) {
+        if (subjectId.trim().length ===  0||subjectId2.trim().length ===  0 ||subjectId3.trim().length ===  0 ||subjectId4.trim().length ===  0) {
             setErrorMsg(() => {
                 return 'Subject Id must be a Filled.'
             })
@@ -48,7 +69,7 @@ export default function AddTimetable() {
             return;
         }
 
-        if (examType.trim().length === 0) {
+        if (examType.trim().length === 0 || examType2.trim().length === 0 || examType3.trim().length === 0 || examType4.trim().length === 0) {
             setErrorMsg(() => {
                 return 'Exam Type must be a Filled.'
             })
@@ -56,7 +77,7 @@ export default function AddTimetable() {
             return;
         }
 
-        if (date.trim().length === 0) {
+        if (date.trim().length === 0 || date2.trim().length === 0 || date3.trim().length === 0 || date4.trim().length === 0) {
             setErrorMsg(() => {
                 return 'Date must be a Filled.'
             })
@@ -64,7 +85,7 @@ export default function AddTimetable() {
             return;
         }
 
-        if (time.trim().length === 0) {
+        if (time.trim().length === 0 || time2.trim().length === 0 || time3.trim().length === 0 || time4.trim().length === 0) {
             setErrorMsg(() => {
                 return 'Time must be a Filled.'
             })
@@ -72,7 +93,7 @@ export default function AddTimetable() {
             return;
         }
 
-        if (hallNumber.trim().length === 0) {
+        if (hallNumber.trim().length === 0||hallNumber2.trim().length ===   0 ||hallNumber3.trim().length ===   0 ||hallNumber4.trim().length ===   0) {
             setErrorMsg(() => {
                 return 'Hall Number must be a Filled.'
             })
@@ -83,10 +104,25 @@ export default function AddTimetable() {
         const newTimetable = {
             courseId,
             subjectId,
+            subjectId2,
+            subjectId3,
+            subjectId4,
             examType,
+            examType2,
+            examType3,
+            examType4,
             date,
+            date2,
+            date3,
+            date4,
             time,
+            time2,
+            time3,
+            time4,
             hallNumber,
+            hallNumber2,
+            hallNumber3,
+            hallNumber4
         };
 
         axios.post("http://localhost:5001/timetable/add", newTimetable).then(() => {
@@ -114,7 +150,7 @@ export default function AddTimetable() {
         
         <div className="container" style={{  margin: '6rem auto' }}>
             <div >
-                <div className="form1"  style={{border: 'solid', width:'80%',  margin: '4rem auto'}}>
+                <div className="form1"  style={{border: 'solid', width:'70%', height:'20%', margin: '4rem auto' }}>
                     <h1 style={{textAlign: "center"}}>Add Timetable</h1>
                     {/* <hr className='hrLine'/> */}
                     <hr/>
@@ -163,20 +199,7 @@ export default function AddTimetable() {
                             </div>
                         </div>
 
-                        <div className="column">
-                            <div className="form-check" style={{marginBottom: '15px'}}>
-                               <b> <label for="name">Hall Number</label>  </b> <br/>
-                                <select onChange={(e) =>{
-                                    setHallNumber(e.target.value);
-                                }}>
-                                    <option selected>Select</option>
-                                    <option>Hall A3b </option>
-                                    <option>Hall A4c</option>
-                                    <option>Hall A5d</option>
-                                    <option>Hall A6e</option>
-                                </select>
-                            </div>
-                        </div>
+                       
 
                         <div className="column">
                             <div className="form-check" style={{marginBottom: '15px'}}>
@@ -210,13 +233,27 @@ export default function AddTimetable() {
                                     setTime(e.target.value);
                                 }}/>
                             </div>
-                        </div>                        
+                        </div>    
+                        <div className="column">
+                            <div className="form-check" style={{marginBottom: '15px'}}>
+                               <b> <label for="name">Hall Number</label>  </b> <br/>
+                                <select onChange={(e) =>{
+                                    setHallNumber(e.target.value);
+                                }}>
+                                    <option selected>Select</option>
+                                    <option>Hall A3b </option>
+                                    <option>Hall A4c</option>
+                                    <option>Hall A5d</option>
+                                    <option>Hall A6e</option>
+                                </select>
+                            </div>
+                        </div>                    
                     </div>
 
 
 
 
-
+{/*                         2                                                                 */}
 
 
                     <div className="row">
@@ -224,7 +261,7 @@ export default function AddTimetable() {
                             <div className="form-check" style={{marginBottom: '15px' ,marginTop : '-150px'}}>
                               <b>  <label for="name">Subject and name</label>  </b> <br/>
                                 <select onChange={(e) =>{
-                                    setSubjectId(e.target.value);
+                                    setSubjectId2(e.target.value);
                                 }}>
                                     <option selected>Select</option>
                                     <option>IT2030 - Algorithms</option>
@@ -240,26 +277,13 @@ export default function AddTimetable() {
                             </div>
                         </div>
 
-                        <div className="column">
-                            <div className="form-check" style={{marginBottom: '15px',marginTop : '-150px'}}>
-                               <b> <label for="name">Hall Number</label>  </b> <br/>
-                                <select onChange={(e) =>{
-                                    setHallNumber(e.target.value);
-                                }}>
-                                    <option selected>Select</option>
-                                    <option>Hall A3b </option>
-                                    <option>Hall A4c</option>
-                                    <option>Hall A5d</option>
-                                    <option>Hall A6e</option>
-                                </select>
-                            </div>
-                        </div>
+                        
 
                         <div className="column">
                             <div className="form-check" style={{marginBottom: '15px',marginTop : '-150px'}}>
                                 <b><label for="name">Exam Type</label></b><br/>
                                 <select onChange={(e) =>{
-                                    setExamType(e.target.value);
+                                    setExamType2(e.target.value);
                                 }}>
                                     <option selected>Select</option>
                                     <option>Mid</option>
@@ -275,7 +299,7 @@ export default function AddTimetable() {
                             <div className="form-group " style={{marginBottom: '15px', width: '300px', marginLeft: '20px' ,marginTop : '-150px'}}>
                             <b> <label style={{marginBottom: '5px'}}>Date</label> </b> <br/>
                                 <input type="date" className="form-control" name="date" placeholder="Enter Date" value={date} onChange={(e) => {
-                                    setDate(e.target.value);
+                                    setDate2(e.target.value);
                                 }}/>
                             </div>
                         </div>
@@ -284,10 +308,24 @@ export default function AddTimetable() {
                             <div className="form-group" style={{marginBottom: '55px', width: '300px', marginLeft: '20px',marginTop : '-150px'}}>
                             <b>  <label style={{marginBottom: '5px'}}>Time</label> </b> <br/>
                                 <input type="time" className="form-control" name="time" placeholder="Enter Time" value={time} onChange={(e) => {
-                                    setTime(e.target.value);
+                                    setTime2(e.target.value);
                                 }}/>
                             </div>
-                        </div>                        
+                        </div>   
+                        <div className="column">
+                            <div className="form-check" style={{marginBottom: '15px',marginTop : '-150px'}}>
+                               <b> <label for="name">Hall Number</label>  </b> <br/>
+                                <select onChange={(e) =>{
+                                    setHallNumber2(e.target.value);
+                                }}>
+                                    <option selected>Select</option>
+                                    <option>Hall A3b </option>
+                                    <option>Hall A4c</option>
+                                    <option>Hall A5d</option>
+                                    <option>Hall A6e</option>
+                                </select>
+                            </div>
+                        </div>                     
                     </div>
 
 
@@ -297,7 +335,7 @@ export default function AddTimetable() {
 
 
 
-
+{/*                                                          3                                             */}
 
 
                     <div className="row">
@@ -305,7 +343,7 @@ export default function AddTimetable() {
                             <div className="form-check" style={{marginBottom: '15px',marginTop : '-275px'}}>
                               <b>  <label for="name">Subject and name</label>  </b> <br/>
                                 <select onChange={(e) =>{
-                                    setSubjectId(e.target.value);
+                                    setSubjectId3(e.target.value);
                                 }}>
                                     <option selected>Select</option>
                                     <option>IT2030 - Algorithms</option>
@@ -321,26 +359,13 @@ export default function AddTimetable() {
                             </div>
                         </div>
 
-                        <div className="column">
-                            <div className="form-check" style={{marginBottom: '15px',marginTop : '-275px'}}>
-                               <b> <label for="name">Hall Number</label>  </b> <br/>
-                                <select onChange={(e) =>{
-                                    setHallNumber(e.target.value);
-                                }}>
-                                    <option selected>Select</option>
-                                    <option>Hall A3b </option>
-                                    <option>Hall A4c</option>
-                                    <option>Hall A5d</option>
-                                    <option>Hall A6e</option>
-                                </select>
-                            </div>
-                        </div>
+                       
 
                         <div className="column">
                             <div className="form-check" style={{marginBottom: '15px',marginTop : '-275px'}}>
                                 <b><label for="name">Exam Type</label></b><br/>
                                 <select onChange={(e) =>{
-                                    setExamType(e.target.value);
+                                    setExamType3(e.target.value);
                                 }}>
                                     <option selected>Select</option>
                                     <option>Mid</option>
@@ -356,7 +381,7 @@ export default function AddTimetable() {
                             <div className="form-group " style={{marginBottom: '15px', width: '300px', marginLeft: '20px',marginTop : '-275px' }}>
                             <b> <label style={{marginBottom: '5px'}}>Date</label> </b> <br/>
                                 <input type="date" className="form-control" name="date" placeholder="Enter Date" value={date} onChange={(e) => {
-                                    setDate(e.target.value);
+                                    setDate3(e.target.value);
                                 }}/>
                             </div>
                         </div>
@@ -365,22 +390,37 @@ export default function AddTimetable() {
                             <div className="form-group" style={{marginBottom: '55px', width: '300px', marginLeft: '20px',marginTop : '-275px'}}>
                             <b>  <label style={{marginBottom: '5px'}}>Time</label> </b> <br/>
                                 <input type="time" className="form-control" name="time" placeholder="Enter Time" value={time} onChange={(e) => {
-                                    setTime(e.target.value);
+                                    setTime3(e.target.value);
                                 }}/>
                             </div>
-                        </div>                        
+                        </div>    
+
+                         <div className="column">
+                            <div className="form-check" style={{marginBottom: '15px',marginTop : '-275px'}}>
+                               <b> <label for="name">Hall Number</label>  </b> <br/>
+                                <select onChange={(e) =>{
+                                    setHallNumber3(e.target.value);
+                                }}>
+                                    <option selected>Select</option>
+                                    <option>Hall A3b </option>
+                                    <option>Hall A4c</option>
+                                    <option>Hall A5d</option>
+                                    <option>Hall A6e</option>
+                                </select>
+                            </div>
+                        </div>                    
                     </div>
 
 
 
-
+{/*                                       4                                                 */}
 
                     <div className="row">
                         <div className="column">
                             <div className="form-check" style={{marginBottom: '15px',marginTop : '-400px'}}>
                               <b>  <label for="name">Subject and name</label>  </b> <br/>
                                 <select onChange={(e) =>{
-                                    setSubjectId(e.target.value);
+                                    setSubjectId4(e.target.value);
                                 }}>
                                     <option selected>Select</option>
                                     <option>IT2030 - Algorithms</option>
@@ -396,26 +436,13 @@ export default function AddTimetable() {
                             </div>
                         </div>
 
-                        <div className="column">
-                            <div className="form-check" style={{marginBottom: '15px',marginTop : '-400px'}}>
-                               <b> <label for="name">Hall Number</label>  </b> <br/>
-                                <select onChange={(e) =>{
-                                    setHallNumber(e.target.value);
-                                }}>
-                                    <option selected>Select</option>
-                                    <option>Hall A3b </option>
-                                    <option>Hall A4c</option>
-                                    <option>Hall A5d</option>
-                                    <option>Hall A6e</option>
-                                </select>
-                            </div>
-                        </div>
+                        
 
                         <div className="column">
                             <div className="form-check" style={{marginBottom: '15px',marginTop : '-400px'}}>
                                 <b><label for="name">Exam Type</label></b><br/>
                                 <select onChange={(e) =>{
-                                    setExamType(e.target.value);
+                                    setExamType4(e.target.value);
                                 }}>
                                     <option selected>Select</option>
                                     <option>Mid</option>
@@ -431,7 +458,7 @@ export default function AddTimetable() {
                             <div className="form-group " style={{marginBottom: '15px', width: '300px', marginLeft: '20px',marginTop : '-400px' }}>
                             <b> <label style={{marginBottom: '5px'}}>Date</label> </b> <br/>
                                 <input type="date" className="form-control" name="date" placeholder="Enter Date" value={date} onChange={(e) => {
-                                    setDate(e.target.value);
+                                    setDate4(e.target.value);
                                 }}/>
                             </div>
                         </div>
@@ -440,25 +467,39 @@ export default function AddTimetable() {
                             <div className="form-group" style={{marginBottom: '55px', width: '300px', marginLeft: '20px',marginTop : '-400px'}}>
                             <b>  <label style={{marginBottom: '5px'}}>Time</label> </b> <br/>
                                 <input type="time" className="form-control" name="time" placeholder="Enter Time" value={time} onChange={(e) => {
-                                    setTime(e.target.value);
+                                    setTime4(e.target.value);
                                 }}/>
                             </div>
-                        </div>                        
+                        </div>   
+                        <div className="column">
+                            <div className="form-check" style={{marginBottom: '15px',marginTop : '-400px'}}>
+                               <b> <label for="name">Hall Number</label>  </b> <br/>
+                                <select onChange={(e) =>{
+                                    setHallNumber4(e.target.value);
+                                }}>
+                                    <option selected>Select</option>
+                                    <option>Hall A3b </option>
+                                    <option>Hall A4c</option>
+                                    <option>Hall A5d</option>
+                                    <option>Hall A6e</option>
+                                </select>
+                            </div>
+                        </div>                     
                     </div>
 
 
 
 
                         {/* <div className='btS'style={{width: '10px',marginTop : '-700px'}}> */}
-                            <button className="buttonSubmit" type="submit" onClick={(e)=>sendData(e)} style={{ width: '200px', marginLeft: '80px', marginTop : '-700px'}}>
+                            <button className="buttonSubmit" type="submit" onClick={(e)=>sendData(e)} style={{marginLeft: '250px',width:'20%', backgroundColor:'#4682b4', marginTop : '-400px'}}>
                                 {/* <i className="far fa-check-square"></i> */}
                                 &nbsp; Save
                             </button>
                         
 
-                        <div className='btS' style={{  marginTop : '-500px'}}>
-                            <button className="buttonDelete" type="reset" >Clear </button>
-                        </div>
+                       
+                            <button className="buttonDelete" style={{  marginTop : '-500px',marginLeft: '200px',width:'20%'}} type="reset" >Clear </button>
+                        
                        
 
                     </form>

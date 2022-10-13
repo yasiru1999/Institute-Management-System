@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 const ResultSchema = new Schema({
 
 
-    registrationNumber : {
+    registrationId : {
         type : String,
         // required: true
     },
