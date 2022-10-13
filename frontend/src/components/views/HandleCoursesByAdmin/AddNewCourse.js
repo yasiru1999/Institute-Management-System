@@ -113,8 +113,8 @@ function LecturerRegPage(props) {
                             <h1 style={{ textAlign: 'left' }}>  All Users </h1>
                         </div>
                         <hr/>
-                        <div className="" style={{ width: '80%', margin: '6rem auto',border: '5px solid red' }}>
-                            <Form style={{ width: '60%',marginLeft:'220px', alignItems: 'center'}} {...formItemLayout} onSubmit={handleSubmit} >
+                        <div className="" style={{ width: '80%', margin: '6rem auto',border: '4px solid black' }}>
+                            <Form style={{ width: '60%',marginLeft:'220px', alignItems: 'center',marginTop:'80px'}} {...formItemLayout} onSubmit={handleSubmit} >
 
                                 <Form.Item style={{}} required label="Course ID">
                                     <Input
@@ -220,7 +220,7 @@ function LecturerRegPage(props) {
 
                                 <Form.Item {...tailFormItemLayout}>
                                     <Button onClick={handleSubmit} type="primary" disabled={isSubmitting}>
-                                        Register
+                                        Add
                                     </Button>
                                 </Form.Item>
                             </Form>
