@@ -42,7 +42,7 @@ export default function ReadResult() {
     }
 
     const gotoAdd = ()=>{
-        let path = "/add";
+        let path = "/addResult";
         history.push(path);
     }
 

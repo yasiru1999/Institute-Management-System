@@ -10,10 +10,10 @@ import AllTimetable from "./views/Timetable/AllTimetable";
 import UpdateTimetable from "./views/Timetable/UpdateTimetable";
 import SAllTimetable from "./views/Timetable/SAllTimetable";
 
-// import AddResult from "./views/Result/AddResult";
-// import UpdateResult from "./views/Result/UpdateResult";
-// import AllResult from "./views/Result/AllResult";
-// import SAllResult from "./views/Result/SAllResult";
+import AddResult from "./views/Result/AddResult";
+import UpdateResult from "./views/Result/UpdateResult";
+import AllResult from "./views/Result/AllResult";
+import SAllResult from "./views/Result/SAllResult";
 
 
 import NavBar from "./views/NavBar/NavBar";
@@ -81,10 +81,10 @@ function App() {
           <Route exact path="/update/:id" component={Auth(UpdateTimetable, true)} />
           <Route exact path="/sall" component={Auth(SAllTimetable, true)} />
 
-          {/* <Route exact path="/addResult" component={Auth(AddResult, true)} /> */}
-          {/* <Route exact path="/allResult" component={Auth(AllResult, true)} /> */}
-          {/* <Route exact path="/updateResult/:id" component={Auth(UpdateResult, true)} />
-          <Route exact path="/sallResult" component={Auth(SAllResult, true)} /> */} 
+          <Route exact path="/addResult" component={Auth(AddResult, true)} />
+          <Route exact path="/allResult" component={Auth(AllResult, true)} />
+           <Route exact path="/updateResult/:id" component={Auth(UpdateResult, true)} />
+          <Route exact path="/sallResult" component={Auth(SAllResult, true)} /> 
           
       
             <Route exact path="/payment" component={Auth(AddPayments, true)} />
