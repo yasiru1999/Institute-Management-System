@@ -11,6 +11,10 @@ import UpdateTimetable from "./views/Timetable/UpdateTimetable";
 import SAllTimetable from "./views/Timetable/SAllTimetable";
 
 // import AddResult from "./views/Result/AddResult";
+// import UpdateResult from "./views/Result/UpdateResult";
+// import AllResult from "./views/Result/AllResult";
+// import SAllResult from "./views/Result/SAllResult";
+
 
 import NavBar from "./views/NavBar/NavBar";
 import Footer from "./views/Footer/Footer"
@@ -75,6 +79,10 @@ function App() {
           <Route exact path="/sall" component={Auth(SAllTimetable, true)} />
 
           {/* <Route exact path="/addResult" component={Auth(AddResult, true)} /> */}
+          {/* <Route exact path="/allResult" component={Auth(AllResult, true)} /> */}
+          {/* <Route exact path="/updateResult/:id" component={Auth(UpdateResult, true)} />
+          <Route exact path="/sallResult" component={Auth(SAllResult, true)} /> */} 
+          
       
             <Route exact path="/payment" component={Auth(AddPayments, true)} />
             <Route exact path="/paymentDetails" component={Auth(AdminPayments, true)} />

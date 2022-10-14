@@ -2,8 +2,7 @@ import React, {useState} from "react"
 import axios from "axios";
 import Swal from "sweetalert2";
 import{ useHistory } from "react-router";
-// import './Timetable.css';
-
+import './Result.css';
 
 
 export default function AddResult() {
@@ -12,8 +11,8 @@ export default function AddResult() {
     const [courseId, setCourseId] = useState("");
     const [subjectCode, setSubjectCode] = useState("");
     const [subjectName, setSubjectName] = useState("");
-    const [result, setResult] = useState("");
-   
+    const [results, setResults] = useState("");
+
 
     const [visibility, setVisibility] = useState(false);
     const [errorMsg, setErrorMsg] = useState('');
@@ -72,9 +71,9 @@ export default function AddResult() {
             return;
         }
 
-        if (result.trim().length === 0) {
+        if (results.trim().length === 0) {
             setErrorMsg(() => {
-                return 'Result must be a Filled.'
+                return 'Results must be a Filled.'
             })
             changeModalVisibilityHandler(true)
             return;
@@ -86,7 +85,7 @@ export default function AddResult() {
             courseId,
             subjectCode,
             subjectName,
-            result,
+            results,
 
         };
 
@@ -116,14 +115,14 @@ export default function AddResult() {
         <div className="container" style={{  margin: '6rem auto' }}>
             <div >
                 <div className="form1"  style={{border: 'solid', width:'80%',  margin: '4rem auto'}}>
-                    <h1 style={{textAlign: "center"}}>Add Examination Reult</h1>
+                    <h1 style={{textAlign: "center"}}>Add Examination Result</h1>
                     {/* <hr className='hrLine'/> */}
                     <hr/>
                     <form  style={{ width: '100%', margin: '2rem auto'}} onSubmit={sendData} action="/post" method = "post" noValidate >
 
 
 {/*                                   registration number                      */}
-                    <div className="form-group">
+                    {/* <div className="form-group">
                         <label for="registrationId">Registration Number</label>
                         <input type="text"
                        className="form-check"
@@ -131,11 +130,11 @@ export default function AddResult() {
                           onChange={(e) => {
                         setRegistrationId(e.target.value);    }}/>
 
-                        </div>
+                        </div> */}
 
     {/*                                Student Name                                           */}
 
-                        <div className="form-group">
+                        {/* <div className="form-group">
 
                         <label for="studentName">Student Name</label>
                         <input type="text"
@@ -143,7 +142,7 @@ export default function AddResult() {
                         id="studentName" placeholder="Enter Student Name"
                         onChange={(e) => {
                        setStudentName(e.target.value); }}/>
-                       </div>
+                       </div> */}
 
 
         {/*                          Course Name                            */}
@@ -190,7 +189,7 @@ export default function AddResult() {
                             <div className="form-check" style={{marginBottom: '15px'}}>
                               <b>  <label for="name">Subject Name</label>  </b> <br/>
                                 <select onChange={(e) =>{
-                                    setSubjectId(e.target.value);
+                                    setSubjectName(e.target.value);
                                 }}>
                                     <option selected>Select</option>
                                     <option>IT2030 - Algorithms</option>
@@ -209,15 +208,15 @@ export default function AddResult() {
 {/*                             Result                                     */}
                       
 
-                        <div className="form-group">
+                        {/* <div className="form-group">
 
-                        <label for="result">Result</label>
+                        <label for="results">Result</label>
                         <input type="text"
                        className="form-check"
-                        id="result" placeholder="Enter Result"
+                        id="results" placeholder="Enter Result"
                         onChange={(e) => {
-                       setResult(e.target.value); }}/>
-                       </div>
+                       setResults(e.target.value); }}/>
+                       </div> */}
 
                      
                     </div>

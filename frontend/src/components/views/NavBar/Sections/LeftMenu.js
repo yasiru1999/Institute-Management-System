@@ -157,7 +157,7 @@ function LeftMenu(props) {
 
             <SubMenu className="leftbtn" key="exam" title="Examinations">
                 <Menu.Item key="results">
-                    <a href="/">Exam Results</a>
+                    <a href="/allResult">Exam Results</a>
                 </Menu.Item>
                 <Menu.Item key="viewExam">
                     <a href="/all">Exam Timetable</a>

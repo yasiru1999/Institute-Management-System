@@ -5,16 +5,16 @@ import ReactHTMLTableToExcel from 'react-html-table-to-excel';
 
 
 
-export default function ReadTimetable() {
+export default function ReadResult() {
 
     useEffect(() => {
-        axios.get('http://localhost:5001/timetable/').then((response) => {
-            setTimetable(response.data)
+        axios.get('http://localhost:5001/result/').then((response) => {
+            setResult(response.data)
         })
 
     }, [])
 
-    const [TimetableList, setTimetable] = useState([]);
+    const [ResultList, setResult] = useState([]);
     const [searchItem, setSearchItem] = useState("");
     // const [resultJson,setResultJson] = useState({});
 
@@ -33,7 +33,7 @@ export default function ReadTimetable() {
         <div class="pt-24 container">
 
 
-        <h1 style={{textAlign: "center"}}>All Timetables</h1>
+        <h1 style={{textAlign: "center"}}>All Results</h1>
 
             <div class="input-group rounded"  style={{marginLeft: '25px'}}>
                 <input type="search" class="form-control rounded" placeholder="Search " aria-label="Search"
@@ -58,14 +58,13 @@ export default function ReadTimetable() {
                     <table Id = "Timetable" class="table table-dark rounded-lg">
                         <thead class="tableHeader">
                         <tr>
-
-                            <th scope="col">Course ID</th>
-                            <th scope="col">Subject ID and Name</th>
-                            <th scope="col">Exam Type</th>
-                            <th scope="col">Date</th>
-                            <th scope="col">Time</th>
-                            <th scope="col">Hall Number</th>
-
+                        <th scope="col">Actions</th>
+                            <th scope="col">Registration Number</th>
+                            <th scope="col">Student Name</th>
+                            <th scope="col">Course Name</th>
+                            <th scope="col">Subject Code</th>
+                            <th scope="col">Subject Name</th>
+                            <th scope="col">Result</th>
                         </tr>
                         </thead>
 
@@ -73,38 +72,32 @@ export default function ReadTimetable() {
 
                         <tr>
 
-                        <td>{val.courseId}  </td>
+                        <td>{val.registrationId}  </td>
                             <td>
-                                {val.subjectId} <br/>
-                                {val.subjectId2} <br/>
-                                {val.subjectId3} <br/>
-                                {val.subjectId4} <br/>
+                                {val.studentName} 
                                 </td>
 
                             <td>
-                                {val.examType} <br/>
-                                {val.examType2} <br/>
-                                {val.examType3} <br/>
-                                {val.examType4} <br/>
+                                {val.courseId} 
                                 </td>
 
                             <td> 
-                                {val.date} <br/>
-                                {val.date2} <br/>
-                                {val.date3} <br/>
-                                {val.date4} <br/>
+                                {val.subjectCode} <br/>
+                                {val.subjectCode2} <br/>
+                                {val.subjectCode3} <br/>
+                                {val.subjectCode4} <br/>
                                 </td>
                             <td>
-                                {val.time} <br/>
-                                {val.time2} <br/>
-                                {val.time3} <br/>
-                                {val.time4} <br/>
+                                {val.subjectName} <br/>
+                                {val.subjectName2} <br/>
+                                {val.subjectName3} <br/>
+                                {val.subjectName4} <br/>
                                 </td>
                             <td>
-                                {val.hallNumber} <br/>
-                                {val.hallNumber2} <br/>
-                                {val.hallNumber3} <br/>
-                                {val.hallNumber4} <br/>
+                                {val.results} <br/>
+                                {val.results2} <br/>
+                                {val.results3} <br/>
+                                {val.results4} <br/>
                                 </td>
 
 
@@ -124,13 +117,13 @@ export default function ReadTimetable() {
 
                 className="buttonSubmit"
 
-                table="Timetable"
+                table="Result"
 
                 filename="tablexls"
 
                 sheet="tablexls"
 
-                buttonText="Download Timetable"/>
+                buttonText="Download Result"/>
 
         </div>
 

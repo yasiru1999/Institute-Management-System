@@ -26,14 +26,11 @@ const ResultSchema = new Schema({
         type : String,
         // required: true
     },
-    result : {
+    results : {
         type : String,
         // required: true
     },
    
-
-}, {
-    timestamps: true,
 });
 
 const Result = mongoose.model("Result", ResultSchema);
