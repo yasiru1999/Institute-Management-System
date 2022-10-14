@@ -10,7 +10,7 @@ export default function ReadResult() {
 
     useEffect(() => {
         axios.get('http://localhost:5001/result/').then((response) => {
-            setTimetable(response.data)
+            setResult(response.data)
         })
 
     }, [])
@@ -65,7 +65,7 @@ export default function ReadResult() {
 
             </div>
             <br/>
-            {TimetableList.filter((val) => {
+            {ResultList.filter((val) => {
                 if (searchItem == "") {
                     return val
                 } else if (val.courseId.toLowerCase().includes(searchItem.toLocaleLowerCase())) {

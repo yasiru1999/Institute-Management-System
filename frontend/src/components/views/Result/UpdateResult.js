@@ -29,7 +29,7 @@ export default function EditResult(props) {
 
     const onSubmit = async e => {
         e.preventDefault();
-        await axios.put(`http://localhost:5001/timetable/update/${props.match.params.id}`, proData);
+        await axios.put(`http://localhost:5001/result/update/${props.match.params.id}`, proData);
         Swal.fire({
             title: "Updated Successfully",
             icon: 'success',

@@ -122,7 +122,7 @@ export default function AddResult() {
 
 
 {/*                                   registration number                      */}
-                    {/* <div className="form-group">
+                    <div className="form-group">
                         <label for="registrationId">Registration Number</label>
                         <input type="text"
                        className="form-check"
@@ -130,11 +130,11 @@ export default function AddResult() {
                           onChange={(e) => {
                         setRegistrationId(e.target.value);    }}/>
 
-                        </div> */}
+                        </div>
 
     {/*                                Student Name                                           */}
 
-                        {/* <div className="form-group">
+                        <div className="form-group">
 
                         <label for="studentName">Student Name</label>
                         <input type="text"
@@ -142,7 +142,7 @@ export default function AddResult() {
                         id="studentName" placeholder="Enter Student Name"
                         onChange={(e) => {
                        setStudentName(e.target.value); }}/>
-                       </div> */}
+                       </div>
 
 
         {/*                          Course Name                            */}
@@ -208,7 +208,7 @@ export default function AddResult() {
 {/*                             Result                                     */}
                       
 
-                        {/* <div className="form-group">
+                         <div className="form-group">
 
                         <label for="results">Result</label>
                         <input type="text"
@@ -216,7 +216,7 @@ export default function AddResult() {
                         id="results" placeholder="Enter Result"
                         onChange={(e) => {
                        setResults(e.target.value); }}/>
-                       </div> */}
+                       </div> 
 
                      
                     </div>

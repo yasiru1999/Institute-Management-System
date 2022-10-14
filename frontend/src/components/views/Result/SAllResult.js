@@ -46,7 +46,7 @@ export default function ReadResult() {
 
             </div>
             <br/>
-            {TimetableList.filter((val) => {
+            {ResultList.filter((val) => {
                 if (searchItem == "") {
                     return val
                 } else if (val.courseId.toLowerCase().includes(searchItem.toLocaleLowerCase())) {
@@ -55,7 +55,7 @@ export default function ReadResult() {
             }).map((val, key) => {
 
                 return <div className='tablePadding'>
-                    <table Id = "Timetable" class="table table-dark rounded-lg">
+                    <table Id = "Result" class="table table-dark rounded-lg">
                         <thead class="tableHeader">
                         <tr>
                         <th scope="col">Actions</th>
@@ -83,21 +83,21 @@ export default function ReadResult() {
 
                             <td> 
                                 {val.subjectCode} <br/>
-                                {val.subjectCode2} <br/>
+                                {/* {val.subjectCode2} <br/>
                                 {val.subjectCode3} <br/>
-                                {val.subjectCode4} <br/>
+                                {val.subjectCode4} <br/> */}
                                 </td>
                             <td>
                                 {val.subjectName} <br/>
-                                {val.subjectName2} <br/>
+                                {/* {val.subjectName2} <br/>
                                 {val.subjectName3} <br/>
-                                {val.subjectName4} <br/>
+                                {val.subjectName4} <br/> */}
                                 </td>
                             <td>
                                 {val.results} <br/>
-                                {val.results2} <br/>
+                                {/* {val.results2} <br/>
                                 {val.results3} <br/>
-                                {val.results4} <br/>
+                                {val.results4} <br/> */}
                                 </td>
 
 
