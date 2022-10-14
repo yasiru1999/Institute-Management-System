@@ -37,7 +37,8 @@ import AllUserDetailsUpdate from "./views/AllUserDetailsPage/AllUserDetailsUpdat
 import Attendance_Create from "./LecModule_Management/Attendance/Attendance_Create";
 import StudentModuleHome from "./LecModule_Management/LecMaterials/StudentModuleHome";
 import AddNewCourse from "./views/HandleCoursesByAdmin/AddNewCourse";
-
+import ViewAllModules from "./views/HandleCoursesByAdmin/ViewAllModules";
+import ModulesUpdate from "./views/HandleCoursesByAdmin/ModulesUpdate";
 
 function App() {
   return (
@@ -72,6 +73,8 @@ function App() {
           <Route exact path="/AllUsers" component={Auth(AllUserDetailsPage, true)} />
           <Route exact path="/AllUsersUpdate" component={Auth(AllUserDetailsUpdate, true)} />
           <Route exact path="/AddNewCourse" component={Auth(AddNewCourse, true)} />
+          <Route exact path="/ViewAllModules" component={Auth(ViewAllModules, true)} />
+          <Route exact path="/ModulesUpdate" component={Auth(ModulesUpdate, true)} />
 
           <Route exact path="/add" component={Auth(AddTimetable, true)} />
           <Route exact path="/all" component={Auth(AllTimetable, true)} />
