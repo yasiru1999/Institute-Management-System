@@ -74,7 +74,7 @@ function ModulesUpdate(props) {
                     alert('Failed to edit Conference')
                 }
             })
-
+//
     }
 
     return(
