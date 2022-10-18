@@ -8,7 +8,7 @@
 
 ## Project Description
 
-###This is the project of the group SER045for the module Software Project Management(SE3080), Sri Lanka Institute of Information Technology(SLIIT).
+This is the project of the group SER045for the module Software Project Management(SE3080), Sri Lanka Institute of Information Technology(SLIIT).
 
 Goal of this project is to develop an online web application for IT institute. This institute provides certificate and diploma level courses for the students. which can do all the activities like user management, lecture material management, exam management, and non-academic management. It contains user-friendly interfaces for easy handling. And the system is mainly based on both Lecturer and Student requirements. There are three main user roles as Lecturer, Student and Admin. The main functions which are identified in here are,
 
@@ -23,7 +23,6 @@ The system's main four functions are divided among the group members. In user ma
 In non-academic management functionality divided in to main three parts as payment management and inquiry management and library resources management. In payment management student can add and edit the course registration fee in to the system then staff member can view, update and delete previous added payment details. User can add an inquiry and admin can view, search, respond and generate report about Inquiries and delete responded inquiries. Staff member can add and edit the library resources and admin can view, search, update, delete and generate report about library resources. Student can view library resources.
 Examination management functionality divided in to two part as examination timetable management and examination result management. In examination timetable management lecturer can add, view, edit, delete, search and download examination timetable details and student can view, search and download examination timetable that lecturer have been added to the system. In examination result management admin can add examination results and view, update delete search and download previously added examination results. Also student can view, search and download their examination results.
 Lecture material management functionality divided into main three parts that are Notice/session management, Student attendance management, and Lecture material management. In notice session management lecturer can add, view, update and delete notice and sessions. Also student can view notice and sessions. In student attendance management student can add attendance details and lecturer can view and download attendance details. In lecturer material management lecturer can upload, view and delete lecture materials also student can view lecture materials.
-
 
 ## Technologies
 
