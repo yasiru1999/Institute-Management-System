@@ -31,6 +31,7 @@ app.use('/inquiry', require('./routes/inquiry'));
 app.use('/library', require('./routes/library'));
 app.use('/module', require('./routes/moduleRoutes'));
 app.use('/attendance', require('./routes/attendanceRoutes'));
+app.use('/lecMaterial', require('./routes/lecMaterialRoutes'));
 
 // app.use('/api/timetables', require('./routes/timetables'));
 // app.use('/api/product', require('./routes/product'));

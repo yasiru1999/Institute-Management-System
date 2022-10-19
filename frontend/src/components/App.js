@@ -36,6 +36,8 @@ import AllUserDetailsPage from "./views/AllUserDetailsPage/AllUserDetailsPage";
 import AllUserDetailsUpdate from "./views/AllUserDetailsPage/AllUserDetailsUpdate";
 import Attendance_Create from "./LecModule_Management/Attendance/Attendance_Create";
 import StudentModuleHome from "./LecModule_Management/LecMaterials/StudentModuleHome";
+import Attendance_View from './LecModule_Management/Attendance/Addendance_View';
+import LecMaterial_upload from './LecModule_Management/LecMaterials/LecMaterial_upload';
 import AddNewCourse from "./views/HandleCoursesByAdmin/AddNewCourse";
 import ViewAllModules from "./views/HandleCoursesByAdmin/ViewAllModules";
 import ModulesUpdate from "./views/HandleCoursesByAdmin/ModulesUpdate";
@@ -97,6 +99,8 @@ function App() {
           <Route exact path="/homeLecMat/:id" component={Auth(LecMaterials_homeLec, true)} />
           <Route exact path="/addAtte/:id" component={Auth(Attendance_Create, true)} />
           <Route exact path="/stuHome/:id" component={Auth(StudentModuleHome, true)} />
+          <Route exact path="/attenView/:id" component={Auth(Attendance_View, true)} />
+          <Route exact path="/lecMatUpload/:id" component={Auth(LecMaterial_upload, true)} />
         </Switch>
       </div>
       <Footer />
