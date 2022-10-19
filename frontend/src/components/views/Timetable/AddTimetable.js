@@ -150,7 +150,8 @@ export default function AddTimetable() {
         
         <div className="container" style={{  margin: '6rem auto' }}>
             <div >
-                <div className="form1"  style={{border: 'solid', width:'70%', height:'20%', margin: '4rem auto' }}>
+                <div className="form1"  style={{border: 'solid', width:'70%', margin: '4rem auto' }}>
+                    {/* ,maxHeight: '1200px' */}
                     <h1 style={{textAlign: "center"}}>Add Timetable</h1>
                     {/* <hr className='hrLine'/> */}
                     <hr/>
@@ -439,7 +440,7 @@ export default function AddTimetable() {
                         
 
                         <div className="column">
-                            <div className="form-check" style={{marginBottom: '15px',marginTop : '-400px'}}>
+                            <div className="form-check" style={{marginBottom: '15px', marginTop : '-400px'}}>
                                 <b><label for="name">Exam Type</label></b><br/>
                                 <select value={examType4} onChange={(e) =>{
                                     setExamType4(e.target.value);
@@ -488,10 +489,8 @@ export default function AddTimetable() {
                     </div>
 
 
-
-
                         {/* <div className='btS'style={{width: '10px',marginTop : '-700px'}}> */}
-                            <button className="buttonSubmit" type="submit" onClick={(e)=>sendData(e)} style={{marginLeft: '250px',width:'20%', backgroundColor:'#4682b4', marginTop : '-400px'}}>
+                            <button className="buttonSubmit" type="submit" onClick={(e)=>sendData(e)} style={{marginLeft: '250px',width:'20%', backgroundColor:'#4682b4', marginTop : '-800px'}}>
                                 {/* <i className="far fa-check-square"></i> */}
                                 &nbsp; Save
                             </button>
