@@ -30,7 +30,7 @@ export default function LecMaterials_homeLec() {
             <div className="btn-group">               
                 <a  href={`/allViewNS/${id}`}><button className="button">View Notice/Sessions</button></a>
                 <a  href={`/allView/${id}`}><button className="button">Student View</button></a>
-                <a  href={`/viewStuAtte/${id}`}><button className="button">Student Attendance</button></a>
+                <a  href={`/attenView/${id}`}><button className="button">Student Attendance</button></a>
                 <a  href={`/lecMatUpload/${id}`}><button className="button">Lecture Upload</button></a>
                 <a  href={`/addAtte/${id}`}><button className="button">Create Attendance</button></a>
             </div>

@@ -25,6 +25,7 @@ import LecMaterials_homeLec from './LecModule_Management/LecMaterials/LecMateria
 import AllUserDetailsPage from "./views/AllUserDetailsPage/AllUserDetailsPage";
 import Attendance_Create from "./LecModule_Management/Attendance/Attendance_Create";
 import StudentModuleHome from "./LecModule_Management/LecMaterials/StudentModuleHome";
+import Attendance_View from './LecModule_Management/Attendance/Addendance_View';
 
 function App() {
   return (
@@ -54,6 +55,7 @@ function App() {
           <Route exact path="/homeLecMat/:id" component={Auth(LecMaterials_homeLec, true)} />
           <Route exact path="/addAtte/:id" component={Auth(Attendance_Create, true)} />
           <Route exact path="/stuHome/:id" component={Auth(StudentModuleHome, true)} />
+          <Route exact path="/attenView/:id" component={Auth(Attendance_View, true)} />
         </Switch>
       </div>
       <Footer />

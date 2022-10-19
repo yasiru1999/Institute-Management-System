@@ -26,7 +26,7 @@ export default function Attendance_Create() {
     function sendData(e){
         e.preventDefault();
         axios.post("http://localhost:5001/attendance/create", attendance).then(() => {
-            alert("Successfully Created");
+            alert("Successfully Submitted");
             resetForm();
         }).catch((err) => {
             alert(err)
