@@ -3,19 +3,19 @@ import Axios from "axios";
 import {useHistory, withRouter} from "react-router-dom";
 import { FaEdit } from 'react-icons/fa';
 import { FaTrashAlt } from 'react-icons/fa';
-import GeneratePdf from "./AllUserReport";
+// import GeneratePdf from "./AllUserReport";
 
-function AllUserDetailsPage() {
+function ViewAllModules() {
 
-    const [AllUsers, setAllUsers] = useState([]);
+    const [AllCourses, setAllCourses] = useState([]);
     const history = useHistory();
     const[search,setSearch] = useState('');
 
     useEffect(() => {
-        Axios.get('http://localhost:5001/api/users/getAllUsers')
+        Axios.get('http://localhost:5001/module/getAllModules')
             .then(response => {
                 console.log(response.data);
-                setAllUsers(response.data);
+                setAllCourses(response.data);
             })
             .catch(err => {
                 console.log(err);
@@ -25,7 +25,7 @@ function AllUserDetailsPage() {
     async function deletePayment(item) {
         console.log(item.ID);
         alert("Are you want to Delete ?");
-        await Axios.delete(`http://localhost:5001/api/users/deleteUser/${item._id}`).then((res)=>{
+        await Axios.delete(`http://localhost:5001/module/deleteModule/${item._id}`).then((res)=>{
             console.log(res)
 
         });
@@ -34,50 +34,46 @@ function AllUserDetailsPage() {
     return(
         <div style={{ width: '98%', margin: '6rem auto' }}>
             <div>
-                <h1 style={{ textAlign: 'left' }}>  All Users </h1>
+                <h1 style={{ textAlign: 'left' }}>  All Courses </h1>
             </div>
             <hr/>
             <div style={{ width:'98%',  margin: '4rem auto'}}>
                 <table>
                     <thead>
                     <tr style={{backgroundColor:'#4682b4'}}>
-                        <th>User ID</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Course (Registered/Assigned)</th>
-                        <th>Contact Number</th>
-                        <th>Gender</th>
-                        <th>Role</th>
+                        <th>Course ID</th>
+                        <th>Course Name</th>
+                        <th>Subject 1</th>
+                        <th>Subject 2</th>
+                        <th>Subject 3</th>
+                        <th>Subject 4</th>
                         <th>Update</th>
                         <th>Delete</th>
                     </tr>
                     </thead>
                     <tbody>
-                    {AllUsers.filter(AllUsers => AllUsers.Role != "Admin").map((item,key)=>{
+                    {AllCourses.filter(AllCourses => AllCourses.moduleNo != null).map((item,key)=>{
                         return(
                             <tr key = {key}>
                                 <td>
-                                    <center>{item.UserID}</center>
+                                    <center>{item.moduleNo}</center>
                                 </td>
                                 <td>
-                                    <center>{item.name}</center>
+                                    <center>{item.moduleName}</center>
                                 </td>
                                 <td>
-                                    <center>{item.email}</center>
+                                    <center>{item.subject1}</center>
                                 </td>
                                 <td>
-                                    <center>{item.registeredCourse}</center>
+                                    <center>{item.subject2}</center>
                                 </td>
                                 <td>
-                                    <center>{item.contactNumber}</center>
+                                    <center>{item.subject3}</center>
                                 </td>
                                 <td>
-                                    <center>{item.Gender}</center>
+                                    <center>{item.subject4}</center>
                                 </td>
-                                <td>
-                                    <center>{item.Role}</center>
-                                </td>
-                                <td><center><button style={{backgroundColor:'#ff9800'}} onClick={() => {history.push({pathname: "/AllUsersUpdate", state:{user:item}})}} ><FaEdit /></button></center></td>
+                                <td><center><button style={{backgroundColor:'#ff9800'}} onClick={() => {history.push({pathname: "/ModulesUpdate", state:{module:item}})}} ><FaEdit /></button></center></td>
                                 <td><center><button style={{backgroundColor:'red'}} onClick={() => {deletePayment(item); window.location.reload()}}><FaTrashAlt /></button></center></td>
                             </tr>
                         )
@@ -87,10 +83,10 @@ function AllUserDetailsPage() {
             </div>
 
             <hr/>
-            <button style={{marginLeft: '1000px',backgroundColor:'#4682b4',color:'white'}} onClick={() => GeneratePdf(AllUsers.filter(AllUsers => AllUsers.Role != "Admin"))}>Generate Report</button>
+            {/*<button style={{marginLeft: '1000px',backgroundColor:'#4682b4',color:'white'}} onClick={() => GeneratePdf(AllUsers.filter(AllUsers => AllUsers.Role != "Admin"))}>Generate Report</button>*/}
 
         </div>
     )
 }
 
-export default AllUserDetailsPage;
+export default ViewAllModules;

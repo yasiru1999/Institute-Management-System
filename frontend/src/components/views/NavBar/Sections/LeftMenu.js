@@ -77,6 +77,14 @@ function LeftMenu(props) {
                     <a href="/AllUsers">View All Users</a>
                 </Menu.Item>
             </SubMenu>
+            <SubMenu className="leftbtn" title="Courses">
+                <Menu.Item key="viewCourses">
+                    <a href="/AddNewCourse">Add New Course</a>
+                </Menu.Item>
+                <Menu.Item key="viewCourses">
+                    <a href="/ViewAllModules">View Courses</a>
+                </Menu.Item>
+            </SubMenu>
         </Menu>
     )
   } else if(user.userData && user.userData.isStudent) {
@@ -89,7 +97,7 @@ function LeftMenu(props) {
 
             <SubMenu className="leftbtn" key="exam" title="Examinations">
                 <Menu.Item key="results">
-                    <a href="/">Exam Results</a>
+                    <a href="/sallResult">Exam Results</a>
                 </Menu.Item>
                 <Menu.Item key="viewExam">
                     <a href="/sall">Exam Timetable</a>
@@ -100,22 +108,43 @@ function LeftMenu(props) {
                 <a  href="/">Libraries</a>
             </Menu.Item>
 
-            <SubMenu className="leftbtn" key="subj" title="My courses">
-                <Menu.Item key="results">
-                    <a href={`/stuHome/${moduleNames.subject1}`}>{moduleNames.subject1}</a>
+            <SubMenu className="leftbtn" key="modules" title="My Courses">
+                <Menu.Item key="se">
+                    <a href="/">Software Engineering</a>
                 </Menu.Item>
-                <Menu.Item key="viewExam">
-                    <a href={`/stuHome/${moduleNames.subject2}`}>{moduleNames.subject2}</a>
+                <Menu.Item key="ds">
+                    <a href="/">Data Science</a>
                 </Menu.Item>
-                <Menu.Item key="viewExam">
-                    <a href={`/stuHome/${moduleNames.subject3}`}>{moduleNames.subject3}</a>
-                </Menu.Item>
-                <Menu.Item key="viewExam">
-                    <a href={`/stuHome/${moduleNames.subject4}`}>{moduleNames.subject4}</a>
+                <Menu.Item key="it">
+                    <a href="/">Information Technology</a>
                 </Menu.Item>
             </SubMenu>
 
+            <Menu.Item className="leftbtn" key="payment">
+                <a  href="/payment">Payment</a>
+            </Menu.Item>
+
+            <Menu.Item className="leftbtn" key="addPayment">
+                <a href="/inquiry">Inquiry Form</a>
+            </Menu.Item>
+            {/* <SubMenu className="leftbtn" key="subj" title="My courses">
+               <Menu.Item key="results">
+               <a href={`/stuHome/${moduleNames.subject1}`}>{moduleNames.subject1}</a>
+               </Menu.Item>
+               <Menu.Item key="viewExam">
+                   <a href={`/stuHome/${moduleNames.subject2}`}>{moduleNames.subject2}</a>
+               </Menu.Item>
+                <Menu.Item key="viewExam">
+                   <a href={`/stuHome/${moduleNames.subject3}`}>{moduleNames.subject3}</a>
+               </Menu.Item>
+               <Menu.Item key="viewExam">
+                  <a href={`/stuHome/${moduleNames.subject4}`}>{moduleNames.subject4}</a>
+                </Menu.Item>
+            </SubMenu> */}
+
         </Menu>
+
+
     )
   } else {
     return (
@@ -128,27 +157,27 @@ function LeftMenu(props) {
 
             <SubMenu className="leftbtn" key="exam" title="Examinations">
                 <Menu.Item key="results">
-                    <a href="/">Exam Results</a>
+                    <a href="/allResult">Exam Results</a>
                 </Menu.Item>
                 <Menu.Item key="viewExam">
                     <a href="/all">Exam Timetable</a>
                 </Menu.Item>
             </SubMenu>
 
-            <SubMenu className="leftbtn" key="subj" title="My courses">
-                <Menu.Item key="results">
-                    <a href={`/homeLecMat/${moduleNames.subject1}`}>{moduleNames.subject1}</a>
-                </Menu.Item>
-                <Menu.Item key="viewExam">
-                    <a href={`/homeLecMat/${moduleNames.subject2}`}>{moduleNames.subject2}</a>
-                </Menu.Item>
-                <Menu.Item key="viewExam">
-                    <a href={`/homeLecMat/${moduleNames.subject3}`}>{moduleNames.subject3}</a>
-                </Menu.Item>
-                <Menu.Item key="viewExam">
-                    <a href={`/homeLecMat/${moduleNames.subject4}`}>{moduleNames.subject4}</a>
-                </Menu.Item>
-            </SubMenu>
+            {/*<SubMenu className="leftbtn" key="subj" title="My courses">*/}
+            {/*    <Menu.Item key="results">*/}
+            {/*        <a href={`/homeLecMat/${moduleNames.subject1}`}>{moduleNames.subject1}</a>*/}
+            {/*    </Menu.Item>*/}
+            {/*    <Menu.Item key="viewExam">*/}
+            {/*        <a href={`/homeLecMat/${moduleNames.subject2}`}>{moduleNames.subject2}</a>*/}
+            {/*    </Menu.Item>*/}
+            {/*    <Menu.Item key="viewExam">*/}
+            {/*        <a href={`/homeLecMat/${moduleNames.subject3}`}>{moduleNames.subject3}</a>*/}
+            {/*    </Menu.Item>*/}
+            {/*    <Menu.Item key="viewExam">*/}
+            {/*        <a href={`/homeLecMat/${moduleNames.subject4}`}>{moduleNames.subject4}</a>*/}
+            {/*    </Menu.Item>*/}
+            {/*</SubMenu>*/}
          
         
         </Menu>

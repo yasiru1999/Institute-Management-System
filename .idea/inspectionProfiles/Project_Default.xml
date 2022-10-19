@@ -3,7 +3,8 @@
     <option name="myName" value="Project Default" />
     <inspection_tool class="DuplicatedCode" enabled="true" level="WEAK WARNING" enabled_by_default="true">
       <Languages>
-        <language minSize="408" name="JavaScript" />
+        <language minSize="392" name="JavaScript" />
+        <language minSize="354" name="JavaScript" />
       </Languages>
     </inspection_tool>
   </profile>
