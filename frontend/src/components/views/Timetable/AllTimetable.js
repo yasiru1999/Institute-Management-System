@@ -149,6 +149,9 @@ export default function ReadTimetable() {
                 <button class="buttonSubmit" type="button" onClick={() => gotoAdd()}
                         style={{marginLeft: '10px',width:'20%', backgroundColor:'#4682b4'}}>Add New Timetable</button>
 
+                   <button class="buttonSubmit" type="button" onClick={() => window.print()}
+                        style={{marginLeft: '10px',width:'20%', backgroundColor:'#4682b4'}}>Report</button>
+
                 &nbsp;&nbsp;&nbsp;&nbsp;
 
                 <ReactHTMLTableToExcel

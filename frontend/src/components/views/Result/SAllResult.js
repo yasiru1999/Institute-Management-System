@@ -107,8 +107,11 @@ export default function ReadResult() {
                     </table>
                 </div>
             })}
+                      <button class="buttonSubmit" type="button" onClick={() => window.print()}
+                        style={{marginLeft: '10px',width:'20%', backgroundColor:'#4682b4'}}>Report</button>
 
 
+                        
             &nbsp;&nbsp;&nbsp;&nbsp;
 
             <ReactHTMLTableToExcel

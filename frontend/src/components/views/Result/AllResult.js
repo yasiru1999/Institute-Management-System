@@ -30,7 +30,6 @@ export default function ReadResult() {
 
     const history = useHistory();
     const updateResult = async(id) => {
-        console.log(id);
         const result = await axios.get(`http://localhost:5001/result/get/${id}`);
         setResultJson(result.data);
         let path = `/updateResult/${id}`;
@@ -140,6 +139,10 @@ export default function ReadResult() {
             <div class="grid place-items-center">
                 <button class="buttonSubmit" type="button" onClick={() => gotoAdd()}
                         style={{marginLeft: '10px',width:'20%', backgroundColor:'#4682b4'}}>Add New Result</button>
+
+
+                      <button class="buttonSubmit" type="button" onClick={() => window.print()}
+                        style={{marginLeft: '10px',width:'20%', backgroundColor:'#4682b4'}}>Report</button>
 
                 &nbsp;&nbsp;&nbsp;&nbsp;
 

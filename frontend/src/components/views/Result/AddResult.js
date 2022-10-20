@@ -113,7 +113,6 @@ export default function AddResult() {
 
 
         };
-        console.log(newResult);
 
         axios.post("http://localhost:5001/result/add", newResult).then(() => {
             Swal.fire({
@@ -195,7 +194,7 @@ export default function AddResult() {
                        <div className="column">
                         <div className="selectSubjectCode">
                             <div className="form-check" style={{marginBottom: '15px'}}>
-                               <b> <label for="name"> Subject Code 1 </label> </b>
+                               <b> <label for="subjectCode"> Subject Code 1 </label> </b>
                                 <select value={subjectCode} onChange={(e) =>{
                                     setSubjectCode(e.target.value);
                                 }}>
@@ -218,7 +217,7 @@ export default function AddResult() {
             
                         <div className="column">
                             <div className="form-check" style={{marginBottom: '15px', width:'800%', marginLeft: '300px', marginTop:'-100px'}}>
-                              <b>  <label for="name">Subject Name 1</label>  </b> <br/>
+                              <b>  <label for="subjectName">Subject Name 1</label>  </b> <br/>
                                 <select value={subjectName} onChange={(e) =>{
                                     setSubjectName(e.target.value);
                                 }}>
@@ -263,7 +262,7 @@ export default function AddResult() {
                     <div className="column">
                         <div className="selectSubjectCode">
                             <div className="form-check" style={{marginBottom: '15px',marginTop:'-200px'}}>
-                               <b> <label for="name"> Subject Code 2 </label> </b>
+                               <b> <label for="subjectCode2"> Subject Code 2 </label> </b>
                                <select value={subjectCode2} onChange={(e) =>{
                                     setSubjectCode2(e.target.value);
                                 }}>
@@ -286,7 +285,7 @@ export default function AddResult() {
             
                         <div className="column">
                             <div className="form-check" style={{marginBottom: '15px', width:'800%', marginLeft: '300px', marginTop:'-100px'}}>
-                              <b>  <label for="name">Subject Name 2</label>  </b> <br/>
+                              <b>  <label for="subjectName2">Subject Name 2</label>  </b> <br/>
                               <select value={subjectName2} onChange={(e) =>{
                                     setSubjectName2(e.target.value);
                                 }}>
@@ -308,10 +307,10 @@ export default function AddResult() {
                       
                       <div className="column">
                          <div className="form-group"style={{marginBottom: '15px', width:'600%',marginLeft: '500px', marginTop:'-100px'}}>
-                      <b><label for="results">Result</label></b>  <br/>
+                      <b><label for="results2">Result</label></b>  <br/>
                         <input type="text"
                        className="form-check"
-                        id="results" placeholder="Enter Result"
+                        id="results2" placeholder="Enter Result"
                         value={results2}
                         onChange={(e) => {
                        setResults2(e.target.value); }}/>
@@ -329,7 +328,7 @@ export default function AddResult() {
                         <div className="column">
                         <div className="selectSubjectCode">
                             <div className="form-check" style={{marginBottom: '15px',marginTop:'-100px', marginLeft: '-200px', width:'100%'}}>
-                               <b> <label for="name"> Subject Code 3</label> </b>
+                               <b> <label for="subjectCode3"> Subject Code 3</label> </b>
                                <select value={subjectCode3} onChange={(e) =>{
                                     setSubjectCode3(e.target.value);
                                 }}>
@@ -352,7 +351,7 @@ export default function AddResult() {
             
                         <div className="column">
                             <div className="form-check" style={{marginBottom: '15px', width:'800%', marginLeft: '90px', marginTop:'-100px'}}>
-                              <b>  <label for="name">Subject Name 3</label>  </b> <br/>
+                              <b>  <label for="subjectName3">Subject Name 3</label>  </b> <br/>
                               <select value={subjectName3} onChange={(e) =>{
                                     setSubjectName3(e.target.value);
                                 }}>
@@ -374,10 +373,10 @@ export default function AddResult() {
                       
                       <div className="column">
                          <div className="form-group"style={{marginBottom: '15px', width:'600%',marginLeft: '300px', marginTop:'-100px'}}>
-                      <b><label for="results">Result</label></b>  <br/>
+                      <b><label for="results3">Result</label></b>  <br/>
                         <input type="text"
                        className="form-check"
-                        id="results" placeholder="Enter Result"
+                        id="results3" placeholder="Enter Result"
                         value={results3}
                         onChange={(e) => {
                        setResults3(e.target.value); }}/>
@@ -393,7 +392,7 @@ export default function AddResult() {
                         <div className="column">
                         <div className="selectSubjectCode">
                             <div className="form-check" style={{marginBottom: '15px',marginTop:'-1px',marginLeft: '-410px',width:'100%' }}>
-                               <b> <label for="name"> Subject Code 4 </label> </b>
+                               <b> <label for="subjectCode4"> Subject Code 4 </label> </b>
                                <select value={subjectCode4} onChange={(e) =>{
                                     setSubjectCode4(e.target.value);
                                 }}>
@@ -438,10 +437,10 @@ export default function AddResult() {
                       
                       <div className="column">
                          <div className="form-group"style={{marginBottom: '15px', width:'600%',marginLeft: '100px', marginTop:'-100px'}}>
-                      <b><label for="results">Result</label></b>  <br/>
+                      <b><label for="results4">Result</label></b>  <br/>
                         <input type="text"
                        className="form-check"
-                        id="results" placeholder="Enter Result"
+                        id="results4" placeholder="Enter Result"
                         value={results4}
                         onChange={(e) => {
                        setResults4(e.target.value); }}/>
