@@ -83,21 +83,21 @@ export default function ReadResult() {
 
                             <td> 
                                 {val.subjectCode} <br/>
-                                {/* {val.subjectCode2} <br/>
+                                {val.subjectCode2} <br/>
                                 {val.subjectCode3} <br/>
-                                {val.subjectCode4} <br/> */}
+                                {val.subjectCode4} <br/>
                                 </td>
                             <td>
                                 {val.subjectName} <br/>
-                                {/* {val.subjectName2} <br/>
+                                {val.subjectName2} <br/>
                                 {val.subjectName3} <br/>
-                                {val.subjectName4} <br/> */}
+                                {val.subjectName4} <br/>
                                 </td>
                             <td>
                                 {val.results} <br/>
-                                {/* {val.results2} <br/>
+                                {val.results2} <br/>
                                 {val.results3} <br/>
-                                {val.results4} <br/> */}
+                                {val.results4} <br/>
                                 </td>
 
 

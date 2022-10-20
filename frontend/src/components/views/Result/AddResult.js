@@ -13,6 +13,18 @@ export default function AddResult() {
     const [subjectName, setSubjectName] = useState("");
     const [results, setResults] = useState("");
 
+    const [subjectCode2, setSubjectCode2] = useState("");
+    const [subjectName2, setSubjectName2] = useState("");
+    const [results2, setResults2] = useState("");
+
+    const [subjectCode3, setSubjectCode3] = useState("");
+    const [subjectName3, setSubjectName3] = useState("");
+    const [results3, setResults3] = useState("");
+
+    const [subjectCode4, setSubjectCode4] = useState("");
+    const [subjectName4, setSubjectName4] = useState("");
+    const [results4, setResults4] = useState("");
+
 
     const [visibility, setVisibility] = useState(false);
     const [errorMsg, setErrorMsg] = useState('');
@@ -86,6 +98,19 @@ export default function AddResult() {
             subjectCode,
             subjectName,
             results,
+
+            subjectCode2,  
+            subjectName2,
+            results2,
+
+            subjectCode3,
+            subjectName3,
+            results3,
+            
+            subjectCode4,
+            subjectName4,
+            results4
+
 
         };
         console.log(newResult);
@@ -171,13 +196,19 @@ export default function AddResult() {
                         <div className="selectSubjectCode">
                             <div className="form-check" style={{marginBottom: '15px'}}>
                                <b> <label for="name"> Subject Code 1 </label> </b>
-                                <select onChange={(e) =>{
+                                <select value={subjectCode} onChange={(e) =>{
                                     setSubjectCode(e.target.value);
                                 }}>
                                     <option selected>Select</option>
-                                    <option>SE1000 </option>
-                                    <option>DS3000 </option>
-                                    <option>IT2000</option>
+                                        <option>IT2030 </option>
+                                        <option>SE1030  </option>
+                                        <option>SE1040 </option>
+                                        <option>IT2040 </option>
+                                        <option>DS3060 </option>
+                                        <option>DS3070 </option>
+                                        <option>DS3080 </option>
+                                        <option>IT2050 </option>
+                                        <option>SE1050 </option>
                                 </select>
                             </div>
                         </div>
@@ -188,7 +219,7 @@ export default function AddResult() {
                         <div className="column">
                             <div className="form-check" style={{marginBottom: '15px', width:'800%', marginLeft: '300px', marginTop:'-100px'}}>
                               <b>  <label for="name">Subject Name 1</label>  </b> <br/>
-                                <select onChange={(e) =>{
+                                <select value={subjectName} onChange={(e) =>{
                                     setSubjectName(e.target.value);
                                 }}>
                                     <option selected>Select</option>
@@ -213,6 +244,7 @@ export default function AddResult() {
                         <input type="text"
                        className="form-check"
                         id="results" placeholder="Enter Result"
+                        value={results}
                         onChange={(e) => {
                        setResults(e.target.value); }}/>
                        </div> 
@@ -232,13 +264,19 @@ export default function AddResult() {
                         <div className="selectSubjectCode">
                             <div className="form-check" style={{marginBottom: '15px',marginTop:'-200px'}}>
                                <b> <label for="name"> Subject Code 2 </label> </b>
-                                <select onChange={(e) =>{
-                                    setSubjectCode(e.target.value);
+                               <select value={subjectCode2} onChange={(e) =>{
+                                    setSubjectCode2(e.target.value);
                                 }}>
                                     <option selected>Select</option>
-                                    <option>SE1000 - Software Engineering</option>
-                                    <option>DS3000 - Data Science</option>
-                                    <option>IT2000 - Information Technology</option>
+                                        <option>IT2030 </option>
+                                        <option>SE1030  </option>
+                                        <option>SE1040 </option>
+                                        <option>IT2040 </option>
+                                        <option>DS3060 </option>
+                                        <option>DS3070 </option>
+                                        <option>DS3080 </option>
+                                        <option>IT2050 </option>
+                                        <option>SE1050 </option>
                                 </select>
                             </div>
                         </div>
@@ -249,19 +287,19 @@ export default function AddResult() {
                         <div className="column">
                             <div className="form-check" style={{marginBottom: '15px', width:'800%', marginLeft: '300px', marginTop:'-100px'}}>
                               <b>  <label for="name">Subject Name 2</label>  </b> <br/>
-                                <select onChange={(e) =>{
-                                    setSubjectName(e.target.value);
+                              <select value={subjectName2} onChange={(e) =>{
+                                    setSubjectName2(e.target.value);
                                 }}>
                                     <option selected>Select</option>
-                                    <option>IT2030 - Algorithms</option>
-                                    <option>SE1030 - Software Architecture</option>
-                                    <option>SE1040 - Database Management</option>
-                                    <option>IT2040 - Artificial Intelligence</option>
-                                    <option>DS3060 - Machine Learning</option>
-                                    <option>DS3070 - Cloud Computing</option>
-                                    <option>DS3080 - Big Data</option>
-                                    <option>IT2050 - Internet of Things</option>
-                                    <option>SE1050 - Software Testing</option>
+                                    <option>Algorithms</option>
+                                    <option>Software Architecture</option>
+                                    <option>Database Management</option>
+                                    <option>Artificial Intelligence</option>
+                                    <option>Machine Learning</option>
+                                    <option>Cloud Computing</option>
+                                    <option>Big Data</option>
+                                    <option>Internet of Things</option>
+                                    <option>Software Testing</option>
                                 </select>
                             </div>
                         </div>
@@ -274,8 +312,9 @@ export default function AddResult() {
                         <input type="text"
                        className="form-check"
                         id="results" placeholder="Enter Result"
+                        value={results2}
                         onChange={(e) => {
-                       setResults(e.target.value); }}/>
+                       setResults2(e.target.value); }}/>
                        </div> 
                        </div> 
 
@@ -291,13 +330,19 @@ export default function AddResult() {
                         <div className="selectSubjectCode">
                             <div className="form-check" style={{marginBottom: '15px',marginTop:'-100px', marginLeft: '-200px', width:'100%'}}>
                                <b> <label for="name"> Subject Code 3</label> </b>
-                                <select onChange={(e) =>{
-                                    setSubjectCode(e.target.value);
+                               <select value={subjectCode3} onChange={(e) =>{
+                                    setSubjectCode3(e.target.value);
                                 }}>
                                     <option selected>Select</option>
-                                    <option>SE1000 - Software Engineering</option>
-                                    <option>DS3000 - Data Science</option>
-                                    <option>IT2000 - Information Technology</option>
+                                        <option>IT2030 </option>
+                                        <option>SE1030  </option>
+                                        <option>SE1040 </option>
+                                        <option>IT2040 </option>
+                                        <option>DS3060 </option>
+                                        <option>DS3070 </option>
+                                        <option>DS3080 </option>
+                                        <option>IT2050 </option>
+                                        <option>SE1050 </option>
                                 </select>
                             </div>
                         </div>
@@ -308,19 +353,19 @@ export default function AddResult() {
                         <div className="column">
                             <div className="form-check" style={{marginBottom: '15px', width:'800%', marginLeft: '90px', marginTop:'-100px'}}>
                               <b>  <label for="name">Subject Name 3</label>  </b> <br/>
-                                <select onChange={(e) =>{
-                                    setSubjectName(e.target.value);
+                              <select value={subjectName3} onChange={(e) =>{
+                                    setSubjectName3(e.target.value);
                                 }}>
                                     <option selected>Select</option>
-                                    <option>IT2030 - Algorithms</option>
-                                    <option>SE1030 - Software Architecture</option>
-                                    <option>SE1040 - Database Management</option>
-                                    <option>IT2040 - Artificial Intelligence</option>
-                                    <option>DS3060 - Machine Learning</option>
-                                    <option>DS3070 - Cloud Computing</option>
-                                    <option>DS3080 - Big Data</option>
-                                    <option>IT2050 - Internet of Things</option>
-                                    <option>SE1050 - Software Testing</option>
+                                    <option>Algorithms</option>
+                                    <option>Software Architecture</option>
+                                    <option>Database Management</option>
+                                    <option>Artificial Intelligence</option>
+                                    <option>Machine Learning</option>
+                                    <option>Cloud Computing</option>
+                                    <option>Big Data</option>
+                                    <option>Internet of Things</option>
+                                    <option>Software Testing</option>
                                 </select>
                             </div>
                         </div>
@@ -333,8 +378,9 @@ export default function AddResult() {
                         <input type="text"
                        className="form-check"
                         id="results" placeholder="Enter Result"
+                        value={results3}
                         onChange={(e) => {
-                       setResults(e.target.value); }}/>
+                       setResults3(e.target.value); }}/>
                        </div> 
                        </div> 
 
@@ -348,13 +394,19 @@ export default function AddResult() {
                         <div className="selectSubjectCode">
                             <div className="form-check" style={{marginBottom: '15px',marginTop:'-1px',marginLeft: '-410px',width:'100%' }}>
                                <b> <label for="name"> Subject Code 4 </label> </b>
-                                <select onChange={(e) =>{
-                                    setSubjectCode(e.target.value);
+                               <select value={subjectCode4} onChange={(e) =>{
+                                    setSubjectCode4(e.target.value);
                                 }}>
-                                    <option selected>Select</option>
-                                    <option>SE1000 - Software Engineering</option>
-                                    <option>DS3000 - Data Science</option>
-                                    <option>IT2000 - Information Technology</option>
+                                <option selected>Select</option>
+                                <option>IT2030 </option>
+                                <option>SE1030  </option>
+                                <option>SE1040 </option>
+                                <option>IT2040 </option>
+                                <option>DS3060 </option>
+                                <option>DS3070 </option>
+                                <option>DS3080 </option>
+                                <option>IT2050 </option>
+                                <option>SE1050 </option>
                                 </select>
                             </div>
                         </div>
@@ -365,19 +417,19 @@ export default function AddResult() {
                         <div className="column">
                             <div className="form-check" style={{marginBottom: '15px', width:'800%', marginLeft: '-115px', marginTop:'-100px'}}>
                               <b>  <label for="name">Subject Name 4</label>  </b> <br/>
-                                <select onChange={(e) =>{
-                                    setSubjectName(e.target.value);
+                              <select value={subjectName4} onChange={(e) =>{
+                                    setSubjectName4(e.target.value);
                                 }}>
                                     <option selected>Select</option>
-                                    <option>IT2030 - Algorithms</option>
-                                    <option>SE1030 - Software Architecture</option>
-                                    <option>SE1040 - Database Management</option>
-                                    <option>IT2040 - Artificial Intelligence</option>
-                                    <option>DS3060 - Machine Learning</option>
-                                    <option>DS3070 - Cloud Computing</option>
-                                    <option>DS3080 - Big Data</option>
-                                    <option>IT2050 - Internet of Things</option>
-                                    <option>SE1050 - Software Testing</option>
+                                    <option>Algorithms</option>
+                                    <option>Software Architecture</option>
+                                    <option>Database Management</option>
+                                    <option>Artificial Intelligence</option>
+                                    <option>Machine Learning</option>
+                                    <option>Cloud Computing</option>
+                                    <option>Big Data</option>
+                                    <option>Internet of Things</option>
+                                    <option>Software Testing</option>
                                 </select>
                             </div>
                         </div>
@@ -390,8 +442,9 @@ export default function AddResult() {
                         <input type="text"
                        className="form-check"
                         id="results" placeholder="Enter Result"
+                        value={results4}
                         onChange={(e) => {
-                       setResults(e.target.value); }}/>
+                       setResults4(e.target.value); }}/>
                        </div> 
                        </div> 
 
@@ -406,12 +459,6 @@ export default function AddResult() {
                                 &nbsp; Save
                             </button>
                         
-
-                        {/* <div className='btS' style={{  marginTop : '-500px'}}>
-                            <button className="buttonDelete" type="reset" >Clear </button>
-                        </div>  */}
-                       
-
                     </form>
                 </div>
 

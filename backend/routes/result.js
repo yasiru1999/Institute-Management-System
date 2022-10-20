@@ -8,6 +8,15 @@ router.route("/add").post((req, res) => {
     const subjectCode = req.body.subjectCode;
     const subjectName = req.body.subjectName;
     const results = req.body.results;
+    const subjectCode2 = req.body.subjectCode2;
+    const subjectName2 = req.body.subjectName2;
+    const results2 = req.body.results2;
+    const subjectCode3 = req.body.subjectCode3;
+    const subjectName3 = req.body.subjectName3;
+    const results3 = req.body.results3;
+    const subjectCode4 = req.body.subjectCode4;
+    const subjectName4 = req.body.subjectName4;
+    const results4 = req.body.results4;
 
     const newResult = new Result({
         registrationId,
@@ -16,6 +25,15 @@ router.route("/add").post((req, res) => {
         subjectCode,
         subjectName,
         results,
+        subjectCode2,
+        subjectName2,
+        results2,
+        subjectCode3,
+        subjectName3,
+        results3,
+        subjectCode4,
+        subjectName4,
+        results4
 
     })
 
@@ -37,7 +55,21 @@ router.route("/").get((req, res) => {
 
 router.route("/update/:id").put(async (req, res) => {
     let registrationID = req.params.id;
-    const { registrationId, studentName, courseId, subjectCode, subjectName, results } = req.body;
+    const { registrationId, 
+        studentName, 
+        courseId, 
+        subjectCode, 
+        subjectName, 
+        results,
+        subjectCode2,
+        subjectName2,
+        results2,
+        subjectCode3,
+        subjectName3,
+        results3,
+        subjectCode4,
+        subjectName4,
+        results4} = req.body;
 
     const updateResult = {
         registrationId,
@@ -46,6 +78,17 @@ router.route("/update/:id").put(async (req, res) => {
         subjectCode,
         subjectName,
         results,
+        subjectCode2,
+        subjectName2,
+        results2,
+        subjectCode3,
+        subjectName3,
+        results3,
+        subjectCode4,
+        subjectName4,
+        results4
+
+
     }
 
     const update = await Result.findByIdAndUpdate(registrationID, updateResult).then(() => {
