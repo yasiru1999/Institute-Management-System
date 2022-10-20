@@ -175,9 +175,9 @@ export default function AddResult() {
                                     setSubjectCode(e.target.value);
                                 }}>
                                     <option selected>Select</option>
-                                    <option>SE1000 - Software Engineering</option>
-                                    <option>DS3000 - Data Science</option>
-                                    <option>IT2000 - Information Technology</option>
+                                    <option>SE1000 </option>
+                                    <option>DS3000 </option>
+                                    <option>IT2000</option>
                                 </select>
                             </div>
                         </div>
@@ -192,15 +192,15 @@ export default function AddResult() {
                                     setSubjectName(e.target.value);
                                 }}>
                                     <option selected>Select</option>
-                                    <option>IT2030 - Algorithms</option>
-                                    <option>SE1030 - Software Architecture</option>
-                                    <option>SE1040 - Database Management</option>
-                                    <option>IT2040 - Artificial Intelligence</option>
-                                    <option>DS3060 - Machine Learning</option>
-                                    <option>DS3070 - Cloud Computing</option>
-                                    <option>DS3080 - Big Data</option>
-                                    <option>IT2050 - Internet of Things</option>
-                                    <option>SE1050 - Software Testing</option>
+                                    <option>Algorithms</option>
+                                    <option>Software Architecture</option>
+                                    <option>Database Management</option>
+                                    <option>Artificial Intelligence</option>
+                                    <option>Machine Learning</option>
+                                    <option>Cloud Computing</option>
+                                    <option>Big Data</option>
+                                    <option>Internet of Things</option>
+                                    <option>Software Testing</option>
                                 </select>
                             </div>
                         </div>
