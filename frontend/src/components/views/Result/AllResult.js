@@ -2,8 +2,6 @@ import React, {useState, useEffect} from "react";
 import axios from "axios";
 import {useHistory} from "react-router";
 import Swal from "sweetalert2";
-import ReactHTMLTableToExcel from 'react-html-table-to-excel';
-
 
 
 export default function ReadResult() {
@@ -138,28 +136,13 @@ export default function ReadResult() {
             })}
             <div class="grid place-items-center">
                 <button class="buttonSubmit" type="button" onClick={() => gotoAdd()}
-                        style={{marginLeft: '10px',width:'20%', backgroundColor:'#4682b4'}}>Add New Result</button>
+                        style={{marginLeft: '10px',width:'20%', backgroundColor:'#4682b4',marginTop:'40px'}}>Add New Result</button>
 
 
                       <button class="buttonSubmit" type="button" onClick={() => window.print()}
                         style={{marginLeft: '10px',width:'20%', backgroundColor:'#4682b4'}}>Report</button>
 
-                &nbsp;&nbsp;&nbsp;&nbsp;
-
-                <ReactHTMLTableToExcel
-
-                    id="test-table-xls-button"
-
-                    className="buttonSubmit"
-
-                    table="Result"
-
-                    filename="tablexls"
-
-                    sheet="tablexls"
-
-                    buttonText="Generate Report"/>
-
+               
             </div>
         </div>
     </div>)

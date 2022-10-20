@@ -1,8 +1,6 @@
 import React, {useState, useEffect} from "react";
 import axios from "axios";
 import {useHistory} from "react-router";
-import ReactHTMLTableToExcel from 'react-html-table-to-excel';
-
 
 
 export default function ReadTimetable() {
@@ -117,25 +115,8 @@ export default function ReadTimetable() {
 
 
                       <button class="buttonSubmit" type="button" onClick={() => window.print()}
-                        style={{marginLeft: '10px',width:'20%', backgroundColor:'#4682b4'}}>Report</button>
+                        style={{marginLeft: '600px',width:'20%', backgroundColor:'#4682b4',marginTop:'40px'}}>Report</button>
 
-
-
-            &nbsp;&nbsp;&nbsp;&nbsp;
-
-            <ReactHTMLTableToExcel
-
-                id="test-table-xls-button"
-
-                className="buttonSubmit"
-
-                table="Timetable"
-
-                filename="tablexls"
-
-                sheet="tablexls"
-
-                buttonText="Download Timetable"/>
 
         </div>
 
