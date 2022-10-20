@@ -490,14 +490,14 @@ export default function AddTimetable() {
 
 
                         {/* <div className='btS'style={{width: '10px',marginTop : '-700px'}}> */}
-                        <button className="buttonSubmit" type="submit" onClick={(e)=>sendData(e)} style={{marginLeft: '250px',width:'20%', backgroundColor:'#4682b4', marginTop : '-800px'}}>
+                        <button className="buttonSubmit" type="submit" onClick={(e)=>sendData(e)} style={{marginLeft: '250px',width:'20%', backgroundColor:'#4682b4'}}>
                             {/* <i className="far fa-check-square"></i> */}
                             &nbsp; Save
                         </button>
 
 
 
-                        <button className="buttonDelete" style={{  marginTop : '-500px',marginLeft: '200px',width:'20%'}} type="reset" >Clear </button>
+                        <button className="buttonDelete" style={{marginLeft: '200px',width:'20%'}} type="reset" >Clear </button>
 
 
 

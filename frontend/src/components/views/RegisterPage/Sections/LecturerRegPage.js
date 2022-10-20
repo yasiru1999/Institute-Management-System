@@ -1,6 +1,4 @@
 import React, {useState} from "react";
-import moment from "moment";
-import Select from "react-select";
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { withRouter } from "react-router";
