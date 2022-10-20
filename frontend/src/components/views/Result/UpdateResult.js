@@ -7,6 +7,7 @@ import Swal from "sweetalert2";
 
 export default function EditResult(props) {
     const editDetails = props.location.state;
+    console.log(props.location.state);
 
     const [proData, setData] = useState({});
 
@@ -22,6 +23,15 @@ export default function EditResult(props) {
             subjectCode: editDetails.subjectCode,
             subjectName: editDetails.subjectName,
             results: editDetails.results,
+            subjectCode2: editDetails.subjectCode2,
+            subjectName2: editDetails.subjectName2,
+            results2: editDetails.resutls2,
+            subjectCode3: editDetails.subjectCode3,
+            subjectName3: editDetails.subjectName3,
+            results3: editDetails.results3,
+            subjectCode4: editDetails.subjectCode4,
+            subjectName4: editDetails.subjectName4,
+            results4: editDetails.results4,
             
         })
 
@@ -155,11 +165,11 @@ export default function EditResult(props) {
 {/*                              2                                                             */}
                           <div className="column">
                         <div className="form-group" style={{marginBottom: '15px', width:'100%', marginTop: '-150px'}}>
-                        <b> <label for="name">Subject Code1</label> </b>
+                        <b> <label for="name">Subject Code 2</label> </b>
                                 <br />
                                 <select
-                                    value={proData.subjectCode}
-                                    name="subjectCode"
+                                    value={proData.subjectCode2}
+                                    name="subjectCode2"
                                     onChange={onInputChange}  >
                                     <option selected>Select</option>
                                     <option>SE1000 </option>
@@ -172,11 +182,11 @@ export default function EditResult(props) {
 
                         <div className="column">
                         <div className="form-group" style={{marginBottom: '15px', width:'100%', marginTop: '-150px', marginLeft:'100px'}}>
-                        <b> <label for="name">Subject Name 1</label> </b>
+                        <b> <label for="name">Subject Name 2</label> </b>
                                 <br />
                                 <select
-                                    value={proData.subjectName}
-                                    name="subjectName"
+                                    value={proData.subjectName2}
+                                    name="subjectName2"
                                     onChange={onInputChange}  >
                                     <option selected>Select</option>
                                     <option>Algorithms</option>
@@ -201,8 +211,8 @@ export default function EditResult(props) {
                                 type="text"
                                 className="form-control"
                                 id="results"
-                                name="results"
-                                value={proData.results}
+                                name="results2"
+                                value={proData.results2}
                                 onChange={e => onInputChange(e)}
                             />
                         </div>
@@ -210,11 +220,11 @@ export default function EditResult(props) {
                       {/*                          3                                            */}
                       <div className="column">
                         <div className="form-group" style={{marginBottom: '15px', width:'100%',  marginTop: '-20px', marginLeft:'-620px'}}>
-                        <b> <label for="name">Subject Code1</label> </b>
+                        <b> <label for="subjectCode3">Subject Code 3</label> </b>
                                 <br />
                                 <select
-                                    value={proData.subjectCode}
-                                    name="subjectCode"
+                                    value={proData.subjectCode3}
+                                    name="subjectCode3"
                                     onChange={onInputChange}  >
                                     <option selected>Select</option>
                                     <option>SE1000 </option>
@@ -227,11 +237,11 @@ export default function EditResult(props) {
 
                         <div className="column">
                         <div className="form-group" style={{marginBottom: '15px', width:'100%', marginTop: '-20px', marginLeft:'-520px'}}>
-                        <b> <label for="name">Subject Name 1</label> </b>
+                        <b> <label for="subjectName3">Subject Name 3</label> </b>
                                 <br />
                                 <select
-                                    value={proData.subjectName}
-                                    name="subjectName"
+                                    value={proData.subjectName3}
+                                    name="subjectName3"
                                     onChange={onInputChange}  >
                                     <option selected>Select</option>
                                     <option>Algorithms</option>
@@ -251,13 +261,13 @@ export default function EditResult(props) {
 
                         <div className="column">
                         <div className="form-group" style={{marginBottom: '15px', width:'100%',marginTop: '-320px', marginLeft:'600px'}}>
-                        <b><label for="results">Result</label></b>  <br/>
+                        <b><label for="results3">Result</label></b>  <br/>
                             <input
                                 type="text"
                                 className="form-control"
-                                id="results"
-                                name="results"
-                                value={proData.results}
+                                id="results3"
+                                name="results3"
+                                value={proData.results3}
                                 onChange={e => onInputChange(e)}
                             />
                         </div>
@@ -267,10 +277,10 @@ export default function EditResult(props) {
                      {/*                           4                                             */}
                      <div className="column">
                         <div className="form-group" style={{marginBottom: '15px', width:'100%',marginTop: '-190px', marginLeft:'-200px'}}>
-                        <b> <label for="name">Subject Code1</label> </b>
+                        <b> <label for="name">Subject Code 4</label> </b>
                                 <br />
                                 <select
-                                    value={proData.subjectCode}
+                                    value={proData.subjectCode4}
                                     name="subjectCode"
                                     onChange={onInputChange}  >
                                     <option selected>Select</option>
@@ -284,10 +294,10 @@ export default function EditResult(props) {
 
                         <div className="column">
                         <div className="form-group" style={{marginBottom: '15px', width:'100%',marginTop: '-190px', marginLeft:'-110px'}}>
-                        <b> <label for="name">Subject Name 1</label> </b>
+                        <b> <label for="name">Subject Name 4</label> </b>
                                 <br />
                                 <select
-                                    value={proData.subjectName}
+                                    value={proData.subjectName4}
                                     name="subjectName"
                                     onChange={onInputChange}  >
                                     <option selected>Select</option>
@@ -314,7 +324,7 @@ export default function EditResult(props) {
                                 className="form-control"
                                 id="results"
                                 name="results"
-                                value={proData.results}
+                                value={proData.results4}
                                 onChange={e => onInputChange(e)}
                             />
                         </div>

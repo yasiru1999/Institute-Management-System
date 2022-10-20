@@ -70,6 +70,7 @@ router.route("/update/:id").put(async (req, res) => {
         subjectCode4,
         subjectName4,
         results4} = req.body;
+        console.log(req.body);
 
     const updateResult = {
         registrationId,

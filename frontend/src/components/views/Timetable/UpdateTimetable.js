@@ -101,7 +101,7 @@ export default function EditTimetable(props) {
 
                         <div className="column">
                             <div className="form-check" style={{ marginBottom: '15px' }}>
-                                <b>  <label for="name">Exam Type</label> </b> <br />
+                                <b>  <label for="examType">Exam Type</label> </b> <br />
                                 <select
                                     value={proData.examType}
                                     name="examType"
@@ -133,7 +133,7 @@ export default function EditTimetable(props) {
 
                         <div className="column">
                             <div className="form-check" style={{ marginBottom: '15px' }}>
-                                <b> <label for="name">Hall Number</label></b><br />
+                                <b> <label for="hallNumber">Hall Number</label></b><br />
                                 <select
                                     value={proData.hallNumber}
                                     name="hallNumber"
@@ -159,10 +159,10 @@ export default function EditTimetable(props) {
                         <div className="row"  >
                         <div className="column">
                             <div className="form-check" style={{ marginBottom: '15px',marginTop : '-150px'  }}>
-                                <b><label for="name">Subject ID and Name</label> </b><br />
+                                <b><label for="subjectId2">Subject ID and Name</label> </b><br />
                                 <select
                                     value={proData.subjectId2}
-                                    name="subjectId"
+                                    name="subjectId2"
                                     onChange={onInputChange}>
                                     <option>IT2030 - Algorithms</option>
                                     <option>SE1030 - Software Architecture</option>
@@ -180,10 +180,10 @@ export default function EditTimetable(props) {
 
                         <div className="column">
                             <div className="form-check" style={{ marginBottom: '15px',marginTop : '-150px'  }}>
-                                <b>  <label for="name">Exam Type</label> </b> <br />
+                                <b>  <label for="examType2">Exam Type</label> </b> <br />
                                 <select
                                     value={proData.examType2}
-                                    name="examType"
+                                    name="examType2"
                                     onChange={onInputChange}>
                                     <option>Mid</option>
                                     <option>Final</option>
@@ -197,14 +197,14 @@ export default function EditTimetable(props) {
                         <div className="column">
                         <div className="form-group" style={{ marginBottom: '15px', width: '300px', marginLeft: '20px' ,marginTop : '-150px' }}>
                             <b> <label style={{ marginBottom: '5px' }}>Date</label> </b> <br />
-                            <input type="date" className="form-control" name="date" placeholder="Enter Date" value={proData.date2} onChange={onInputChange} />
+                            <input type="date" className="form-control" name="date2" placeholder="Enter Date" value={proData.date2} onChange={onInputChange} />
                         </div>
                         </div>
 
                         <div className="column">
                         <div className="form-group" style={{ marginBottom: '15px', width: '300px', marginLeft: '20px',marginTop : '-150px'  }}>
                             <b><label style={{ marginBottom: '5px' }}>Time</label></b> <br />
-                            <input type="time" className="form-control" name="time" placeholder="Enter Time" value={proData.time2} onChange={onInputChange} />
+                            <input type="time" className="form-control" name="time2" placeholder="Enter Time" value={proData.time2} onChange={onInputChange} />
                         </div>
                         </div>
                         
@@ -212,10 +212,10 @@ export default function EditTimetable(props) {
 
                         <div className="column">
                             <div className="form-check" style={{ marginBottom: '15px' ,marginTop : '-150px'  }}>
-                                <b> <label for="name">Hall Number</label></b><br />
+                                <b> <label for="hallNumber2">Hall Number</label></b><br />
                                 <select
                                     value={proData.hallNumber2}
-                                    name="hallNumber"
+                                    name="hallNumber2"
                                     onChange={onInputChange}>
                                     <option>Hall A3b </option>
                                     <option>Hall A4c</option>
@@ -241,10 +241,10 @@ export default function EditTimetable(props) {
                         <div className="row">
                         <div className="column">
                             <div className="form-check" style={{ marginBottom: '15px' ,marginTop : '-275px'  }}>
-                                <b><label for="name">Subject ID and Name</label> </b><br />
+                                <b><label for="subjectId3">Subject ID and Name</label> </b><br />
                                 <select
                                     value={proData.subjectId3}
-                                    name="subjectId"
+                                    name="subjectId3"
                                     onChange={onInputChange}>
                                     <option>IT2030 - Algorithms</option>
                                     <option>SE1030 - Software Architecture</option>
@@ -262,10 +262,10 @@ export default function EditTimetable(props) {
 
                         <div className="column">
                             <div className="form-check" style={{ marginBottom: '15px' ,marginTop : '-275px'  }}>
-                                <b>  <label for="name">Exam Type</label> </b> <br />
+                                <b>  <label for="examType3">Exam Type</label> </b> <br />
                                 <select
                                     value={proData.examType3}
-                                    name="examType"
+                                    name="examType3"
                                     onChange={onInputChange}>
                                     <option>Mid</option>
                                     <option>Final</option>
@@ -279,14 +279,14 @@ export default function EditTimetable(props) {
                         <div className="column">
                         <div className="form-group" style={{ marginBottom: '15px', width: '300px', marginLeft: '20px' ,marginTop : '-275px'  }}>
                             <b> <label style={{ marginBottom: '5px' }}>Date</label> </b> <br />
-                            <input type="date" className="form-control" name="date" placeholder="Enter Date" value={proData.date3} onChange={onInputChange} />
+                            <input type="date" className="form-control" name="date3" placeholder="Enter Date" value={proData.date3} onChange={onInputChange} />
                         </div>
                         </div>
 
                         <div className="column">
                         <div className="form-group" style={{ marginBottom: '15px', width: '300px', marginLeft: '20px' ,marginTop : '-275px' }}>
                             <b><label style={{ marginBottom: '5px' }}>Time</label></b> <br />
-                            <input type="time" className="form-control" name="time" placeholder="Enter Time" value={proData.time3} onChange={onInputChange} />
+                            <input type="time" className="form-control" name="time3" placeholder="Enter Time" value={proData.time3} onChange={onInputChange} />
                         </div>
                         </div>
                         
@@ -294,10 +294,10 @@ export default function EditTimetable(props) {
 
                         <div className="column">
                             <div className="form-check" style={{ marginBottom: '15px' ,marginTop : '-275px'  }}>
-                                <b> <label for="name">Hall Number</label></b><br />
+                                <b> <label for="hallNumber3">Hall Number</label></b><br />
                                 <select
                                     value={proData.hallNumber3}
-                                    name="hallNumber"
+                                    name="hallNumber3"
                                     onChange={onInputChange}>
                                     <option>Hall A3b </option>
                                     <option>Hall A4c</option>
@@ -320,10 +320,10 @@ export default function EditTimetable(props) {
                         <div className="row">
                         <div className="column">
                             <div className="form-check" style={{ marginBottom: '15px', marginTop : '-400px'  }}>
-                                <b><label for="name">Subject ID and Name</label> </b><br />
+                                <b><label for="subjectId4">Subject ID and Name</label> </b><br />
                                 <select
                                     value={proData.subjectId4}
-                                    name="subjectId"
+                                    name="subjectId4"
                                     onChange={onInputChange}>
                                     <option>IT2030 - Algorithms</option>
                                     <option>SE1030 - Software Architecture</option>
@@ -341,10 +341,10 @@ export default function EditTimetable(props) {
 
                         <div className="column">
                             <div className="form-check" style={{ marginBottom: '15px',marginTop : '-400px'  }}>
-                                <b>  <label for="name">Exam Type</label> </b> <br />
+                                <b>  <label for="examType4">Exam Type</label> </b> <br />
                                 <select
                                     value={proData.examType4}
-                                    name="examType"
+                                    name="examType4"
                                     onChange={onInputChange}>
                                     <option>Mid</option>
                                     <option>Final</option>
@@ -358,14 +358,14 @@ export default function EditTimetable(props) {
                         <div className="column">
                         <div className="form-group" style={{ marginBottom: '15px', width: '300px', marginLeft: '20px' ,marginTop : '-400px' }}>
                             <b> <label style={{ marginBottom: '5px' }}>Date</label> </b> <br />
-                            <input type="date" className="form-control" name="date" placeholder="Enter Date" value={proData.date4} onChange={onInputChange} />
+                            <input type="date" className="form-control" name="date4" placeholder="Enter Date" value={proData.date4} onChange={onInputChange} />
                         </div>
                         </div>
 
                         <div className="column">
                         <div className="form-group" style={{ marginBottom: '15px', width: '300px', marginLeft: '20px',marginTop : '-400px'  }}>
                             <b><label style={{ marginBottom: '5px' }}>Time</label></b> <br />
-                            <input type="time" className="form-control" name="time" placeholder="Enter Time" value={proData.time4} onChange={onInputChange} />
+                            <input type="time" className="form-control" name="time4" placeholder="Enter Time" value={proData.time4} onChange={onInputChange} />
                         </div>
                         </div>
                         
@@ -373,10 +373,10 @@ export default function EditTimetable(props) {
 
                         <div className="column">
                             <div className="form-check" style={{ marginBottom: '15px',marginTop : '-400px'  }}>
-                                <b> <label for="name">Hall Number</label></b><br />
+                                <b> <label for="hallNumber4">Hall Number</label></b><br />
                                 <select
                                     value={proData.hallNumber4}
-                                    name="hallNumber"
+                                    name="hallNumber4"
                                     onChange={onInputChange}>
                                     <option>Hall A3b </option>
                                     <option>Hall A4c</option>
