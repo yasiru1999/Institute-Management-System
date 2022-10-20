@@ -47,7 +47,7 @@ export default function ReadResult() {
             {ResultList.filter((val) => {
                 if (searchItem == "") {
                     return val
-                } else if (val.courseId.toLowerCase().includes(searchItem.toLocaleLowerCase())) {
+                } else if (val.registrationId.toLowerCase().includes(searchItem.toLocaleLowerCase())) {
                     return val
                 }
             }).map((val, key) => {
@@ -56,7 +56,6 @@ export default function ReadResult() {
                     <table Id = "Result" class="table table-dark rounded-lg">
                         <thead class="tableHeader">
                         <tr>
-                        <th scope="col">Actions</th>
                             <th scope="col">Registration Number</th>
                             <th scope="col">Student Name</th>
                             <th scope="col">Course Name</th>

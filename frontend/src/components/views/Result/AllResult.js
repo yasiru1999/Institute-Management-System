@@ -65,7 +65,7 @@ export default function ReadResult() {
             {ResultList.filter((val) => {
                 if (searchItem == "") {
                     return val
-                } else if (val.courseId.toLowerCase().includes(searchItem.toLocaleLowerCase())) {
+                } else if (val.registrationId.toLowerCase().includes(searchItem.toLocaleLowerCase())) {
                     return val
                 }
             }).map((val, key) => {
