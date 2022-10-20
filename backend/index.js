@@ -33,6 +33,8 @@ app.use('/module', require('./routes/moduleRoutes'));
 app.use('/attendance', require('./routes/attendanceRoutes'));
 app.use('/lecMaterial', require('./routes/lecMaterialRoutes'));
 
+app.use('/lecFiles' , express.static('lecFiles'));
+
 // app.use('/api/timetables', require('./routes/timetables'));
 // app.use('/api/product', require('./routes/product'));
 // app.use('/api/delivery', require('./routes/delivery'));

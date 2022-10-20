@@ -12,6 +12,7 @@ export default function Attendance_View() {
     const stuName = localStorage.getItem('name');
 
     const [attendanceList, SetattendanceList] = useState([]);
+    const [curDate, setcurDate] = useState();
 
     useEffect(() => {
         const getDetailsList = async() => {
@@ -25,6 +26,14 @@ export default function Attendance_View() {
         getDetailsList()
     },[]);
 
+    function SearchAttendance() {
+        axios.get(`http://localhost:5001/attendance/filterAttendance/${id}?curDate=${curDate}`)
+            .then(res => {
+                console.log(res.data)
+                SetattendanceList(res.data)
+            }).catch(err => console.error(err))
+    }
+
     
     return(
         <div>
@@ -36,10 +45,23 @@ export default function Attendance_View() {
             </div>
 
             <br/> <br/> <br/> <br/>
-           
+
             <div className='viewTags'>
                 <u><b><h3 className=" fw-bolder mb-4">Student Attendance</h3></b></u>
             </div>
+            <br/> <br/>
+           <div>
+                <form className="">
+                    <div className='searchInput'>
+                        <input className="" type="date" aria-label="Search" name="curDate"
+                            value={curDate} onChange={e => setcurDate(e.target.value)}/>             
+                        <button className="" onClick={() => { SearchAttendance(curDate) }}>Search</button>
+                    </div>
+                </form>
+            </div>
+            <br/>
+
+           
 
             <div className='tablePadding'>
                 <table className="table ">
@@ -66,7 +88,9 @@ export default function Attendance_View() {
                     </tbody>
                 </table>
             </div> 
+
             <br/> <br/>
+
             <div className='btn-grodiv'>
                 <div className="btn-gro">
                     <button className="button2" onClick={() => GenerateAttendancePdf(attendanceList,id)}>Download Report</button>

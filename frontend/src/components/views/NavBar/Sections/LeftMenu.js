@@ -178,8 +178,7 @@ function LeftMenu(props) {
             {/*        <a href={`/homeLecMat/${moduleNames.subject4}`}>{moduleNames.subject4}</a>*/}
             {/*    </Menu.Item>*/}
             {/*</SubMenu>*/}
-         
-        
+               
         </Menu>
     )
   }
