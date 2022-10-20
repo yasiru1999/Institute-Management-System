@@ -1,30 +1,26 @@
 import React, { useState, useEffect}  from 'react';
 import axios from 'axios';
-import {useParams} from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import './NoticeSession.css'
+import { Link } from 'react-router-dom';
+import HeaderBar from '../LecMaterials/HeaderBar';
 
 
-export default function NoticeSession_Create() {
+export default function NoticeSession_ViewL() {
 
-    //const {module} = useParams("");   
-    const module = "IT2001";
- 
-    /*const [noticeList, setNoticeList] = useState({
-        moduleNo:"", category:"", topic:"", description:"", otherDetails:""
-    });*/
+    const {id} = useParams("");
+    const history = useHistory();
     const [noticeList, setNoticeList] = useState([]);
     const [sessionList, setSessionList] = useState([]);
 
-   /* const [sessionList, setSessionList] = useState({
-        moduleNo:"", category:"", topic:"", description:"", otherDetails:""
-    });*/
-    
+    const [userRouter, setUserRouter] = useState([]);
+
     useEffect(() => {
         const getDetailsList = async() => {
             try {
-                const NoticeResults = await axios.get(`http://localhost:5001/noticeSessions/getNotices/${module}`)
+                const NoticeResults = await axios.get(`http://localhost:5001/noticeSessions/getNotices/${id}`)
                 setNoticeList(NoticeResults.data);
-                const sessionResults = await axios.get(`http://localhost:5001/noticeSessions/getSessions/${module}`)
+                const sessionResults = await axios.get(`http://localhost:5001/noticeSessions/getSessions/${id}`)
                 setSessionList(sessionResults.data);
             } catch(err) {
                 console.log(err);
@@ -33,85 +29,99 @@ export default function NoticeSession_Create() {
         getDetailsList()
     },[]);
 
+    const deleteDetail = async (ids) => {
+        try {
+            const res = await axios.delete(`http://localhost:5001/noticeSessions/delete/${ids}`)
+            alert("Successfully Deteted");
+        } catch (err) {
+            alert("Fild to delete");
+            console.log(err);
+        }
+    }
+
     return(
         <div>
-            <br/><br/><br/><br/>
-            <div className='groupTable'>
-            <div className="container shadow py-5 ">
-            <h3 className=" fw-bolder mb-4"><center>Notices in Module no: <b>{module}</b></center></h3>
+
+            <div><HeaderBar/></div>
+
+            <div className="btn-group">
+                <a  href={`/createNS/${id}`}><button className="button">Create Notice/Sessions</button></a>
+                <button className="button1">Student View</button>
+            </div>
+
+            <br/> <br/> <br/> <br/>
+
+            <div className='viewTags'>
+                <u><b><h3 className=" fw-bolder mb-4">Notices</h3></b></u>
+            </div>
+
+            <div className='tablePadding'>
                 <table className="table ">
-                    <thead className='table-dark'>
-                        <tr  key={"1"}>
-                            <th> Module No</th>
-                            <th> Category </th>
-                            <th> Topic </th>
-                            <th> Description </th>
-                            <th> Other Details </th>
-                        </tr>
+                    <thead className='tableHeader'>
+                    <tr  key={"1"}>
+                        <th> Topic </th>
+                        <th> Description </th>
+                        <th> Other Details </th>
+                        <th> Actions </th>
+                    </tr>
                     </thead>
 
                     <tbody className='table-group-divider'>
                     {
                         noticeList.map((notice, id) => (
                             <tr key={id}>
-                                <td>{notice.moduleNo}</td>
-                                <td>{notice.category}</td>
                                 <td>{notice.topic}</td>
                                 <td>{notice.description}</td>
                                 <td>{notice.otherDetails}</td>
 
                                 <td>
-                                    <button>View</button>
-                                </td>                        
+                                    <Link to={`/updateNS/${notice._id}`}><button className='buttonUpdate'>Update</button></Link>
+                                    <Link onClick={() => {deleteDetail(notice._id);  window.location.reload()}}><button className='buttonDelete'>Delete</button></Link>
+                                </td>
                             </tr>
                         ))
                     }
                     </tbody>
                 </table>
-
             </div>
-            </div>
-
-
-
-
 
             <br/><br/><br/><br/>
-            <div className='groupTable'>
-            <div className="container shadow py-5 ">
-            <h3 className=" fw-bolder mb-4"><center>Sessions in Module no: <b>{module}</b></center></h3>
+
+            <div className='viewTags'>
+                <u><b><h3 className=" fw-bolder mb-4">Sessions</h3></b></u>
+            </div>
+
+            <div className='tablePadding'>
                 <table className="table ">
-                    <thead className='table-dark'>
-                        <tr  key={"1"}>
-                            <th> Module No</th>
-                            <th> Category </th>
-                            <th> Topic </th>
-                            <th> Description </th>
-                            <th> Other Details </th>
-                        </tr>
+                    <thead className='tableHeader'>
+                    <tr  key={"1"}>
+                        <th> Topic </th>
+                        <th> Description </th>
+                        <th> Other Details </th>
+                        <th> Actions </th>
+                    </tr>
                     </thead>
 
                     <tbody className='table-group-divider'>
                     {
                         sessionList.map((session, id) => (
                             <tr key={id}>
-                                <td>{session.moduleNo}</td>
-                                <td>{session.category}</td>
                                 <td>{session.topic}</td>
                                 <td>{session.description}</td>
                                 <td>{session.otherDetails}</td>
 
                                 <td>
-                                    <button>View</button>
-                                </td>                        
+                                    <Link to={`/updateNS/${session._id}`}><button className='buttonUpdate'>Update</button></Link>
+                                    <Link onClick={() => {deleteDetail(session._id);  window.location.reload()}}><button className='buttonDelete'>Delete</button></Link>
+                                </td>
                             </tr>
                         ))
                     }
                     </tbody>
                 </table>
+            </div>
 
-            </div>
-            </div>
+
 
 
 

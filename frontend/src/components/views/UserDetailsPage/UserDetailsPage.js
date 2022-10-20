@@ -1,6 +1,6 @@
 import React, {useEffect, useState, Fragment} from "react";
 import Axios from 'axios'
-import { Typography, Divider,Row,Col } from "antd";
+import {Typography, Divider, Row, Col, Button} from "antd";
 import { useDispatch } from 'react-redux';
 import {FaRegUserCircle} from "react-icons/fa";
 import "./UserDetailsPage.css";
@@ -26,98 +26,52 @@ function UserDetailsPage(props) {
                 <FaRegUserCircle style={{fontSize: 55,color: "black"}} />
                 <h3 style={{marginLeft: '30px', fontSize:20}}>{User.name}</h3>
             </div>
-            <div style={{ display: 'flex', justifyContent: 'center' }}>
-
-            </div>
             <br />
             <Fragment>
                 <Divider/>
-                <Row gutter={16}>
-                    <Title level={4}>Group ID : {User._id}</Title>
+                <Row gutter={86}>
+                    {/*<Title level={4}>Group ID : {User._id}</Title>*/}
                     <Col className="gutter-row" span={12}>
-                        <Divider orientation="left">Horizontal</Divider>fffff
-                        <Title level={4}>Student 1</Title>
-                        <p>
-                            test
-                        </p>
-                        <p>
-                            test
-                        </p>
-                        <p>
-                            test
-                        </p>
+                            <div className="userDetails" style={{border: '3px solid black',padding:'8px 10px'}}>
+                                <div>
+                                    <Divider orientation="left">Personal Info</Divider>
+                                    <h4>Name</h4>
+                                    <p>{User.name}</p>
+                                    <h4>Email</h4>
+                                    <p>{User.email}</p>
+                                    <h4>Contact Number</h4>
+                                    <p>{User.contactNumber}</p>
+                                    <h4>Gender</h4>
+                                    <p>{User.Gender}</p>
+                                </div>
+
+
+                                <div className="editBtn">
+                                    <Button type="primary" href="/updateUserInfo" shape="round" size='large'>
+                                        Edit Details
+                                    </Button>
+                                </div>
+                            </div>
+
+
                     </Col>
                     <Col className="gutter-row" span={12}>
-                        <Title level={4}>Student 2</Title>
-                        <p>
-                            test
-                        </p>
-                        <p>
-                            test
-                        </p>
-                        <p>
-                            test
-                        </p>
+                        <div style={{border: '3px solid black',padding:'8px 10px'}}>
+                            <Divider orientation="left">Course Details</Divider>
+                            <h4>ID</h4>
+                            <p>{User.UserID}</p>
+                            <h4>Course Name</h4>
+                            <p>{User.registeredCourse}</p>
+                            <h4>Module Names</h4>
+                            <p>Module 1</p>
+                        </div>
                     </Col>
                 </Row>
             </Fragment>
         </div>
 
     // <div style={{maxWidth:'700px',margin:'2rem auto'}}>
-    //         <Fragment>
-    //             <Divider/>
-    //             <Row gutter={16}>
-    //                 <Title level={4}>Group ID : {User._id}</Title>
-    //                 <Col className="gutter-row" span={6}>
-    //                     <Title level={4}>Student 1</Title>
-    //                     <p>
-    //                         test
-    //                     </p>
-    //                     <p>
-    //                         test
-    //                     </p>
-    //                     <p>
-    //                         test
-    //                     </p>
-    //                 </Col>
-    //                 <Col className="gutter-row" span={6}>
-    //                     <Title level={4}>Student 2</Title>
-    //                     <p>
-    //                         test
-    //                     </p>
-    //                     <p>
-    //                         test
-    //                     </p>
-    //                     <p>
-    //                         test
-    //                     </p>
-    //                 </Col>
-    //                 <Col className="gutter-row" span={6}>
-    //                     <Title level={4}>Student 3</Title>
-    //                     <p>
-    //                         test
-    //                     </p>
-    //                     <p>
-    //                         test
-    //                     </p>
-    //                     <p>
-    //                         test
-    //                     </p>
-    //                 </Col>
-    //                 <Col className="gutter-row" span={6}>
-    //                     <Title level={4}>Student 4</Title>
-    //                     <p>
-    //                         test
-    //                     </p>
-    //                     <p>
-    //                         test
-    //                     </p>
-    //                     <p>
-    //                         test
-    //                     </p>
-    //                 </Col>
-    //             </Row>
-    //         </Fragment>
+
     // </div>
     )
 }

@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 const ResultSchema = new Schema({
 
 
-    registrationNumber : {
+    registrationId : {
         type : String,
         // required: true
     },
@@ -26,14 +26,47 @@ const ResultSchema = new Schema({
         type : String,
         // required: true
     },
-    result : {
+    results : {
+        type : String,
+        // required: true
+    },
+    subjectCode2 : {
+        type : String,
+        // required: true
+    },
+    subjectName2 : {
+        type : String,
+        // required: true
+    },
+    results2 : {
+        type : String,
+        // required: true
+    },
+    subjectCode3 : {
+        type : String,
+        // required: true
+    },
+    subjectName3 : {
+        type : String,
+        // required: true
+    },
+    results3 : {
+        type : String,
+        // required: true
+    },
+    subjectCode4 : {
+        type : String,
+        // required: true
+    },
+    subjectName4 : {
+        type : String,
+        // required: true
+    },
+    results4 : {
         type : String,
         // required: true
     },
    
-
-}, {
-    timestamps: true,
 });
 
 const Result = mongoose.model("Result", ResultSchema);

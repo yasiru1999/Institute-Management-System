@@ -1,13 +1,15 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import moment from "moment";
-import Select from "react-select";
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { registerUser } from "../../../../_actions/user_actions";
 import { useDispatch } from "react-redux";
-import {Form, Input, Button,} from 'antd';
+import {Typography, Divider, Row, Col, Select, Button, Form, Input,Radio} from "antd";
 import {withRouter} from "react-router-dom";
+import "../RegPage.css";
+import axios from "axios";
 
+const { Option } = Select;
 const formItemLayout = {
   labelCol: {
     xs: { span: 24 },
@@ -15,7 +17,7 @@ const formItemLayout = {
   },
   wrapperCol: {
     xs: { span: 24 },
-    sm: { span: 16 },
+    sm: { span: 13 },
   },
 };
 const tailFormItemLayout = {
@@ -40,10 +42,33 @@ function StudentRegPage(props) {
   const dispatch = useDispatch();
 
   const [gender, setGender] = useState('');
+  const[CoursesIDs,setCoursesIDs] = useState([]);
+  const[CourseID,setCourseID] = useState('');
+
+  useEffect(() => {
+
+    function getCourses() {
+      axios.get('http://localhost:5001/module/getAllModules')
+          .then(response => {
+            console.log(response.data);
+            setCoursesIDs(response.data);
+          })
+          .catch(err => {
+            console.log(err);
+          })
+    }
+
+    getCourses();
+    console.log(CoursesIDs);
+  },[])
 
   const onChangeGender = ({ target: { value } }) => {
     console.log('radio1 checked', value);
     setGender(value);
+  };
+  const handleCourses = (value) => {
+    console.log(`selected ${value}`);
+    setCourseID(value);
   };
 
   return (
@@ -82,7 +107,6 @@ function StudentRegPage(props) {
       })}
       onSubmit={(values, { setSubmitting }) => {
         setTimeout(() => {
-
           let dataToSubmit = {
             UserID: values.UserID,
             name: values.name,
@@ -120,10 +144,10 @@ function StudentRegPage(props) {
           handleReset,
         } = props;
         return (
-          <div className="">
-            <Form style={{ minWidth: '375px' }} {...formItemLayout} onSubmit={handleSubmit} >
+          <div className="reg">
+            <Form style={{minWidth: '600px' }}  {...formItemLayout} onSubmit={handleSubmit} >
 
-              <Form.Item required label="Student ID">
+              <Form.Item required label="Student ID" >
                 <Input
                   id="UserID"
                   placeholder="Enter Student ID"
@@ -140,7 +164,7 @@ function StudentRegPage(props) {
                 )}
               </Form.Item>
 
-              <Form.Item required label="Name">
+              <Form.Item required label="Name" >
                 <Input
                   id="name"
                   placeholder="Enter Name"
@@ -183,13 +207,22 @@ function StudentRegPage(props) {
                     onChange={handleChange}
                     onBlur={handleBlur}
                     className={
-                      errors.registeredCourse && touched.registeredCourse ? 'text-input error' : 'text-input'
-                    }
-                />
-                {errors.registeredCourse && touched.registeredCourse && (
-                    <div className="input-feedback">{errors.registeredCourse}</div>
-                )}
+                      errors.registeredCourse && touched.registeredCourse ? 'text-input error' : 'text-input'}/>
+                {/*<Select*/}
+                {/*    id="registeredCourse"*/}
+                {/*    defaultValue="Select Supervisor"*/}
+                {/*    onChange={handleCourses}*/}
+                {/*    style={{*/}
+                {/*      width: 170,*/}
+                {/*    }}*/}
+                {/*>*/}
+                {/*  {CoursesIDs.map((item2,index) => (*/}
+                {/*      <Option key={index.toString()} value={item2.moduleNo}>{item2.moduleNo}</Option>*/}
+                {/*  ))}*/}
+                {/*</Select>*/}
               </Form.Item>
+
+
 
               <Form.Item required label="contactNumber">
                 <Input
@@ -208,19 +241,24 @@ function StudentRegPage(props) {
                 )}
               </Form.Item>
 
-              <Form.Item required label="Gender">
-                <Select
-                    id="Gender"
-                    options = {Gender}
-                    hasValue
-                    setValue={values.Gender}
-                    onBlur={handleBlur}
-                    className = "basic-multi-select"
-                    onChange={setGender}
-                    className={
-                      errors.Gender && touched.Gender ? 'text-input error' : 'text-input'
-                    }
-                />
+              <Form.Item label="Gender">
+                {/*<Select*/}
+                {/*    id="Gender"*/}
+                {/*    options = {Gender}*/}
+                {/*    hasValue*/}
+                {/*    setValue={values.Gender}*/}
+                {/*    onBlur={handleBlur}*/}
+                {/*    className = "basic-multi-select"*/}
+                {/*    onChange={setGender}*/}
+                {/*    className={*/}
+                {/*      errors.Gender && touched.Gender ? 'text-input error' : 'text-input'*/}
+                {/*    }*/}
+                {/*/>*/}
+
+                <Radio.Group>
+                  <Radio value="male"> Male </Radio>
+                  <Radio value="female"> Female </Radio>
+                </Radio.Group>
                 {errors.Gender && touched.Gender && (
                     <div className="input-feedback">{errors.Gender}</div>
                 )}

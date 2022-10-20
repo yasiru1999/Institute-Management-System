@@ -13,7 +13,8 @@ function RegisterPage(props) {
     };
 
     return (
-        <div className="app" style={{ width: '75%', margin: '3rem auto' }}>
+        // style={{  margin: '3rem auto' }}
+        <div className="app" style={{  margin: '6rem auto' }}>
             <h2>Sign Up</h2>
             <Radio.Group
                 /*options={options}*/
@@ -30,13 +31,13 @@ function RegisterPage(props) {
             </Radio.Group>
 
             { regType=="0"  ?
-                <>
+                <><br/>
                     <StudentReg/>
                 </>
 
                 : null }
             { regType=="1"  ?
-                <>
+                <><br/>
                     <LecturerReg/>
                 </>
 

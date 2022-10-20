@@ -3,12 +3,12 @@ const mongoose = require('mongoose');
 const NoticeSessionSchema = new mongoose.Schema({
     moduleNo: {
         type: String,
-        required: true,
-        default:"IT2000"
+        required: true
     },
     category: {
         type: String,
         required: true,
+        trim: true
     },
     topic: {
         type: String,

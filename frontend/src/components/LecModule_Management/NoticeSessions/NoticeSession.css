@@ -40,6 +40,87 @@
     background-color: #91b9e7;
   }
 
-.form1{
-    padding-left: 20%;
+.formStyle{
+  padding-left: 25%;
+  padding-right: 25%;
+}
+
+.form1 {
+  border-radius: 5px;
+  background-color: #ffffff;
+  padding: 15px;
+  border: 2px solid black;
+}
+
+input[type=text], select {
+  width: 100%;
+  padding: 8px 5px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  box-sizing: border-box;
+}
+
+.buttonSubmit {
+  width: 100%;
+  background-color: #418de4;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.buttonSubmit:hover {
+  background-color: #418de4;
+}
+
+.hrLine{
+  width: 65%;
+  text-align: left;
+  margin-left: 0;
+  background: black
+}
+
+.btS{
+  padding-left: 35%;
+  padding-right: 35%;
+}
+
+.buttonUpdate {
+  width: 25%;
+  background-color: #e4c113;
+  color: white;
+  padding: 6px 10px;
+  margin: 2px 0;
+  border: solid;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.buttonDelete {
+  width: 25%;
+  background-color: #8f2c2c;
+  color: white;
+  padding: 6px 10px;
+  margin: 2px 0;
+  border: solid;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.viewTags{
+  float: left;
+}
+
+.tablePadding{
+  padding-left: 2%;
+  padding-right: 10%;
+}
+
+.tableHeader{
+  background-color: #418de4;
+  color: white;
 }
