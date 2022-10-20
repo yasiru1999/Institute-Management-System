@@ -14,7 +14,7 @@ function RegisterPage(props) {
 
     return (
         // style={{  margin: '3rem auto' }}
-        <div className="app" style={{  margin: '3rem auto' }}>
+        <div className="app" style={{  margin: '6rem auto' }}>
             <h2>Sign Up</h2>
             <Radio.Group
                 /*options={options}*/
