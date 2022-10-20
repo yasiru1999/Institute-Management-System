@@ -13,7 +13,7 @@ export default function Attendance_Create() {
     const year = d.getFullYear();
     const month = d.getMonth() + 1;
     const date = d.getDate();
-    const fullDate = year +"-" + month +"-" + date;
+    const fullDate = year +"-" + month+"-" + date;
 
     const [attendance, setAttendance] = useState({
         curDate:fullDate, studentName:stuName, moduleName:id, session:"", feedback:"None" 
