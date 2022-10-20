@@ -90,7 +90,7 @@ export default function AddResult() {
         };
         console.log(newResult);
 
-        axios.post("http://localhost:8070/result/add", newResult).then(() => {
+        axios.post("http://localhost:5001/result/add", newResult).then(() => {
             Swal.fire({
                 title: "Added Successfully",
                 icon: 'success',

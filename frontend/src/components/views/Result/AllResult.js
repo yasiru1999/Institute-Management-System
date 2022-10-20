@@ -33,7 +33,7 @@ export default function ReadResult() {
         console.log(id);
         const result = await axios.get(`http://localhost:5001/result/get/${id}`);
         setResultJson(result.data);
-        let path = `/update/${id}`;
+        let path = `/updateResult/${id}`;
         history.push({
             pathname: path,
             state: resultJson,

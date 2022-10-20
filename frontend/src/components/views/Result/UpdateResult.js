@@ -34,7 +34,7 @@ export default function EditResult(props) {
             title: "Updated Successfully",
             icon: 'success',
         });
-        props.history.push("/all");
+        props.history.push("/allResult");
     };
 
 

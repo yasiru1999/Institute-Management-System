@@ -147,7 +147,7 @@ export default function AddTimetable() {
 
 
     return (
-        
+
         <div className="container" style={{  margin: '6rem auto' }}>
             <div >
                 <div className="form1"  style={{border: 'solid', width:'70%', margin: '4rem auto' }}>
@@ -159,8 +159,8 @@ export default function AddTimetable() {
 
                         <div className="selectCourse">
                             <div className="form-check" style={{marginBottom: '15px'}}>
-                               <b> <label for="name">Course Name</label> </b>
-                               <br/>
+                                <b> <label for="name">Course Name</label> </b>
+                                <br/>
                                 <select value={courseId} onChange={(e) =>{
                                     setCourseId(e.target.value);
                                 }}>
@@ -171,7 +171,6 @@ export default function AddTimetable() {
                                 </select>
                             </div>
                         </div>
-                    
 
 
 
@@ -179,327 +178,328 @@ export default function AddTimetable() {
 
 
 
-                    <div className="row">
-                        <div className="column">
-                            <div className="form-check" style={{marginBottom: '15px'}}>
-                              <b>  <label for="name">Subject and name</label>  </b> <br/>
-                                <select value={subjectId} onChange={(e) =>{
-                                    setSubjectId(e.target.value);
-                                }}>
-                                    <option selected>Select</option>
-                                    <option>IT2030 - Algorithms</option>
-                                    <option>SE1030 - Software Architecture</option>
-                                    <option>SE1040 - Database Management</option>
-                                    <option>IT2040 - Artificial Intelligence</option>
-                                    <option>DS3060 - Machine Learning</option>
-                                    <option>DS3070 - Cloud Computing</option>
-                                    <option>DS3080 - Big Data</option>
-                                    <option>IT2050 - Internet of Things</option>
-                                    <option>SE1050 - Software Testing</option>
-                                </select>
+
+                        <div className="row">
+                            <div className="column">
+                                <div className="form-check" style={{marginBottom: '15px'}}>
+                                    <b>  <label for="name">Subject and name</label>  </b> <br/>
+                                    <select value={subjectId} onChange={(e) =>{
+                                        setSubjectId(e.target.value);
+                                    }}>
+                                        <option selected>Select</option>
+                                        <option>IT2030 - Algorithms</option>
+                                        <option>SE1030 - Software Architecture</option>
+                                        <option>SE1040 - Database Management</option>
+                                        <option>IT2040 - Artificial Intelligence</option>
+                                        <option>DS3060 - Machine Learning</option>
+                                        <option>DS3070 - Cloud Computing</option>
+                                        <option>DS3080 - Big Data</option>
+                                        <option>IT2050 - Internet of Things</option>
+                                        <option>SE1050 - Software Testing</option>
+                                    </select>
+                                </div>
+                            </div>
+
+
+
+                            <div className="column">
+                                <div className="form-check" style={{marginBottom: '15px'}}>
+                                    <b><label for="name">Exam Type</label></b><br/>
+                                    <select value={examType} onChange={(e) =>{
+                                        setExamType(e.target.value);
+                                    }}>
+                                        <option selected>Select</option>
+                                        <option>Mid</option>
+                                        <option>Final</option>
+                                        <option>Assignment</option>
+                                        <option>Lab</option>
+                                        <option>Quiz</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div className="column dateTime">
+                                <div className="form-group " style={{marginBottom: '15px', width: '300px', marginLeft: '20px' }}>
+                                    <b> <label style={{marginBottom: '5px'}}>Date</label> </b> <br/>
+                                    <input type="date" className="form-control" name="date" placeholder="Enter Date" value={date} onChange={(e) => {
+                                        setDate(e.target.value);
+                                    }}/>
+                                </div>
+                            </div>
+
+                            <div className="column dateTime">
+                                <div className="form-group" style={{marginBottom: '55px', width: '300px', marginLeft: '20px'}}>
+                                    <b>  <label style={{marginBottom: '5px'}}>Time</label> </b> <br/>
+                                    <input type="time" className="form-control" name="time" placeholder="Enter Time" value={time} onChange={(e) => {
+                                        setTime(e.target.value);
+                                    }}/>
+                                </div>
+                            </div>
+                            <div className="column">
+                                <div className="form-check" style={{marginBottom: '15px'}}>
+                                    <b> <label for="name">Hall Number</label>  </b> <br/>
+                                    <select value={hallNumber} onChange={(e) =>{
+                                        setHallNumber(e.target.value);
+                                    }}>
+                                        <option selected>Select</option>
+                                        <option>Hall A3b </option>
+                                        <option>Hall A4c</option>
+                                        <option>Hall A5d</option>
+                                        <option>Hall A6e</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
 
-                       
 
-                        <div className="column">
-                            <div className="form-check" style={{marginBottom: '15px'}}>
-                                <b><label for="name">Exam Type</label></b><br/>
-                                <select value={examType} onChange={(e) =>{
-                                    setExamType(e.target.value);
-                                }}>
-                                    <option selected>Select</option>
-                                    <option>Mid</option>
-                                    <option>Final</option>
-                                    <option>Assignment</option>
-                                    <option>Lab</option>
-                                    <option>Quiz</option>
-                                </select>
+
+
+                        {/*                         2                                                                 */}
+
+
+                        <div className="row">
+                            <div className="column">
+                                <div className="form-check" style={{marginBottom: '15px' ,marginTop : '-150px'}}>
+                                    <b>  <label for="name">Subject and name</label>  </b> <br/>
+                                    <select value={subjectId2} onChange={(e) =>{
+                                        setSubjectId2(e.target.value);
+                                    }}>
+                                        <option selected>Select</option>
+                                        <option>IT2030 - Algorithms</option>
+                                        <option>SE1030 - Software Architecture</option>
+                                        <option>SE1040 - Database Management</option>
+                                        <option>IT2040 - Artificial Intelligence</option>
+                                        <option>DS3060 - Machine Learning</option>
+                                        <option>DS3070 - Cloud Computing</option>
+                                        <option>DS3080 - Big Data</option>
+                                        <option>IT2050 - Internet of Things</option>
+                                        <option>SE1050 - Software Testing</option>
+                                    </select>
+                                </div>
+                            </div>
+
+
+
+                            <div className="column">
+                                <div className="form-check" style={{marginBottom: '15px',marginTop : '-150px'}}>
+                                    <b><label for="name">Exam Type</label></b><br/>
+                                    <select value={examType2} onChange={(e) =>{
+                                        setExamType2(e.target.value);
+                                    }}>
+                                        <option selected>Select</option>
+                                        <option>Mid</option>
+                                        <option>Final</option>
+                                        <option>Assignment</option>
+                                        <option>Lab</option>
+                                        <option>Quiz</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div className="column dateTime">
+                                <div className="form-group " style={{marginBottom: '15px', width: '300px', marginLeft: '20px' ,marginTop : '-150px'}}>
+                                    <b> <label style={{marginBottom: '5px'}}>Date</label> </b> <br/>
+                                    <input type="date" className="form-control" name="date" placeholder="Enter Date" value={date2} onChange={(e) => {
+                                        setDate2(e.target.value);
+                                    }}/>
+                                </div>
+                            </div>
+
+                            <div className="column dateTime">
+                                <div className="form-group" style={{marginBottom: '55px', width: '300px', marginLeft: '20px',marginTop : '-150px'}}>
+                                    <b>  <label style={{marginBottom: '5px'}}>Time</label> </b> <br/>
+                                    <input type="time" className="form-control" name="time" placeholder="Enter Time" value={time2} onChange={(e) => {
+                                        setTime2(e.target.value);
+                                    }}/>
+                                </div>
+                            </div>
+                            <div className="column">
+                                <div className="form-check" style={{marginBottom: '15px',marginTop : '-150px'}}>
+                                    <b> <label for="name">Hall Number</label>  </b> <br/>
+                                    <select value={hallNumber2} onChange={(e) =>{
+                                        setHallNumber2(e.target.value);
+                                    }}>
+                                        <option selected>Select</option>
+                                        <option>Hall A3b </option>
+                                        <option>Hall A4c</option>
+                                        <option>Hall A5d</option>
+                                        <option>Hall A6e</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
 
-                        <div className="column dateTime">
-                            <div className="form-group " style={{marginBottom: '15px', width: '300px', marginLeft: '20px' }}>
-                            <b> <label style={{marginBottom: '5px'}}>Date</label> </b> <br/>
-                                <input type="date" className="form-control" name="date" placeholder="Enter Date" value={date} onChange={(e) => {
-                                    setDate(e.target.value);
-                                }}/>
+
+
+
+
+
+
+
+                        {/*                                                          3                                             */}
+
+
+                        <div className="row">
+                            <div className="column">
+                                <div className="form-check" style={{marginBottom: '15px',marginTop : '-275px'}}>
+                                    <b>  <label for="name">Subject and name</label>  </b> <br/>
+                                    <select value={subjectId3} onChange={(e) =>{
+                                        setSubjectId3(e.target.value);
+                                    }}>
+                                        <option selected>Select</option>
+                                        <option>IT2030 - Algorithms</option>
+                                        <option>SE1030 - Software Architecture</option>
+                                        <option>SE1040 - Database Management</option>
+                                        <option>IT2040 - Artificial Intelligence</option>
+                                        <option>DS3060 - Machine Learning</option>
+                                        <option>DS3070 - Cloud Computing</option>
+                                        <option>DS3080 - Big Data</option>
+                                        <option>IT2050 - Internet of Things</option>
+                                        <option>SE1050 - Software Testing</option>
+                                    </select>
+                                </div>
+                            </div>
+
+
+
+                            <div className="column">
+                                <div className="form-check" style={{marginBottom: '15px',marginTop : '-275px'}}>
+                                    <b><label for="name">Exam Type</label></b><br/>
+                                    <select value={examType3} onChange={(e) =>{
+                                        setExamType3(e.target.value);
+                                    }}>
+                                        <option selected>Select</option>
+                                        <option>Mid</option>
+                                        <option>Final</option>
+                                        <option>Assignment</option>
+                                        <option>Lab</option>
+                                        <option>Quiz</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div className="column dateTime">
+                                <div className="form-group " style={{marginBottom: '15px', width: '300px', marginLeft: '20px',marginTop : '-275px' }}>
+                                    <b> <label style={{marginBottom: '5px'}}>Date</label> </b> <br/>
+                                    <input type="date" className="form-control" name="date" placeholder="Enter Date" value={date3} onChange={(e) => {
+                                        setDate3(e.target.value);
+                                    }}/>
+                                </div>
+                            </div>
+
+                            <div className="column dateTime">
+                                <div className="form-group" style={{marginBottom: '55px', width: '300px', marginLeft: '20px',marginTop : '-275px'}}>
+                                    <b>  <label style={{marginBottom: '5px'}}>Time</label> </b> <br/>
+                                    <input type="time" className="form-control" name="time" placeholder="Enter Time" value={time3} onChange={(e) => {
+                                        setTime3(e.target.value);
+                                    }}/>
+                                </div>
+                            </div>
+
+                            <div className="column">
+                                <div className="form-check" style={{marginBottom: '15px',marginTop : '-275px'}}>
+                                    <b> <label for="name">Hall Number</label>  </b> <br/>
+                                    <select value={hallNumber3} onChange={(e) =>{
+                                        setHallNumber3(e.target.value);
+                                    }}>
+                                        <option selected>Select</option>
+                                        <option>Hall A3b </option>
+                                        <option>Hall A4c</option>
+                                        <option>Hall A5d</option>
+                                        <option>Hall A6e</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
 
-                        <div className="column dateTime">
-                            <div className="form-group" style={{marginBottom: '55px', width: '300px', marginLeft: '20px'}}>
-                            <b>  <label style={{marginBottom: '5px'}}>Time</label> </b> <br/>
-                                <input type="time" className="form-control" name="time" placeholder="Enter Time" value={time} onChange={(e) => {
-                                    setTime(e.target.value);
-                                }}/>
+
+
+                        {/*                                       4                                                 */}
+
+                        <div className="row">
+                            <div className="column">
+                                <div className="form-check" style={{marginBottom: '15px',marginTop : '-400px'}}>
+                                    <b>  <label for="name">Subject and name</label>  </b> <br/>
+                                    <select value={subjectId4} onChange={(e) =>{
+                                        setSubjectId4(e.target.value);
+                                    }}>
+                                        <option selected>Select</option>
+                                        <option>IT2030 - Algorithms</option>
+                                        <option>SE1030 - Software Architecture</option>
+                                        <option>SE1040 - Database Management</option>
+                                        <option>IT2040 - Artificial Intelligence</option>
+                                        <option>DS3060 - Machine Learning</option>
+                                        <option>DS3070 - Cloud Computing</option>
+                                        <option>DS3080 - Big Data</option>
+                                        <option>IT2050 - Internet of Things</option>
+                                        <option>SE1050 - Software Testing</option>
+                                    </select>
+                                </div>
                             </div>
-                        </div>    
-                        <div className="column">
-                            <div className="form-check" style={{marginBottom: '15px'}}>
-                               <b> <label for="name">Hall Number</label>  </b> <br/>
-                                <select value={hallNumber} onChange={(e) =>{
-                                    setHallNumber(e.target.value);
-                                }}>
-                                    <option selected>Select</option>
-                                    <option>Hall A3b </option>
-                                    <option>Hall A4c</option>
-                                    <option>Hall A5d</option>
-                                    <option>Hall A6e</option>
-                                </select>
+
+
+
+                            <div className="column">
+                                <div className="form-check" style={{marginBottom: '15px', marginTop : '-400px'}}>
+                                    <b><label for="name">Exam Type</label></b><br/>
+                                    <select value={examType4} onChange={(e) =>{
+                                        setExamType4(e.target.value);
+                                    }}>
+                                        <option selected>Select</option>
+                                        <option>Mid</option>
+                                        <option>Final</option>
+                                        <option>Assignment</option>
+                                        <option>Lab</option>
+                                        <option>Quiz</option>
+                                    </select>
+                                </div>
                             </div>
-                        </div>                    
-                    </div>
 
-
-
-
-{/*                         2                                                                 */}
-
-
-                    <div className="row">
-                        <div className="column">
-                            <div className="form-check" style={{marginBottom: '15px' ,marginTop : '-150px'}}>
-                              <b>  <label for="name">Subject and name</label>  </b> <br/>
-                                <select value={subjectId2} onChange={(e) =>{
-                                    setSubjectId2(e.target.value);
-                                }}>
-                                    <option selected>Select</option>
-                                    <option>IT2030 - Algorithms</option>
-                                    <option>SE1030 - Software Architecture</option>
-                                    <option>SE1040 - Database Management</option>
-                                    <option>IT2040 - Artificial Intelligence</option>
-                                    <option>DS3060 - Machine Learning</option>
-                                    <option>DS3070 - Cloud Computing</option>
-                                    <option>DS3080 - Big Data</option>
-                                    <option>IT2050 - Internet of Things</option>
-                                    <option>SE1050 - Software Testing</option>
-                                </select>
+                            <div className="column dateTime">
+                                <div className="form-group " style={{marginBottom: '15px', width: '300px', marginLeft: '20px',marginTop : '-400px' }}>
+                                    <b> <label style={{marginBottom: '5px'}}>Date</label> </b> <br/>
+                                    <input type="date" className="form-control" name="date" placeholder="Enter Date" value={date4} onChange={(e) => {
+                                        setDate4(e.target.value);
+                                    }}/>
+                                </div>
                             </div>
-                        </div>
 
-                        
-
-                        <div className="column">
-                            <div className="form-check" style={{marginBottom: '15px',marginTop : '-150px'}}>
-                                <b><label for="name">Exam Type</label></b><br/>
-                                <select value={examType2} onChange={(e) =>{
-                                    setExamType2(e.target.value);
-                                }}>
-                                    <option selected>Select</option>
-                                    <option>Mid</option>
-                                    <option>Final</option>
-                                    <option>Assignment</option>
-                                    <option>Lab</option>
-                                    <option>Quiz</option>
-                                </select>
+                            <div className="column dateTime">
+                                <div className="form-group" style={{marginBottom: '55px', width: '300px', marginLeft: '20px',marginTop : '-400px'}}>
+                                    <b>  <label style={{marginBottom: '5px'}}>Time</label> </b> <br/>
+                                    <input type="time" className="form-control" name="time" placeholder="Enter Time" value={time4} onChange={(e) => {
+                                        setTime4(e.target.value);
+                                    }}/>
+                                </div>
                             </div>
-                        </div>
-
-                        <div className="column dateTime">
-                            <div className="form-group " style={{marginBottom: '15px', width: '300px', marginLeft: '20px' ,marginTop : '-150px'}}>
-                            <b> <label style={{marginBottom: '5px'}}>Date</label> </b> <br/>
-                                <input type="date" className="form-control" name="date" placeholder="Enter Date" value={date2} onChange={(e) => {
-                                    setDate2(e.target.value);
-                                }}/>
+                            <div className="column">
+                                <div className="form-check" style={{marginBottom: '15px',marginTop : '-400px'}}>
+                                    <b> <label for="name">Hall Number</label>  </b> <br/>
+                                    <select value={hallNumber4} onChange={(e) =>{
+                                        setHallNumber4(e.target.value);
+                                    }}>
+                                        <option selected>Select</option>
+                                        <option>Hall A3b </option>
+                                        <option>Hall A4c</option>
+                                        <option>Hall A5d</option>
+                                        <option>Hall A6e</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
-
-                        <div className="column dateTime">
-                            <div className="form-group" style={{marginBottom: '55px', width: '300px', marginLeft: '20px',marginTop : '-150px'}}>
-                            <b>  <label style={{marginBottom: '5px'}}>Time</label> </b> <br/>
-                                <input type="time" className="form-control" name="time" placeholder="Enter Time" value={time2} onChange={(e) => {
-                                    setTime2(e.target.value);
-                                }}/>
-                            </div>
-                        </div>   
-                        <div className="column">
-                            <div className="form-check" style={{marginBottom: '15px',marginTop : '-150px'}}>
-                               <b> <label for="name">Hall Number</label>  </b> <br/>
-                                <select value={hallNumber2} onChange={(e) =>{
-                                    setHallNumber2(e.target.value);
-                                }}>
-                                    <option selected>Select</option>
-                                    <option>Hall A3b </option>
-                                    <option>Hall A4c</option>
-                                    <option>Hall A5d</option>
-                                    <option>Hall A6e</option>
-                                </select>
-                            </div>
-                        </div>                     
-                    </div>
-
-
-
-
- 
-
-
-
-{/*                                                          3                                             */}
-
-
-                    <div className="row">
-                        <div className="column">
-                            <div className="form-check" style={{marginBottom: '15px',marginTop : '-275px'}}>
-                              <b>  <label for="name">Subject and name</label>  </b> <br/>
-                                <select value={subjectId3} onChange={(e) =>{
-                                    setSubjectId3(e.target.value);
-                                }}>
-                                    <option selected>Select</option>
-                                    <option>IT2030 - Algorithms</option>
-                                    <option>SE1030 - Software Architecture</option>
-                                    <option>SE1040 - Database Management</option>
-                                    <option>IT2040 - Artificial Intelligence</option>
-                                    <option>DS3060 - Machine Learning</option>
-                                    <option>DS3070 - Cloud Computing</option>
-                                    <option>DS3080 - Big Data</option>
-                                    <option>IT2050 - Internet of Things</option>
-                                    <option>SE1050 - Software Testing</option>
-                                </select>
-                            </div>
-                        </div>
-
-                       
-
-                        <div className="column">
-                            <div className="form-check" style={{marginBottom: '15px',marginTop : '-275px'}}>
-                                <b><label for="name">Exam Type</label></b><br/>
-                                <select value={examType3} onChange={(e) =>{
-                                    setExamType3(e.target.value);
-                                }}>
-                                    <option selected>Select</option>
-                                    <option>Mid</option>
-                                    <option>Final</option>
-                                    <option>Assignment</option>
-                                    <option>Lab</option>
-                                    <option>Quiz</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div className="column dateTime">
-                            <div className="form-group " style={{marginBottom: '15px', width: '300px', marginLeft: '20px',marginTop : '-275px' }}>
-                            <b> <label style={{marginBottom: '5px'}}>Date</label> </b> <br/>
-                                <input type="date" className="form-control" name="date" placeholder="Enter Date" value={date3} onChange={(e) => {
-                                    setDate3(e.target.value);
-                                }}/>
-                            </div>
-                        </div>
-
-                        <div className="column dateTime">
-                            <div className="form-group" style={{marginBottom: '55px', width: '300px', marginLeft: '20px',marginTop : '-275px'}}>
-                            <b>  <label style={{marginBottom: '5px'}}>Time</label> </b> <br/>
-                                <input type="time" className="form-control" name="time" placeholder="Enter Time" value={time3} onChange={(e) => {
-                                    setTime3(e.target.value);
-                                }}/>
-                            </div>
-                        </div>    
-
-                         <div className="column">
-                            <div className="form-check" style={{marginBottom: '15px',marginTop : '-275px'}}>
-                               <b> <label for="name">Hall Number</label>  </b> <br/>
-                                <select value={hallNumber3} onChange={(e) =>{
-                                    setHallNumber3(e.target.value);
-                                }}>
-                                    <option selected>Select</option>
-                                    <option>Hall A3b </option>
-                                    <option>Hall A4c</option>
-                                    <option>Hall A5d</option>
-                                    <option>Hall A6e</option>
-                                </select>
-                            </div>
-                        </div>                    
-                    </div>
-
-
-
-{/*                                       4                                                 */}
-
-                    <div className="row">
-                        <div className="column">
-                            <div className="form-check" style={{marginBottom: '15px',marginTop : '-400px'}}>
-                              <b>  <label for="name">Subject and name</label>  </b> <br/>
-                                <select value={subjectId4} onChange={(e) =>{
-                                    setSubjectId4(e.target.value);
-                                }}>
-                                    <option selected>Select</option>
-                                    <option>IT2030 - Algorithms</option>
-                                    <option>SE1030 - Software Architecture</option>
-                                    <option>SE1040 - Database Management</option>
-                                    <option>IT2040 - Artificial Intelligence</option>
-                                    <option>DS3060 - Machine Learning</option>
-                                    <option>DS3070 - Cloud Computing</option>
-                                    <option>DS3080 - Big Data</option>
-                                    <option>IT2050 - Internet of Things</option>
-                                    <option>SE1050 - Software Testing</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        
-
-                        <div className="column">
-                            <div className="form-check" style={{marginBottom: '15px', marginTop : '-400px'}}>
-                                <b><label for="name">Exam Type</label></b><br/>
-                                <select value={examType4} onChange={(e) =>{
-                                    setExamType4(e.target.value);
-                                }}>
-                                    <option selected>Select</option>
-                                    <option>Mid</option>
-                                    <option>Final</option>
-                                    <option>Assignment</option>
-                                    <option>Lab</option>
-                                    <option>Quiz</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div className="column dateTime">
-                            <div className="form-group " style={{marginBottom: '15px', width: '300px', marginLeft: '20px',marginTop : '-400px' }}>
-                            <b> <label style={{marginBottom: '5px'}}>Date</label> </b> <br/>
-                                <input type="date" className="form-control" name="date" placeholder="Enter Date" value={date4} onChange={(e) => {
-                                    setDate4(e.target.value);
-                                }}/>
-                            </div>
-                        </div>
-
-                        <div className="column dateTime">
-                            <div className="form-group" style={{marginBottom: '55px', width: '300px', marginLeft: '20px',marginTop : '-400px'}}>
-                            <b>  <label style={{marginBottom: '5px'}}>Time</label> </b> <br/>
-                                <input type="time" className="form-control" name="time" placeholder="Enter Time" value={time4} onChange={(e) => {
-                                    setTime4(e.target.value);
-                                }}/>
-                            </div>
-                        </div>   
-                        <div className="column">
-                            <div className="form-check" style={{marginBottom: '15px',marginTop : '-400px'}}>
-                               <b> <label for="name">Hall Number</label>  </b> <br/>
-                                <select value={hallNumber4} onChange={(e) =>{
-                                    setHallNumber4(e.target.value);
-                                }}>
-                                    <option selected>Select</option>
-                                    <option>Hall A3b </option>
-                                    <option>Hall A4c</option>
-                                    <option>Hall A5d</option>
-                                    <option>Hall A6e</option>
-                                </select>
-                            </div>
-                        </div>                     
-                    </div>
 
 
                         {/* <div className='btS'style={{width: '10px',marginTop : '-700px'}}> */}
-                            <button className="buttonSubmit" type="submit" onClick={(e)=>sendData(e)} style={{marginLeft: '250px',width:'20%', backgroundColor:'#4682b4', marginTop : '-800px'}}>
-                                {/* <i className="far fa-check-square"></i> */}
-                                &nbsp; Save
-                            </button>
-                        
+                        <button className="buttonSubmit" type="submit" onClick={(e)=>sendData(e)} style={{marginLeft: '250px',width:'20%', backgroundColor:'#4682b4', marginTop : '-800px'}}>
+                            {/* <i className="far fa-check-square"></i> */}
+                            &nbsp; Save
+                        </button>
 
-                       
-                            <button className="buttonDelete" style={{  marginTop : '-500px',marginLeft: '200px',width:'20%'}} type="reset" >Clear </button>
-                        
-                       
+
+
+                        <button className="buttonDelete" style={{  marginTop : '-500px',marginLeft: '200px',width:'20%'}} type="reset" >Clear </button>
+
+
 
                     </form>
                 </div>
@@ -513,6 +513,11 @@ export default function AddTimetable() {
         </div>
     )
 }
+
+
+
+
+
 
 
 

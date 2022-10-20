@@ -70,6 +70,7 @@ router.route("/get/:id").get(async (req, res) => {
     let registrationID = req.params.id;
     const result = await Result.findById(registrationID).then((result) => {
         // res.status(200).send({ status: "Result fetched", result })
+        res.json(result)
     }).catch((err) => {
         console.log(err);
         res.status(500).send({ status: "Error with get Result", error: err.message });
