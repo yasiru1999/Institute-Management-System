@@ -42,4 +42,27 @@ router.post('/addLecFile',(req,res)=>{
     })
 })
 
+
+//get lecture material module wise
+router.get("/getLectures/:module", async (req, res) => {
+    try {
+      let module = req.params.module;
+      const allLectures = await LecMaterial.find({moduleName: module});
+      res.status(200).json(allLectures);
+    } catch (err) {
+      res.json(err);
+    }
+})
+
+//Delete lecture material
+router.delete("/delete/:id", async (req, res) => {
+    try {
+        await LecMaterial.findByIdAndDelete(req.params.id)
+        res.json({ msg: "Successfully Deleted" })
+    } catch (err) {
+        return res.status(500).json({ msg: err.message })
+    }
+  })
+
+
 module.exports = router;

@@ -34,7 +34,7 @@ export default function NoticeSession_ViewL() {
             const res = await axios.delete(`http://localhost:5001/noticeSessions/delete/${ids}`)
             alert("Successfully Deteted");
         } catch (err) {
-            alert("Fild to delete");
+            alert("Failed to delete");
             console.log(err);
         }
     }
