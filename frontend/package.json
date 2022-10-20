@@ -24,7 +24,7 @@
     "react-phone-number-input": "^3.1.22",
     "react-redux": "^7.2.4",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.0.1",
+    "react-scripts": "5.0.0",
     "react-select": "^4.3.1",
     "redux": "^4.1.0",
     "redux-form": "^8.3.7",

@@ -6,21 +6,21 @@ import ReactHTMLTableToExcel from 'react-html-table-to-excel';
 
 
 
-export default function ReadTimetable() {
+export default function ReadResult() {
 
     useEffect(() => {
-        axios.get('http://localhost:5001/timetable/').then((response) => {
-            setTimetable(response.data)
+        axios.get('http://localhost:5001/result/').then((response) => {
+            setResult(response.data)
         })
 
     }, [])
 
-    const [TimetableList, setTimetable] = useState([]);
+    const [ResultList, setResult] = useState([]);
     const [searchItem, setSearchItem] = useState("");
     const [resultJson,setResultJson] = useState({});
 
-    const deleteTimetable = (id) => {
-        axios.delete(`http://localhost:5001/timetable/delete/${id}`).then((then => {
+    const deleteResult = (id) => {
+        axios.delete(`http://localhost:5001/result/delete/${id}`).then((then => {
             Swal.fire({
                 title: "Deleted Successfully",
                 icon: 'success',
@@ -29,11 +29,10 @@ export default function ReadTimetable() {
     };
 
     const history = useHistory();
-    const updateTimetable = async(id) => {
+    const updateResult = async(id) => {
         console.log(id);
-        const result = await axios.get(`http://localhost:5001/timetable/get/${id}`);
+        const result = await axios.get(`http://localhost:5001/result/get/${id}`);
         setResultJson(result.data);
-        console.log(result);
         let path = `/update/${id}`;
         history.push({
             pathname: path,
@@ -43,7 +42,7 @@ export default function ReadTimetable() {
     }
 
     const gotoAdd = ()=>{
-        let path = "/add";
+        let path = "/addResult";
         history.push(path);
     }
 
@@ -53,7 +52,7 @@ export default function ReadTimetable() {
         <div class="pt-24 container">
 
 
-        <h1 style={{textAlign: "center"}}>All Timetable</h1>
+        <h1 style={{textAlign: "center"}}>All Result</h1>
 
             <div class="input-group rounded"  style={{marginLeft: '25px'}}>
                 <input type="search" class="form-control rounded" placeholder="Search " aria-label="Search"
@@ -66,7 +65,7 @@ export default function ReadTimetable() {
 
             </div>
             <br/>
-            {TimetableList.filter((val) => {
+            {ResultList.filter((val) => {
                 if (searchItem == "") {
                     return val
                 } else if (val.courseId.toLowerCase().includes(searchItem.toLocaleLowerCase())) {
@@ -75,17 +74,16 @@ export default function ReadTimetable() {
             }).map((val, key) => {
 
                 return  <div className='tablePadding'>
-                    <table Id = "Timetable" class="table table-dark rounded-lg">
+                    <table Id = "Result" class="table table-dark rounded-lg">
                         <thead class="tableHeader">
                         <tr>
                             <th scope="col">Actions</th>
-                            <th scope="col">Course ID</th>
-                            <th scope="col">Subject ID and Name</th>
-                            <th scope="col">Exam Type</th>
-                            <th scope="col">Date</th>
-                            <th scope="col">Time</th>
-                            <th scope="col">Hall Number</th>
-
+                            <th scope="col">Registration Number</th>
+                            <th scope="col">Student Name</th>
+                            <th scope="col">Course Name</th>
+                            <th scope="col">Subject Code</th>
+                            <th scope="col">Subject Name</th>
+                            <th scope="col">Result</th>
                         </tr>
                         </thead>
 
@@ -97,46 +95,40 @@ export default function ReadTimetable() {
 
                                 <div className={"grid grid-rows-1 grid-cols-2 gap-3"}>
                                     <a type="button" className="buttonDelete "
-                                       onClick={() => deleteTimetable(val._id)}> Delete </a>
+                                       onClick={() => deleteResult(val._id)}> Delete </a>
 
                                     <a type="button" className="buttonUpdate"
-                                       onClick={() => updateTimetable(val._id)}> Edit </a>
+                                       onClick={() => updateResult(val._id)}> Edit </a>
 
                                 </div>
                             </td>
 
-                            <td>{val.courseId}  </td>
+                            <td>{val.registrationId}  </td>
                             <td>
-                                {val.subjectId} <br/>
-                                {val.subjectId2} <br/>
-                                {val.subjectId3} <br/>
-                                {val.subjectId4} <br/>
+                                {val.studentName} 
                                 </td>
 
                             <td>
-                                {val.examType} <br/>
-                                {val.examType2} <br/>
-                                {val.examType3} <br/>
-                                {val.examType4} <br/>
+                                {val.courseId} 
                                 </td>
 
                             <td> 
-                                {val.date} <br/>
-                                {val.date2} <br/>
-                                {val.date3} <br/>
-                                {val.date4} <br/>
+                                {val.subjectCode} <br/>
+                                {/* {val.subjectCode2} <br/>
+                                {val.subjectCode3} <br/>
+                                {val.subjectCode4} <br/> */}
                                 </td>
                             <td>
-                                {val.time} <br/>
-                                {val.time2} <br/>
-                                {val.time3} <br/>
-                                {val.time4} <br/>
+                                {val.subjectName} <br/>
+                                {/* {val.subjectName2} <br/>
+                                {val.subjectName3} <br/>
+                                {val.subjectName4} <br/> */}
                                 </td>
                             <td>
-                                {val.hallNumber} <br/>
-                                {val.hallNumber2} <br/>
-                                {val.hallNumber3} <br/>
-                                {val.hallNumber4} <br/>
+                                {val.results} <br/>
+                                {/* {val.results2} <br/>
+                                {val.results3} <br/>
+                                {val.results4} <br/> */}
                                 </td>
 
 
@@ -147,7 +139,7 @@ export default function ReadTimetable() {
             })}
             <div class="grid place-items-center">
                 <button class="buttonSubmit" type="button" onClick={() => gotoAdd()}
-                        style={{marginLeft: '10px',width:'20%', backgroundColor:'#4682b4'}}>Add New Timetable</button>
+                        style={{marginLeft: '10px',width:'20%', backgroundColor:'#4682b4'}}>Add New Result</button>
 
                 &nbsp;&nbsp;&nbsp;&nbsp;
 
@@ -157,7 +149,7 @@ export default function ReadTimetable() {
 
                     className="buttonSubmit"
 
-                    table="Timetable"
+                    table="Result"
 
                     filename="tablexls"
 
