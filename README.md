@@ -14,7 +14,7 @@ Goal of this project is to develop an online web application for IT institute. T
 
 •	User management and Course management </br>
 •	Non-academic management </br>
-•	Exam management </br>
+•	Examination management </br>
 •	Lecture material management
 
 The system consists of four main interconnected components. They are the Website, Admin front-end, system back-end and the database server. So, this web application is going to be implemented using React, Axios for the front-end and NodeJS, ExpressJS for the backend with MongoDB as the database.
