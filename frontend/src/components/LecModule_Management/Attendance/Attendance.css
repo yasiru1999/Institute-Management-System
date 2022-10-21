@@ -168,3 +168,9 @@ input[type=text], select {
 .btn-gro .button3:hover {
   background-color: #9b6666;
 }
+
+.searchInput{
+  padding-left: 20%;
+  padding-right: 20%;
+
+}

@@ -23,39 +23,48 @@ router.post("/create", (req, res, next) => {
     }
 });
 
+
 //get stuedent attendace module wise
 router.get("/getAttendance/:module", async (req, res) => {
-    try {
-      let module = req.params.module;
-      const allNotices = await Attendance.find({moduleName: module});
-      res.status(200).json(allNotices);
-    } catch (err) {
-      res.json(err);
-    }
-  })
+  try {
+    let module = req.params.module;
+    const allNotices = await Attendance.find({moduleName: module});
+    res.status(200).json(allNotices);
+  } catch (err) {
+    res.json(err);
+  }
+})
 
- //get Notices
-/*router.get("/getNoticesdate/:module", async (req, res) => {
-    try {
-      let module = req.params.module;
-      const allNotices = await Attendance.find({ $and: [ {moduleName: module}, {curDate:{$gte:ISODate("2022-10-08"),$lt:ISODate("2022-10-10")}} ]});
-      res.status(200).json(allNotices);
-    } catch (err) {
-      res.json(err);
-    }
-  })
 
-  //get Notices
-router.get("/getNoticesdateS/:module", async (req, res) => {
-    try {
-      let module = req.params.module;
-      const allNotices = await Attendance.find({curDate:{
-        $gte:ISODate("2022-09-08T00:00:00.000Z"),$lt:ISODate("2022-10-10T00:00:00.000Z")}});
-      res.status(200).json(allNotices);
-    } catch (err) {
-      res.json(err);
-    }
-  })*/
+//get Notices
+router.get("/filterAttendance/:module/:date", async (req, res) => {
+  try {
+    let module = req.params.module;
+    let date = req.params.date;
+    const allNotices = await Attendance.find({ $and: [ {curDate: date}, {moduleName: module}] });
+    res.status(200).json(allNotices);
+  } catch (err) {
+    res.json(err);
+  }
+})
+
+
+
+//get Notices
+router.get("/filterAttendance/:module", async (req, res) => {
+  try {
+    let module = req.params.module;
+    const allNotices = await Attendance.find({ $and: [ {curDate: '2022-10-17'}, {moduleName: module}] });
+    res.status(200).json(allNotices);
+  } catch (err) {
+    res.json(err);
+  }
+})
+
+
+
+
+
 
 
 

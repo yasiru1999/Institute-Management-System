@@ -27,7 +27,7 @@ const GenerateAttendancePdf = (attendanceList,id) =>{
     });
 
     attenDoc.autoTable(tableColumn,tableRows,{startY:20});
-    attenDoc.text(`Student attendance Report - ${id}`,14,15);
+    attenDoc.text(`Student Attendance Report - ${id}`,14,15);
     attenDoc.save(`AttendRepo${fullDate}.pdf`);
 };
 

@@ -43,7 +43,7 @@ export default function AddResult() {
 
 
 
-        if (courseId.trim().length === 0) {
+        if (registrationId.trim().length === 0) {
             setErrorMsg(() => {
                 return 'Registration Id must be a Filled.'
             })
@@ -83,13 +83,87 @@ export default function AddResult() {
             return;
         }
 
-        if (results.trim().length === 0) {
+        if (isNaN(Number(results))) {
             setErrorMsg(() => {
-                return 'Results must be a Filled.'
+                return 'Results must be a number.'
             })
             changeModalVisibilityHandler(true)
             return;
         }
+
+        if (subjectCode2.trim().length === 0) {
+            setErrorMsg(() => {
+                return 'Subject Code must be a Filled.'
+            })
+            changeModalVisibilityHandler(true)
+            return;
+        }
+
+        if (subjectName2.trim().length === 0) {
+            setErrorMsg(() => {
+                return 'Subject Name must be a Filled.'
+            })
+            changeModalVisibilityHandler(true)
+            return;
+        }
+
+        if (isNaN(Number(results2))) {
+            setErrorMsg(() => {
+                return 'Results must be a number.'
+            })
+            changeModalVisibilityHandler(true)
+            return;
+        }
+
+        if (subjectCode3.trim().length === 0) {
+            setErrorMsg(() => {
+                return 'Subject Code must be a Filled.'
+            })
+            changeModalVisibilityHandler(true)
+            return;
+        }
+
+        if (subjectName3.trim().length === 0) {
+            setErrorMsg(() => {
+                return 'Subject Name must be a Filled.'
+            })
+            changeModalVisibilityHandler(true)
+            return;
+        }
+
+        if (isNaN(Number(results3))) {
+            setErrorMsg(() => {
+                return 'Results must be a number.'
+            })
+            changeModalVisibilityHandler(true)
+            return;
+        }
+
+        if (subjectCode4.trim().length === 0) {
+            setErrorMsg(() => {
+                return 'Subject Code must be a Filled.'
+            })
+            changeModalVisibilityHandler(true)
+            return;
+        }
+
+        if (subjectName4.trim().length === 0) {
+            setErrorMsg(() => {
+                return 'Subject Name must be a Filled.'
+            })
+            changeModalVisibilityHandler(true)
+            return;
+        }
+
+        if (isNaN(Number(results4))) {
+            setErrorMsg(() => {
+                return 'Results must be a number.'
+            })
+            changeModalVisibilityHandler(true)
+            return;
+        }
+
+
 
         const newResult = {
             registrationId,
@@ -453,11 +527,13 @@ export default function AddResult() {
 
 
                         {/* <div className='btS'style={{width: '10px',marginTop : '-700px'}}> */}
-                            <button className="buttonSubmit" type="submit" onClick={(e)=>sendData(e)} style={{ width: '200px', marginLeft: '300px', marginTop : '-500px'}}>
+                            <button className="buttonSubmit" type="submit" onClick={(e)=>sendData(e)} style={{ width: '200px', marginLeft: '250px', marginTop : '-500px'}}>
                                 {/* <i className="far fa-check-square"></i> */}
                                 &nbsp; Save
                             </button>
                         
+
+                            <button className="buttonDelete" style={{marginLeft: '170px',width:'20%'}} type="reset" >Clear </button>
                     </form>
                 </div>
 
