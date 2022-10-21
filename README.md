@@ -10,7 +10,7 @@
 
 This is the project of the group SER045 for the module Software Project Management(SE3080), Sri Lanka Institute of Information Technology(SLIIT).
 
-Goal of this project is to develop an online web application for IT institute. This institute provides certificate and diploma level courses for the students. which can do all the activities like user management and course management, lecture material management, examination management, and non-academic management. It contains user-friendly interfaces for easy handling. And the system is mainly based on both Lecturer and Student requirements. There are three main user roles as Lecturer, Student and Admin. The main functions which are identified in here are,
+Goal of this project is to develop an online web application for an IT institute. This institute provides certificate and diploma level courses for the students. which can do all the activities like user management and course management, lecture material management, examination management, and non-academic management. It contains user-friendly interfaces for easy handling. And the system is mainly based on both Lecturer and Student requirements. There are three main user roles as Lecturer, Student and Admin. The main functions which are identified in here are,
 
 •	User management and Course management </br>
 •	Non-academic management </br>
