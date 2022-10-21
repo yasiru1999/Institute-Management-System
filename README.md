@@ -12,9 +12,9 @@ This is the project of the group SER045for the module Software Project Managemen
 
 Goal of this project is to develop an online web application for IT institute. This institute provides certificate and diploma level courses for the students. which can do all the activities like user management, lecture material management, exam management, and non-academic management. It contains user-friendly interfaces for easy handling. And the system is mainly based on both Lecturer and Student requirements. There are three main user roles as Lecturer, Student and Admin. The main functions which are identified in here are,
 
-•	User management and Course management
-•	Non-academic management
-•	Exam management
+•	User management and Course management </br>
+•	Non-academic management </br>
+•	Exam management </br>
 •	Lecture material management
 
 The system consists of four main interconnected components. They are the Website, Admin front-end, system back-end and the database server. So, this web application is going to be implemented using React, Axios for the front-end and NodeJS, ExpressJS for the backend with MongoDB as the database.
