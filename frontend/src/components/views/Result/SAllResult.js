@@ -1,8 +1,6 @@
 import React, {useState, useEffect} from "react";
 import axios from "axios";
 import {useHistory} from "react-router";
-import ReactHTMLTableToExcel from 'react-html-table-to-excel';
-
 
 
 export default function ReadResult() {
@@ -49,7 +47,7 @@ export default function ReadResult() {
             {ResultList.filter((val) => {
                 if (searchItem == "") {
                     return val
-                } else if (val.courseId.toLowerCase().includes(searchItem.toLocaleLowerCase())) {
+                } else if (val.registrationId.toLowerCase().includes(searchItem.toLocaleLowerCase())) {
                     return val
                 }
             }).map((val, key) => {
@@ -58,7 +56,6 @@ export default function ReadResult() {
                     <table Id = "Result" class="table table-dark rounded-lg">
                         <thead class="tableHeader">
                         <tr>
-                        <th scope="col">Actions</th>
                             <th scope="col">Registration Number</th>
                             <th scope="col">Student Name</th>
                             <th scope="col">Course Name</th>
@@ -83,21 +80,21 @@ export default function ReadResult() {
 
                             <td> 
                                 {val.subjectCode} <br/>
-                                {/* {val.subjectCode2} <br/>
+                                {val.subjectCode2} <br/>
                                 {val.subjectCode3} <br/>
-                                {val.subjectCode4} <br/> */}
+                                {val.subjectCode4} <br/>
                                 </td>
                             <td>
                                 {val.subjectName} <br/>
-                                {/* {val.subjectName2} <br/>
+                                {val.subjectName2} <br/>
                                 {val.subjectName3} <br/>
-                                {val.subjectName4} <br/> */}
+                                {val.subjectName4} <br/>
                                 </td>
                             <td>
                                 {val.results} <br/>
-                                {/* {val.results2} <br/>
+                                {val.results2} <br/>
                                 {val.results3} <br/>
-                                {val.results4} <br/> */}
+                                {val.results4} <br/>
                                 </td>
 
 
@@ -107,23 +104,8 @@ export default function ReadResult() {
                     </table>
                 </div>
             })}
-
-
-            &nbsp;&nbsp;&nbsp;&nbsp;
-
-            <ReactHTMLTableToExcel
-
-                id="test-table-xls-button"
-
-                className="buttonSubmit"
-
-                table="Result"
-
-                filename="tablexls"
-
-                sheet="tablexls"
-
-                buttonText="Download Result"/>
+                      <button class="buttonSubmit" type="button" onClick={() => window.print()}
+                        style={{marginLeft: '600px',width:'20%', backgroundColor:'#4682b4',marginTop:'40px'}}>Report</button>
 
         </div>
 

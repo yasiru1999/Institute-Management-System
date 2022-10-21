@@ -2,7 +2,8 @@ import React, {useEffect, useState} from "react";
 import Axios from "axios";
 import {useHistory, withRouter} from "react-router-dom";
 import GeneratePdf from "./LibraryReport";
-import download from "downloadjs";
+import download from 'downloadjs';
+
 
 
 function AdminLibrary() {
@@ -86,8 +87,6 @@ function AdminLibrary() {
                         <th>File</th>
                         <th>Author</th>
                         <th>Date</th>
-                        <th>Update</th>
-                        <th>Delete</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -112,15 +111,11 @@ function AdminLibrary() {
                                 <td>
                                     <center>{item.Date}</center>
                                 </td>
-                                <td><center><button onClick={() => {history.push({pathname: "/updateLibraryDetails", state:{Library:item}})}} >Update</button></center></td>
-                                <td><center><button onClick={() => {deleteLibrary(item); window.location.reload()}}>Delete</button></center></td>
                             </tr>
                         )
                     })}
                     </tbody>
                 </table>
-                <br/>
-                <button style={{marginLeft: '1000px'}} onClick={() => GeneratePdf(Library.filter(Library => Library))}>Generate Report</button>
             </div>
 
 

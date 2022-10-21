@@ -2,8 +2,6 @@ import React, {useState, useEffect} from "react";
 import axios from "axios";
 import {useHistory} from "react-router";
 import Swal from "sweetalert2";
-import ReactHTMLTableToExcel from 'react-html-table-to-excel';
-
 
 
 export default function ReadResult() {
@@ -30,10 +28,9 @@ export default function ReadResult() {
 
     const history = useHistory();
     const updateResult = async(id) => {
-        console.log(id);
         const result = await axios.get(`http://localhost:5001/result/get/${id}`);
         setResultJson(result.data);
-        let path = `/update/${id}`;
+        let path = `/updateResult/${id}`;
         history.push({
             pathname: path,
             state: resultJson,
@@ -68,7 +65,7 @@ export default function ReadResult() {
             {ResultList.filter((val) => {
                 if (searchItem == "") {
                     return val
-                } else if (val.courseId.toLowerCase().includes(searchItem.toLocaleLowerCase())) {
+                } else if (val.registrationId.toLowerCase().includes(searchItem.toLocaleLowerCase())) {
                     return val
                 }
             }).map((val, key) => {
@@ -114,21 +111,21 @@ export default function ReadResult() {
 
                             <td> 
                                 {val.subjectCode} <br/>
-                                {/* {val.subjectCode2} <br/>
+                                {val.subjectCode2} <br/>
                                 {val.subjectCode3} <br/>
-                                {val.subjectCode4} <br/> */}
+                                {val.subjectCode4} <br/>
                                 </td>
                             <td>
                                 {val.subjectName} <br/>
-                                {/* {val.subjectName2} <br/>
+                                {val.subjectName2} <br/>
                                 {val.subjectName3} <br/>
-                                {val.subjectName4} <br/> */}
+                                {val.subjectName4} <br/>
                                 </td>
                             <td>
                                 {val.results} <br/>
-                                {/* {val.results2} <br/>
+                                {val.results2} <br/>
                                 {val.results3} <br/>
-                                {val.results4} <br/> */}
+                                {val.results4} <br/>
                                 </td>
 
 
@@ -139,24 +136,13 @@ export default function ReadResult() {
             })}
             <div class="grid place-items-center">
                 <button class="buttonSubmit" type="button" onClick={() => gotoAdd()}
-                        style={{marginLeft: '10px',width:'20%', backgroundColor:'#4682b4'}}>Add New Result</button>
+                        style={{marginLeft: '10px',width:'20%', backgroundColor:'#4682b4',marginTop:'40px'}}>Add New Result</button>
 
-                &nbsp;&nbsp;&nbsp;&nbsp;
 
-                <ReactHTMLTableToExcel
+                      <button class="buttonSubmit" type="button" onClick={() => window.print()}
+                        style={{marginLeft: '10px',width:'20%', backgroundColor:'#4682b4'}}>Report</button>
 
-                    id="test-table-xls-button"
-
-                    className="buttonSubmit"
-
-                    table="Result"
-
-                    filename="tablexls"
-
-                    sheet="tablexls"
-
-                    buttonText="Generate Report"/>
-
+               
             </div>
         </div>
     </div>)

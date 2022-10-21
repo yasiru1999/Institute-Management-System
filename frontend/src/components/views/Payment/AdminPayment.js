@@ -2,6 +2,8 @@ import React, {useEffect, useState} from "react";
 import Axios from "axios";
 import {useHistory, withRouter} from "react-router-dom";
 import GeneratePdf from "./PaymentReport";
+import download from "downloadjs";
+
 
 
 function AdminPayments() {
@@ -20,6 +22,19 @@ function AdminPayments() {
                 console.log(err);
             })
     },[])
+
+    const downloadFile = async(link) => {
+        console.log(link);
+        await Axios.get(`http://localhost:5001/paymentSlips/`+link)
+            .then(response => {
+
+                console.log(response);
+                return download(response.data, link ,"image/png");
+
+            }).catch(error => {
+                console.log(error);
+            })
+    }
 
     function approvedChange(ID,approval){
         const submit = {
@@ -102,7 +117,7 @@ function AdminPayments() {
                                     <center>{item.PaymentAmount}</center>
                                 </td>
                                 <td>
-                                    <center>{item.PaymentSlip}</center>
+                                    <center onClick={() => downloadFile(item.PaymentSlip)}>{item.PaymentSlip}</center>
                                 </td>
                                 <td>
                                     <center>{item.PaymentDate}</center>
@@ -162,7 +177,7 @@ function AdminPayments() {
                                     <center>{item.PaymentAmount}</center>
                                 </td>
                                 <td>
-                                    <center>{item.PaymentSlip}</center>
+                                    <center onClick={() => downloadFile(item.PaymentSlip)}>{item.PaymentSlip}</center>
                                 </td>
                                 <td>
                                     <center>{item.PaymentDate}</center>
