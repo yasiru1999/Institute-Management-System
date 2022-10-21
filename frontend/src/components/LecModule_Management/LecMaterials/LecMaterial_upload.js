@@ -87,7 +87,7 @@ export default function LecMaterial_upload(props) {
             <div><HeaderBar/></div>
 
             <div className="btn-group">        
-                <a  href={`/stuHome/${id}`}><button className="button">Module Home</button></a>
+                <a  href={`/homeLecMat/${id}`}><button className="button">Module Home</button></a>
             </div>
 
             <div style={{border: 'solid', width:'50%',  margin: '4rem auto'}}>

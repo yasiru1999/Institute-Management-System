@@ -3,6 +3,8 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 //import './NoticeSession.css'
 import HeaderBar from '../LecMaterials/HeaderBar';
+import Swal from "sweetalert2";
+
 
 export default function Attendance_Create() {
 
@@ -26,10 +28,15 @@ export default function Attendance_Create() {
     function sendData(e){
         e.preventDefault();
         axios.post("http://localhost:5001/attendance/create", attendance).then(() => {
-            alert("Successfully Submitted");
-            resetForm();
+            Swal.fire({
+                title: "Successfully Submitted",
+                icon: 'success',
+            });
         }).catch((err) => {
-            alert(err)
+            Swal.fire({
+                title: err,
+                icon: 'error',
+            });
         });
     }
 
