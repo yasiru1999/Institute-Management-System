@@ -72,10 +72,10 @@ function UpdateLibrary(props) {
         Axios.put(`http://localhost:5001/library/updateLibraryDoc/${ID}`, variables)
             .then(response => {
                 if (response.data) {
-                    alert('Conference Successfully Edited')
+                    alert('Library Document update Successfully Edited')
                     props.history.push('/libraryDetails')
                 } else {
-                    alert('Failed to edit Conference')
+                    alert('Failed to edit Library Document')
                 }
             })
 
