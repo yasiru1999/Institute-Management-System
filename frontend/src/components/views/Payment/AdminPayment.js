@@ -75,6 +75,9 @@ function AdminPayments() {
             <div>
                 <h1 style={{ textAlign: 'left' }}>  Student Payments </h1>
             </div>
+            <div>
+                <input onChange={(e) => setFilter(e.target.value)} />
+            </div>
             {/*<input type="text" className="form-control" value={filter} onChange={searchText.bind(this)}/>*/}
             <hr/>
             <div style={{ width:'98%',  margin: '4rem auto'}}>
