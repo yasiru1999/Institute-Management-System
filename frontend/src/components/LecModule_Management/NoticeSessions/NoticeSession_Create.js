@@ -54,10 +54,10 @@ export default function NoticeSession_Create() {
 			
 				<b><label htmlFor="name">Select Category</label></b>
 				<select name='category' value={noticeSession.category}
-                onChange={onChange}>
-				  <option>None</option>
-                  <option>Notice</option>
-                  <option>Session</option> 
+                onChange={onChange} required>
+				  <option value="">None</option>
+                  <option value="Notice">Notice</option>
+                  <option value="Session">Session</option> 
 				</select>
 				
 				<b><label for="name">Enter Topic</label></b>
