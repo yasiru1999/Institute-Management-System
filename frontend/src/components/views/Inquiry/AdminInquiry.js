@@ -38,10 +38,11 @@ function AdminPayments() {
 
     async function deleteInquiry(item) {
         console.log(item.ID);
+        if(window.confirm('Delete this Inquriy?')){
         await Axios.delete(`http://localhost:5001/inquiry/deleteInquiry/${item._id}`).then((res)=>{
             console.log(res)
             alert("Delete  Successfully");
-        });
+        });}
     }
 
 

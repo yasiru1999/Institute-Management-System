@@ -65,6 +65,7 @@ function App() {
           <Route exact path="/updatePaymentDetails" component={Auth(UpdatePayment, true)} />
           <Route exact path="/inquiryDefault" component={Auth(AddInquiry, false)} />
           <Route exact path="/inquiry" component={Auth(AddInquiry, true)} />
+          <Route exact path="/inquiryDefault" component={Auth(AddInquiry, true)} />
           <Route exact path="/inquiryDetails" component={Auth(AdminInquiry, true)} />
           <Route exact path="/library" component={Auth(AddLibrary, true)} />
           <Route exact path="/libraryContent" component={Auth(ViewLibrary, true)} />

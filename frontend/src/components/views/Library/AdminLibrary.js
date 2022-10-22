@@ -3,6 +3,7 @@ import Axios from "axios";
 import {useHistory, withRouter} from "react-router-dom";
 import GeneratePdf from "./LibraryReport";
 import download from "downloadjs";
+import {AlignRightOutlined} from "@ant-design/icons";
 
 
 function AdminLibrary() {
@@ -10,6 +11,7 @@ function AdminLibrary() {
     const [Library, setLibrary] = useState([]);
     const history = useHistory();
     const[filter,setFilter] = useState('');
+
 
     useEffect(() => {
         Axios.get('http://localhost:5001/library/getLibraryDoc')
@@ -54,10 +56,11 @@ function AdminLibrary() {
 
     async function deleteLibrary(item) {
         console.log(item.ID);
+        if(window.confirm('Delete this library Content ?')){
         await Axios.delete(`http://localhost:5001/library/deleteLibraryDoc/${item._id}`).then((res)=>{
             console.log(res)
             alert("Delete  Successfully");
-        });
+        });}
     }
 
     // const searchText = (event) =>{
@@ -71,11 +74,13 @@ function AdminLibrary() {
 
     return(
         <div style={{ width: '98%', margin: '6rem auto' }}>
+            <div style={{flexDirection: "row"}}>
             <div>
                 <h1 style={{ textAlign: 'left' }}>  Library </h1>
             </div>
             <div>
                 <input onChange={(e) => setFilter(e.target.value)} />
+            </div>
             </div>
             {/*<input type="text" className="form-control" value={filter} onChange={searchText.bind(this)}/>*/}
             <hr/>
