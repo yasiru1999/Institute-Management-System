@@ -40,9 +40,9 @@ function LeftMenu(props) {
             <Menu.Item className="leftbtn" key="inquiry">
                 <a  href="/inquiryDefault">Support</a>
             </Menu.Item>
-            <Menu.Item className="leftbtn" key="payment">
-                <a  href="/payment">Payment</a>
-            </Menu.Item>
+            {/*<Menu.Item className="leftbtn" key="inquiry">*/}
+            {/*    <a  href="/inquiry">Inquiry</a>*/}
+            {/*</Menu.Item>*/}
 
 
         </Menu>
@@ -85,6 +85,15 @@ function LeftMenu(props) {
                     <a href="/ViewAllModules">View Courses</a>
                 </Menu.Item>
             </SubMenu>
+
+            <SubMenu className="leftbtn" title="Library">
+                <Menu.Item key="libraryDoc">
+                    <a href="/library">Add New Library resource</a>
+                </Menu.Item>
+                <Menu.Item key="libraryDoc">
+                    <a href="/libraryDetails">View Library resource</a>
+                </Menu.Item>
+            </SubMenu>
         </Menu>
     )
   } else if(user.userData && user.userData.isStudent) {
@@ -105,9 +114,20 @@ function LeftMenu(props) {
             </SubMenu>
 
             <Menu.Item className="leftbtn" key="library">
-                <a  href="/">Libraries</a>
+                <a  href="/libraryContent">Libraries</a>
             </Menu.Item>
-
+            
+            {/*<SubMenu className="leftbtn" key="modules" title="My Courses">*/}
+            {/*    <Menu.Item key="se">*/}
+            {/*        <a href="/">Software Engineering</a>*/}
+            {/*    </Menu.Item>*/}
+            {/*    <Menu.Item key="ds">*/}
+            {/*        <a href="/">Data Science</a>*/}
+            {/*    </Menu.Item>*/}
+            {/*    <Menu.Item key="it">*/}
+            {/*        <a href="/">Information Technology</a>*/}
+            {/*    </Menu.Item>*/}
+            {/*</SubMenu>*/}
             {/*<SubMenu className="leftbtn" key="modules" title="My Courses">
                 <Menu.Item key="se">
                     <a href="/">Software Engineering</a>
@@ -127,6 +147,10 @@ function LeftMenu(props) {
             <Menu.Item className="leftbtn" key="addPayment">
                 <a href="/inquiry">Inquiry Form</a>
             </Menu.Item>
+
+            {/*<Menu.Item className="leftbtn" key="LibraryContent">*/}
+            {/*    <a href="/libraryContent">Library</a>*/}
+            {/*</Menu.Item>*/}
             {/* <SubMenu className="leftbtn" key="subj" title="My courses">
                <Menu.Item key="results">
                <a href={`/stuHome/${moduleNames.subject1}`}>{moduleNames.subject1}</a>

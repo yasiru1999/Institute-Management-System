@@ -55,10 +55,11 @@ function AdminPayments() {
 
     async function deletePayment(item) {
         console.log(item.ID);
+        if(window.confirm('Delete this Payment details ?')){
         await Axios.delete(`http://localhost:5001/pay/deletePayment/${item._id}`).then((res)=>{
             console.log(res)
             alert("Delete  Successfully");
-        });
+        });}
     }
 
     // const searchText = (event) =>{
