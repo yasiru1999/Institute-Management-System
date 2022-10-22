@@ -55,10 +55,11 @@ function AdminPayments() {
 
     async function deletePayment(item) {
         console.log(item.ID);
+        if(window.confirm('Delete this Payment details ?')){
         await Axios.delete(`http://localhost:5001/pay/deletePayment/${item._id}`).then((res)=>{
             console.log(res)
             alert("Delete  Successfully");
-        });
+        });}
     }
 
     // const searchText = (event) =>{
@@ -74,6 +75,9 @@ function AdminPayments() {
         <div style={{ width: '98%', margin: '6rem auto' }}>
             <div>
                 <h1 style={{ textAlign: 'left' }}>  Student Payments </h1>
+            </div>
+            <div>
+                <input onChange={(e) => setFilter(e.target.value)} />
             </div>
             {/*<input type="text" className="form-control" value={filter} onChange={searchText.bind(this)}/>*/}
             <hr/>

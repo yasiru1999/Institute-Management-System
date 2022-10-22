@@ -9,7 +9,7 @@ function AllUserDetailsPage() {
 
     const [AllUsers, setAllUsers] = useState([]);
     const history = useHistory();
-    const[search,setSearch] = useState('');
+    const[filter,setFilter] = useState('');
 
     useEffect(() => {
         Axios.get('http://localhost:5001/api/users/getAllUsers')
@@ -24,17 +24,24 @@ function AllUserDetailsPage() {
 
     async function deletePayment(item) {
         console.log(item.ID);
-        alert("Are you want to Delete ?");
-        await Axios.delete(`http://localhost:5001/api/users/deleteUser/${item._id}`).then((res)=>{
+        // alert("Are you want to Delete ?");
+        if(window.confirm('Delete the User?')){await Axios.delete(`http://localhost:5001/api/users/deleteUser/${item._id}`).then((res)=>{
             console.log(res)
 
-        });
+        });};
+
     }
 
     return(
         <div style={{ width: '98%', margin: '6rem auto' }}>
             <div>
                 <h1 style={{ textAlign: 'left' }}>  All Users </h1>
+            </div>
+            <div>
+                <input
+                    onChange={(e) => setFilter(e.target.value)}
+                    placeholder="Search"
+                />
             </div>
             <hr/>
             <div style={{ width:'98%',  margin: '4rem auto'}}>
@@ -53,8 +60,9 @@ function AllUserDetailsPage() {
                     </tr>
                     </thead>
                     <tbody>
-                    {AllUsers.filter(AllUsers => AllUsers.Role != "Admin").map((item,key)=>{
-                        return(
+                        {AllUsers.filter(AllUsers => !filter.length || AllUsers.UserID.toString().toLowerCase().includes(filter.toString().toLowerCase()) || AllUsers.name.toString().toLowerCase().includes(filter.toString().toLowerCase()) || AllUsers.registeredCourse.toString().toLowerCase().includes(filter.toString().toLowerCase())).map((item,key)=>{
+
+                            return(
                             <tr key = {key}>
                                 <td>
                                     <center>{item.UserID}</center>

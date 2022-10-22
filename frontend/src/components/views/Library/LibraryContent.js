@@ -75,6 +75,10 @@ function AdminLibrary() {
             <div>
                 <h1 style={{ textAlign: 'left' }}>  Library </h1>
             </div>
+
+            <div>
+                <input onChange={(e) => setFilter(e.target.value)} />
+            </div>
             {/*<input type="text" className="form-control" value={filter} onChange={searchText.bind(this)}/>*/}
             <hr/>
             <div style={{ width:'98%',  margin: '4rem auto'}}>
@@ -90,7 +94,7 @@ function AdminLibrary() {
                     </tr>
                     </thead>
                     <tbody>
-                    {Library.filter(Library => Library).map((item,key)=>{
+                    {Library.filter(Library => !filter.length || Library.RelatedCourse.toString().toLowerCase().includes(filter.toString().toLowerCase()) || Library.Topic.toString().toLowerCase().includes(filter.toString().toLowerCase()) || Library.Author.toString().toLowerCase().includes(filter.toString().toLowerCase())).map((item,key)=>{
                         return(
                             <tr key = {key}>
                                 <td>

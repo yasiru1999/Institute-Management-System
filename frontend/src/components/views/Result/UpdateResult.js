@@ -94,7 +94,7 @@ useEffect (() => {
                         </div>
 
                          <div>
-                            <div className="form-check" style={{width:'20%',  marginBottom: '15px', marginTop:'-160px' }}>
+                            <div className="form-check" style={{width:'20%',  marginBottom: '15px', marginTop:'-150px' }}>
                                 <b> <label for="courseId">Course Name</label> </b>
                                 <br />
                                 <select
@@ -117,9 +117,18 @@ useEffect (() => {
                                     value={proData.subjectCode}
                                     name="subjectCode"
                                     onChange={onInputChange}  >
-                                    <option>SE1000 </option>
-                                    <option>DS3000 </option>
-                                    <option>IT2000</option>
+                                    <option>IT2030 </option>
+                                <option>SE1030  </option>
+                                <option>SE1040 </option>
+                                <option>IT2040 </option>
+                                <option>IT2080 </option>
+                                <option>DS3060 </option>
+                                <option>DS3070 </option>
+                                <option>DS3080 </option>
+                                <option>DS3090 </option>
+                                <option>IT2050 </option>
+                                <option>SE1050 </option>
+                                <option>SE1060 </option>
                                 </select>
                             </div>
                         </div>
@@ -174,9 +183,18 @@ useEffect (() => {
                                     value={proData.subjectCode2}
                                     name="subjectCode2"
                                     onChange={onInputChange}  >
-                                    <option>SE1000 </option>
-                                    <option>DS3000 </option>
-                                    <option>IT2000</option>
+                                    <option>IT2030 </option>
+                                <option>SE1030  </option>
+                                <option>SE1040 </option>
+                                <option>IT2040 </option>
+                                <option>IT2080 </option>
+                                <option>DS3060 </option>
+                                <option>DS3070 </option>
+                                <option>DS3080 </option>
+                                <option>DS3090 </option>
+                                <option>IT2050 </option>
+                                <option>SE1050 </option>
+                                <option>SE1060 </option>
                                 </select>
                             </div>
                         </div>
@@ -220,23 +238,32 @@ useEffect (() => {
                         </div>
                       {/*                          3                                            */}
                       <div className="column">
-                        <div className="form-group" style={{marginBottom: '15px', width:'100%',  marginTop: '-20px', marginLeft:'-620px'}}>
+                        <div className="form-group" style={{marginBottom: '15px', width:'100%',  marginTop: '-20px', marginLeft:'-600px'}}>
                         <b> <label for="subjectCode3">Subject Code 3</label> </b>
                                 <br />
                                 <select
                                     value={proData.subjectCode3}
                                     name="subjectCode3"
                                     onChange={onInputChange}  >
-                                    <option>SE1000 </option>
-                                    <option>DS3000 </option>
-                                    <option>IT2000</option>
+                                    <option>IT2030 </option>
+                                <option>SE1030  </option>
+                                <option>SE1040 </option>
+                                <option>IT2040 </option>
+                                <option>IT2080 </option>
+                                <option>DS3060 </option>
+                                <option>DS3070 </option>
+                                <option>DS3080 </option>
+                                <option>DS3090 </option>
+                                <option>IT2050 </option>
+                                <option>SE1050 </option>
+                                <option>SE1060 </option>
                                 </select>
                             </div>
                         </div>
 
 
                         <div className="column">
-                        <div className="form-group" style={{marginBottom: '15px', width:'100%', marginTop: '-20px', marginLeft:'-520px'}}>
+                        <div className="form-group" style={{marginBottom: '15px', width:'100%', marginTop: '-20px', marginLeft:'-500px'}}>
                         <b> <label for="subjectName3">Subject Name 3</label> </b>
                                 <br />
                                 <select
@@ -282,16 +309,25 @@ useEffect (() => {
                                     value={proData.subjectCode4}
                                     name="subjectCode4"
                                     onChange={onInputChange}  >
-                                    <option>SE1000 </option>
-                                    <option>DS3000 </option>
-                                    <option>IT2000</option>
+                                    <option>IT2030 </option>
+                                <option>SE1030  </option>
+                                <option>SE1040 </option>
+                                <option>IT2040 </option>
+                                <option>IT2080 </option>
+                                <option>DS3060 </option>
+                                <option>DS3070 </option>
+                                <option>DS3080 </option>
+                                <option>DS3090 </option>
+                                <option>IT2050 </option>
+                                <option>SE1050 </option>
+                                <option>SE1060 </option>
                                 </select>
                             </div>
                         </div>
 
 
                         <div className="column">
-                        <div className="form-group" style={{marginBottom: '15px', width:'100%',marginTop: '-190px', marginLeft:'-110px'}}>
+                        <div className="form-group" style={{marginBottom: '15px', width:'100%',marginTop: '-190px', marginLeft:'-100px'}}>
                         <b> <label for="subjectName4">Subject Name 4</label> </b>
                                 <br />
                                 <select

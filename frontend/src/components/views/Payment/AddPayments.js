@@ -112,6 +112,7 @@ function AddPayments(props) {
                     <Input
                         onChange={onStudentIDChange}
                         value={studentID}
+                        required
                     />
                     <br />
                     <br />
@@ -134,6 +135,7 @@ function AddPayments(props) {
 
                     <label>*Email Address :</label>
                     <Input
+                        type='email'
                         onChange={onEmailChange}
                         value={email}
                     />
