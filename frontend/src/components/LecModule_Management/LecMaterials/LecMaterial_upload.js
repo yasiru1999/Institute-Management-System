@@ -87,7 +87,7 @@ export default function LecMaterial_upload(props) {
             <div><HeaderBar/></div>
 
             <div className="btn-group">        
-                <a  href={`/stuHome/${id}`}><button className="button">Module Home</button></a>
+                <a  href={`/homeLecMat/${id}`}><button className="button">Module Home</button></a>
             </div>
 
             <div style={{border: 'solid', width:'50%',  margin: '4rem auto'}}>
@@ -106,19 +106,19 @@ export default function LecMaterial_upload(props) {
                     <b><label>*Lecture title :</label></b>
                     <Input
                         onChange={onTitleChange}
-                        value={Title}/>
+                        value={Title} required/>
                     <br />
 
                     <b><label>*Description :</label></b>
                     <Input
                         onChange={onDescriptionChange}
-                        value={Description}/>
+                        value={Description} required/>
                     <br />
 
                     <b><label>*Lecture link :</label></b>
                     <Input
                         onChange={onLinkChange}
-                        value={Link}/>
+                        value={Link} required/>
                     <br />
 
                     <b><label>*Upload Lecture file :</label></b>

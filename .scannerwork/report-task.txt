@@ -1,0 +1,6 @@
+projectKey=Institute_Management_System
+serverUrl=http://localhost:9000
+serverVersion=7.5.0.20543
+dashboardUrl=http://localhost:9000/dashboard?id=Institute_Management_System
+ceTaskId=AYP1x0J1pD2k5ZySFwu2
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AYP1x0J1pD2k5ZySFwu2

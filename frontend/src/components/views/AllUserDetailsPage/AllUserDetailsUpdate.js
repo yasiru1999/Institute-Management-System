@@ -76,10 +76,10 @@ function UpdatePayments(props) {
         Axios.put(`http://localhost:5001/api/users/updateUserInfo/${ID}`, variables)
             .then(response => {
                 if (response.data) {
-                    alert('Conference Successfully Edited')
+                    alert('User Details Successfully Edited')
                     props.history.push('/AllUsers')
                 } else {
-                    alert('Failed to edit Conference')
+                    alert('User Details Successfully Edited')
                 }
             })
 
