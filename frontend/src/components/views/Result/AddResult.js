@@ -273,15 +273,18 @@ export default function AddResult() {
                                     setSubjectCode(e.target.value);
                                 }}>
                                     <option selected>Select</option>
-                                        <option>IT2030 </option>
-                                        <option>SE1030  </option>
-                                        <option>SE1040 </option>
-                                        <option>IT2040 </option>
-                                        <option>DS3060 </option>
-                                        <option>DS3070 </option>
-                                        <option>DS3080 </option>
-                                        <option>IT2050 </option>
-                                        <option>SE1050 </option>
+                                    <option>IT2030 </option>
+                                <option>SE1030  </option>
+                                <option>SE1040 </option>
+                                <option>IT2040 </option>
+                                <option>IT2080 </option>
+                                <option>DS3060 </option>
+                                <option>DS3070 </option>
+                                <option>DS3080 </option>
+                                <option>DS3090 </option>
+                                <option>IT2050 </option>
+                                <option>SE1050 </option>
+                                <option>SE1060 </option>
                                 </select>
                             </div>
                         </div>
@@ -341,15 +344,18 @@ export default function AddResult() {
                                     setSubjectCode2(e.target.value);
                                 }}>
                                     <option selected>Select</option>
-                                        <option>IT2030 </option>
-                                        <option>SE1030  </option>
-                                        <option>SE1040 </option>
-                                        <option>IT2040 </option>
-                                        <option>DS3060 </option>
-                                        <option>DS3070 </option>
-                                        <option>DS3080 </option>
-                                        <option>IT2050 </option>
-                                        <option>SE1050 </option>
+                                    <option>IT2030 </option>
+                                <option>SE1030  </option>
+                                <option>SE1040 </option>
+                                <option>IT2040 </option>
+                                <option>IT2080 </option>
+                                <option>DS3060 </option>
+                                <option>DS3070 </option>
+                                <option>DS3080 </option>
+                                <option>DS3090 </option>
+                                <option>IT2050 </option>
+                                <option>SE1050 </option>
+                                <option>SE1060 </option>
                                 </select>
                             </div>
                         </div>
@@ -407,15 +413,18 @@ export default function AddResult() {
                                     setSubjectCode3(e.target.value);
                                 }}>
                                     <option selected>Select</option>
-                                        <option>IT2030 </option>
-                                        <option>SE1030  </option>
-                                        <option>SE1040 </option>
-                                        <option>IT2040 </option>
-                                        <option>DS3060 </option>
-                                        <option>DS3070 </option>
-                                        <option>DS3080 </option>
-                                        <option>IT2050 </option>
-                                        <option>SE1050 </option>
+                                    <option>IT2030 </option>
+                                <option>SE1030  </option>
+                                <option>SE1040 </option>
+                                <option>IT2040 </option>
+                                <option>IT2080 </option>
+                                <option>DS3060 </option>
+                                <option>DS3070 </option>
+                                <option>DS3080 </option>
+                                <option>DS3090 </option>
+                                <option>IT2050 </option>
+                                <option>SE1050 </option>
+                                <option>SE1060 </option>
                                 </select>
                             </div>
                         </div>
@@ -475,11 +484,14 @@ export default function AddResult() {
                                 <option>SE1030  </option>
                                 <option>SE1040 </option>
                                 <option>IT2040 </option>
+                                <option>IT2080 </option>
                                 <option>DS3060 </option>
                                 <option>DS3070 </option>
                                 <option>DS3080 </option>
+                                <option>DS3090 </option>
                                 <option>IT2050 </option>
                                 <option>SE1050 </option>
+                                <option>SE1060 </option>
                                 </select>
                             </div>
                         </div>

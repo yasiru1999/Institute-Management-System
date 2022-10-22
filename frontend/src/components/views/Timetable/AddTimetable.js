@@ -188,14 +188,17 @@ export default function AddTimetable() {
                                     }}>
                                         <option selected>Select</option>
                                         <option>IT2030 - Algorithms</option>
+                                        <option>IT2040 - Artificial Intelligence</option>
+                                        <option>IT2050 - Internet of Things</option>
+                                        <option>IT2060 - Engineering Mechanics</option>
                                         <option>SE1030 - Software Architecture</option>
                                         <option>SE1040 - Database Management</option>
-                                        <option>IT2040 - Artificial Intelligence</option>
+                                        <option>SE1050 - Software Testing</option>
+                                        <option>SE1060 - Software Project Management</option>
                                         <option>DS3060 - Machine Learning</option>
                                         <option>DS3070 - Cloud Computing</option>
                                         <option>DS3080 - Big Data</option>
-                                        <option>IT2050 - Internet of Things</option>
-                                        <option>SE1050 - Software Testing</option>
+                                        <option>DS3090 - Data Analytics</option>
                                     </select>
                                 </div>
                             </div>
@@ -266,14 +269,17 @@ export default function AddTimetable() {
                                     }}>
                                         <option selected>Select</option>
                                         <option>IT2030 - Algorithms</option>
+                                        <option>IT2040 - Artificial Intelligence</option>
+                                        <option>IT2050 - Internet of Things</option>
+                                        <option>IT2060 - Engineering Mechanics</option>
                                         <option>SE1030 - Software Architecture</option>
                                         <option>SE1040 - Database Management</option>
-                                        <option>IT2040 - Artificial Intelligence</option>
+                                        <option>SE1050 - Software Testing</option>
+                                        <option>SE1060 - Software Project Management</option>
                                         <option>DS3060 - Machine Learning</option>
                                         <option>DS3070 - Cloud Computing</option>
                                         <option>DS3080 - Big Data</option>
-                                        <option>IT2050 - Internet of Things</option>
-                                        <option>SE1050 - Software Testing</option>
+                                        <option>DS3090 - Data Analytics</option>
                                     </select>
                                 </div>
                             </div>
@@ -348,14 +354,17 @@ export default function AddTimetable() {
                                     }}>
                                         <option selected>Select</option>
                                         <option>IT2030 - Algorithms</option>
+                                        <option>IT2040 - Artificial Intelligence</option>
+                                        <option>IT2050 - Internet of Things</option>
+                                        <option>IT2060 - Engineering Mechanics</option>
                                         <option>SE1030 - Software Architecture</option>
                                         <option>SE1040 - Database Management</option>
-                                        <option>IT2040 - Artificial Intelligence</option>
+                                        <option>SE1050 - Software Testing</option>
+                                        <option>SE1060 - Software Project Management</option>
                                         <option>DS3060 - Machine Learning</option>
                                         <option>DS3070 - Cloud Computing</option>
                                         <option>DS3080 - Big Data</option>
-                                        <option>IT2050 - Internet of Things</option>
-                                        <option>SE1050 - Software Testing</option>
+                                        <option>DS3090 - Data Analytics</option>
                                     </select>
                                 </div>
                             </div>
@@ -423,16 +432,19 @@ export default function AddTimetable() {
                                     <select value={subjectId4} onChange={(e) =>{
                                         setSubjectId4(e.target.value);
                                     }}>
-                                        <option selected>Select</option>
+                                       <option selected>Select</option>
                                         <option>IT2030 - Algorithms</option>
+                                        <option>IT2040 - Artificial Intelligence</option>
+                                        <option>IT2050 - Internet of Things</option>
+                                        <option>IT2060 - Engineering Mechanics</option>
                                         <option>SE1030 - Software Architecture</option>
                                         <option>SE1040 - Database Management</option>
-                                        <option>IT2040 - Artificial Intelligence</option>
+                                        <option>SE1050 - Software Testing</option>
+                                        <option>SE1060 - Software Project Management</option>
                                         <option>DS3060 - Machine Learning</option>
                                         <option>DS3070 - Cloud Computing</option>
                                         <option>DS3080 - Big Data</option>
-                                        <option>IT2050 - Internet of Things</option>
-                                        <option>SE1050 - Software Testing</option>
+                                        <option>DS3090 - Data Analytics</option>
                                     </select>
                                 </div>
                             </div>
