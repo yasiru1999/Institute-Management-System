@@ -24,11 +24,11 @@ function ViewAllModules() {
 
     async function deletePayment(item) {
         console.log(item.ID);
-        alert("Are you want to Delete ?");
+        if(window.confirm('Delete the Course?')){
         await Axios.delete(`http://localhost:5001/module/deleteModule/${item._id}`).then((res)=>{
             console.log(res)
 
-        });
+        });}
     }
 
     return(

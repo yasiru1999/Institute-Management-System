@@ -113,7 +113,7 @@ function StudentRegPage(props) {
             email: values.email,
             registeredCourse: values.registeredCourse,
             contactNumber: values.contactNumber,
-            Gender: gender.value,
+            Gender: "Male",
             Role: "Student",
             password: values.password,
             // image: `http://gravatar.com/avatar/${moment().unix()}?d=identicon`
@@ -208,6 +208,9 @@ function StudentRegPage(props) {
                     onBlur={handleBlur}
                     className={
                       errors.registeredCourse && touched.registeredCourse ? 'text-input error' : 'text-input'}/>
+                {errors.registeredCourse && touched.registeredCourse && (
+                    <div className="input-feedback">{errors.registeredCourse}</div>
+                )}
                 {/*<Select*/}
                 {/*    id="registeredCourse"*/}
                 {/*    defaultValue="Select Supervisor"*/}
@@ -224,7 +227,7 @@ function StudentRegPage(props) {
 
 
 
-              <Form.Item required label="contactNumber">
+              <Form.Item required label="Contact Number">
                 <Input
                     id="contactNumber"
                     placeholder="Enter contactNumber"
@@ -281,7 +284,7 @@ function StudentRegPage(props) {
                 )}
               </Form.Item>
 
-              <Form.Item required label="Confirm" hasFeedback>
+              <Form.Item required label="Confirm Password" hasFeedback>
                 <Input
                   id="confirmPassword"
                   placeholder="Enter your confirmPassword"
