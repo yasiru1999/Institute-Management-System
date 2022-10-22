@@ -69,7 +69,7 @@ export default function LecMaterial_upload(props) {
                     .then(() => {
                         if (response.data.success) {
                             alert('Lecture File Successfully Uploaded')
-                            props.history.push('/')
+                            props.history.push(`/homeLecMat/${id}`)
                         } else {
                             alert('Failed to upload file')
                         }

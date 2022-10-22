@@ -124,10 +124,10 @@ function LeftMenu(props) {
                 <a  href="/payment">Payment</a>
     </Menu.Item>*/}
 
-            <Menu.Item className="leftbtn" key="addPayment">
+            {/*<Menu.Item className="leftbtn" key="addPayment">
                 <a href="/inquiry">Inquiry Form</a>
             </Menu.Item>
-            {/* <SubMenu className="leftbtn" key="subj" title="My courses">
+             <SubMenu className="leftbtn" key="subj" title="My courses">
                <Menu.Item key="results">
                <a href={`/stuHome/${moduleNames.subject1}`}>{moduleNames.subject1}</a>
                </Menu.Item>
@@ -164,7 +164,7 @@ function LeftMenu(props) {
                 </Menu.Item>
             </SubMenu>
 
-             {/* <SubMenu className="leftbtn" key="subj" title="My courses">
+              {/*<SubMenu className="leftbtn" key="subj" title="My courses">
               <Menu.Item key="results">
                  <a href={`/homeLecMat/${moduleNames.subject1}`}>{moduleNames.subject1}</a>
               </Menu.Item>

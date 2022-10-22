@@ -14,6 +14,8 @@ export default function Attendance_View() {
     const [attendanceList, SetattendanceList] = useState([]);
     const [curDate, setcurDate] = useState();
 
+    const[filter,setFilter] = useState('');
+
     useEffect(() => {
         const getDetailsList = async() => {
             try {
@@ -50,18 +52,12 @@ export default function Attendance_View() {
                 <u><b><h3 className=" fw-bolder mb-4">Student Attendance</h3></b></u>
             </div>
             <br/> <br/>
-           <div>
-                <form className="">
-                    <div className='searchInput'>
-                        <input className="" type="date" aria-label="Search" name="curDate"
-                            value={curDate} onChange={e => setcurDate(e.target.value)}/>             
-                        <button className="" onClick={() => { SearchAttendance(curDate) }}>Search</button>
-                    </div>
-                </form>
+            
+            <div>
+                <label>Seach attendance :</label>
+                <input onChange={(e) => setFilter(e.target.value)} />
             </div>
-            <br/>
-
-           
+            <br/> <br/>
 
             <div className='tablePadding'>
                 <table className="table ">
@@ -75,16 +71,18 @@ export default function Attendance_View() {
                     </thead>
 
                     <tbody className='table-group-divider'>
-                    {
-                        attendanceList.map((atten, id) => (
-                            <tr key={id}>
+                    { 
+                        attendanceList.filter(attendanceList => !filter.length || attendanceList.studentName.toString().toLowerCase().includes(filter.toString().toLowerCase()) || attendanceList.session.toString().toLowerCase().includes(filter.toString().toLowerCase())).map((atten,key)=>{  
+                            return(
+                            
+                            <tr key={key}>
                                 <td>{atten.curDate}</td>
                                 <td>{atten.studentName}</td>
                                 <td>{atten.session}</td>
                                 <td>{atten.feedback}</td>    
                             </tr>
-                        ))
-                    }
+                        )
+                    })}
                     </tbody>
                 </table>
             </div> 
@@ -93,8 +91,7 @@ export default function Attendance_View() {
 
             <div className='btn-grodiv'>
                 <div className="btn-gro">
-                    <button className="button2" onClick={() => GenerateAttendancePdf(attendanceList,id)}>Download Report</button>
-                    <button className="button3"> Clear </button>
+                    <button className="button2" onClick={() => GenerateAttendancePdf(attendanceList.filter(attendanceList => attendanceList))}>Download Report</button>
                 </div>
             </div>
             
